@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "tra@gmail.com",
+      "password": "1234",
+      "name": "Tra"
+    },
+    {
+      "id": 2,
+      "email": "tuan1@gmail.com",
+      "password": "4321",
+      "name": "Tuan 1"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12"
+    },
+    {
+      "id": 2,
+      "name": "iPhone 11"
+    }
+  ]
+}
