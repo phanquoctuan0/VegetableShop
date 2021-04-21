@@ -7,7 +7,7 @@ function* loginSaga(action) {
     const { email, password } = action.payload;
     const result = yield axios({
       method: 'GET',
-      url: 'http://localhost:3000/users',
+      url: 'http://localhost:3001/users',
       params: {
         email,
         password,
