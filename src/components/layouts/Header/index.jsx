@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { Space, Button } from 'antd';
 
 import history from '../../../utils/history';
+import logo from '../../../images/logo.png'
+
 
 import {
   Nav,
@@ -18,17 +20,17 @@ import {
 
 // function Header({ userInfo }) {
 //   return (
-//     <div>
-//       {userInfo.data.id
-//         ? (
-//           <Space>
-//             <p>{`Tên đăng nhập: ${userInfo.data.name}`}</p>
-//             <Button>Đăng xuất</Button>
-//           </Space>
-//         )
-//         : <Button onClick={() => history.push('/login')}>Đăng nhập</Button>
-//       }
-//     </div>
+// <div>
+//   {userInfo.data.id
+//     ? (
+//       <Space>
+//         <p>{`Tên đăng nhập: ${userInfo.data.name}`}</p>
+//         <Button>Đăng xuất</Button>
+//       </Space>
+//     )
+//     : <Button onClick={() => history.push('/login')}>Đăng nhập</Button>
+//   }
+// </div>
 //   );
 // }
 
@@ -36,7 +38,7 @@ function Header({ userInfo }) {
   return (
     <Nav>
       <NavLinkImg to='/'>
-        {/* <img src={logo} alt='logo' style={{ height: '80px' }} /> */}
+        <img src={logo} alt='logo' style={{ height: '80px' }} />
       </NavLinkImg>
       <NavSearch>
         <SearchInput placeholder='Tìm sản phẩm' />
@@ -56,7 +58,15 @@ function Header({ userInfo }) {
           Giới thiệu
           </NavLink>
         <NavLink to='/login'>
-          Đăng nhập
+            {userInfo.data.id
+              ? (
+                <Space>
+                  <p>{`${userInfo.data.name}`}</p>
+                  <Button>Đăng xuất</Button>
+                </Space>
+              )
+              : `Đăng nhập`
+            }
         </NavLink>
         <NavLink to='/cart'>
           <Cart />
