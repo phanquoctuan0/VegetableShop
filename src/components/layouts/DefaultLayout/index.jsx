@@ -1,5 +1,6 @@
 import { Route } from 'react-router-dom';
 import Header from '../Header';
+import Footer from '../Footer'
 
 function DefaultLayout(props) {
   const { exact, path, component: Component, ...other } = props;
@@ -12,6 +13,7 @@ function DefaultLayout(props) {
           <>
             <Header {...routeProps} />
             <Component {...other} {...routeProps} />
+            <Footer {...routeProps} />
           </>
         )
       }}
