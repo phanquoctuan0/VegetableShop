@@ -73,6 +73,7 @@ function Header({ userInfo }) {
         </NavLink>
       </NavMenu>
     </Nav>
+    
   );
 };
 
