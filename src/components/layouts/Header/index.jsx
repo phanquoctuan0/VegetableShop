@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Space, Button } from 'antd';
+import { Menu } from 'antd';
 
 import history from '../../../utils/history';
 import logo from '../../../images/logo.png'
@@ -15,7 +15,8 @@ import {
   SearchInput,
   SearchBtn,
   SearchIcon,
-  NavLinkImg
+  NavLinkImg,
+  ArrowIcon
 } from './HeaderElements';
 
 // function Header({ userInfo }) {
@@ -35,6 +36,9 @@ import {
 // }
 
 function Header({ userInfo }) {
+  function handleLogout(){
+    localStorage.removeItem("userInfo");
+  }
   return (
     <Nav>
       <NavLinkImg to='/'>
@@ -57,23 +61,32 @@ function Header({ userInfo }) {
         <NavLink to='/about' >
           Giới thiệu
           </NavLink>
-        <NavLink to='/login'>
-            {userInfo.data.id
-              ? (
-                <Space>
-                  <p>{`${userInfo.data.name}`}</p>
-                  <Button>Đăng xuất</Button>
-                </Space>
-              )
-              : `Đăng nhập`
-            }
-        </NavLink>
+
+        {userInfo.data.id
+          ? (
+            <div>
+              <NavLink to='/profile' style={{ display: 'flex', flexDirection: 'column' }}>
+                <span>Tài khoản</span>
+                <span>
+                  <span>
+                    {`${userInfo.data.name}`}
+                  </span>
+                </span>
+              </NavLink>
+              <ArrowIcon onClick={() => handleLogout()}/>
+            </div>
+          )
+          :
+          <NavLink to='/login'>
+            Đăng nhập
+          </NavLink>
+        }
         <NavLink to='/cart'>
           <Cart />
         </NavLink>
       </NavMenu>
     </Nav>
-    
+
   );
 };
 

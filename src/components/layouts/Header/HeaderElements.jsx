@@ -1,4 +1,4 @@
-import { FaBars, FaCartPlus,FaSearch } from 'react-icons/fa';
+import { FaBars, FaCartPlus,FaSearch,FaArrowCircleDown } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
+  padding:0 10rem;
   width: 100%;
   z-index: 10;
 `;
@@ -32,7 +32,6 @@ export const NavLink = styled(Link)`
   transition: all 0.3s ease;
   &:hover {
     color: #f8f8f8;
-    padding-top: 5px;
   }
 `;
 
@@ -140,3 +139,7 @@ export const NavBtnLink = styled(Link)`
     color: #f8f8f8;
   }
 `;
+
+export const ArrowIcon = styled(FaArrowCircleDown)`
+  padding-top : 3px
+`
