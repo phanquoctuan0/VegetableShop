@@ -15,7 +15,7 @@ function LoginPage({ login }) {
   return (
     <div style={{ width: 500, margin: '16px auto' }}>
       <Card size="small">
-      <h2>LOGIN</h2>
+        {/* <h2>LOGIN</h2> */}
         <Form
           {...layout}
           name="basic"
@@ -44,8 +44,10 @@ function LoginPage({ login }) {
 
           <Form.Item {...tailLayout}>
             <Button type="primary" htmlType="submit">
-              Submit
-        </Button>
+              Đăng nhập
+           </Button>
+            <Button type="primary" htmlType="submit" style={{marginLeft:20}}><a href="http://localhost:3000/register">Đăng ký</a>
+           </Button>
           </Form.Item>
         </Form>
       </Card>
