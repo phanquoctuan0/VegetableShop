@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
-import { Menu } from 'antd';
 
 import history from '../../../utils/history';
 import logo from '../../../images/logo.png'
+
+import { Menu } from 'antd';
+
 
 
 import {
@@ -16,29 +18,16 @@ import {
   SearchBtn,
   SearchIcon,
   NavLinkImg,
+  LinkItem,
   ArrowIcon
 } from './HeaderElements';
 
-// function Header({ userInfo }) {
-//   return (
-// <div>
-//   {userInfo.data.id
-//     ? (
-//       <Space>
-//         <p>{`Tên đăng nhập: ${userInfo.data.name}`}</p>
-//         <Button>Đăng xuất</Button>
-//       </Space>
-//     )
-//     : <Button onClick={() => history.push('/login')}>Đăng nhập</Button>
-//   }
-// </div>
-//   );
-// }
-
 function Header({ userInfo }) {
-  function handleLogout(){
+  function handleLogout() {
     localStorage.removeItem("userInfo");
+    window.location.reload();
   }
+  const { SubMenu } = Menu;
   return (
     <Nav>
       <NavLinkImg to='/'>
@@ -66,14 +55,13 @@ function Header({ userInfo }) {
           ? (
             <div>
               <NavLink to='/profile' style={{ display: 'flex', flexDirection: 'column' }}>
-                <span>Tài khoản</span>
-                <span>
-                  <span>
-                    {`${userInfo.data.name}`}
-                  </span>
-                </span>
+                    <Menu style={{ width: 100, backgroundColor: '#008848'}} mode="horizontal">
+                      <SubMenu style = {{color: '#fff',fontSize: '120%',"&:hover": { background: "red" }}} title={`${userInfo.data.name}`}>
+                        <Menu.Item key="12"><LinkItem to = '/profile'>Thông tin cá nhân</LinkItem></Menu.Item>
+                        <Menu.Item key="11"><LinkItem onClick = {()=> {handleLogout()}} to = '/' >Đăng xuất</LinkItem></Menu.Item>
+                      </SubMenu>
+                    </Menu>
               </NavLink>
-              <ArrowIcon onClick={() => handleLogout()}/>
             </div>
           )
           :

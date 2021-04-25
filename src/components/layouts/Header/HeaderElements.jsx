@@ -8,7 +8,7 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding:0 10rem;
+  padding: 0.5rem calc((100vw - 1000px) / 2);
   width: 100%;
   z-index: 10;
 `;
@@ -34,6 +34,14 @@ export const NavLink = styled(Link)`
     color: #f8f8f8;
   }
 `;
+
+export const LinkItem = styled(Link)`
+  color: #fff;
+  &:hover {
+    color: #f8f8f8;
+  }
+`
+
 
 export const NavSearch = styled.div`
   position: relative;
