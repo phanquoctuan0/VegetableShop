@@ -60,7 +60,29 @@ function* getUserInfoSaga(action) {
   }
 }
 
+function* registerSaga(action) {
+  try {
+    const { email, password, name, phone } = action.payload;
+    const result = yield axios.post(`http://localhost:3001/users`, { email , password, name, phone});
+    yield put({
+      type: "REGISTER_SUCCESS",
+      payload: {
+        data: result.data,
+      },
+    });
+    yield history.push('/login');
+  } catch (e) {
+    yield put({
+      type: "REGISTER_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
+
 export default function* userSaga() {
   yield takeEvery('LOGIN_REQUEST', loginSaga);
   yield takeEvery('GET_USER_INFO_REQUEST', getUserInfoSaga);
+  yield takeEvery('REGISTER_REQUEST', registerSaga);
 }

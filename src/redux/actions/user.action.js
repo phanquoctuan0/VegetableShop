@@ -11,3 +11,10 @@ export function getUserInfoAction(params) {
     payload: params,
   }
 }
+
+export function registerAction(params) {
+  return {
+    type: 'REGISTER_REQUEST',
+    payload: params,
+  }
+}
