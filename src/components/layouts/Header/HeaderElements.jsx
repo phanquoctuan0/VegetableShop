@@ -8,8 +8,10 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
-  width: 100%;
+  /* padding: 0.5rem calc((100vw - 1000px) / 2);
+  width: 100%; */
+  max-width: 1170px;
+  margin: auto;
   z-index: 10;
 `;
 
@@ -20,6 +22,9 @@ export const NavLinkImg = styled(Link)`
   padding: 0 1rem;
   height: 100%;
 ` 
+export const HeaderContainer = styled.div`
+  background-color: #008848;
+`
 
 export const NavLink = styled(Link)`
   color: #fff;
@@ -103,6 +108,7 @@ export const Bars = styled(FaBars)`
 
 export const Cart = styled(FaCartPlus)`
   font-size:150%;
+  width: 70px;
   color: #fff;
   &:hover {
     color: #fff;
@@ -128,26 +134,3 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
-  background: #256ce1;
-  padding: 10px 22px;
-  color: #fff;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-  }
-  &:hover {
-    color: #f8f8f8;
-  }
-`;
-
-export const ArrowIcon = styled(FaArrowCircleDown)`
-  padding-top : 3px
-`
