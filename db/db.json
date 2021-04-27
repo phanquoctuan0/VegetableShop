@@ -2,13 +2,13 @@
   "users": [
     {
       "id": 1,
-      "email": "tra@gmail.com",
+      "email": "tuan@gmail.com",
       "password": "1234",
-      "name": "Tra"
+      "name": "Tuan"
     },
     {
       "id": 2,
-      "email": "tuan@gmail.com",
+      "email": "tuan1@gmail.com",
       "password": "4321",
       "name": "Tuan 1"
     }
@@ -16,11 +16,47 @@
   "products": [
     {
       "id": 1,
-      "name": "iPhone 12"
+      "name": "iPhone 12",
+      "categoryId": 1,
+      "price": 18000000
     },
     {
       "id": 2,
-      "name": "iPhone 11"
+      "name": "iPhone 11",
+      "categoryId": 1,
+      "price": 12000000
+    },
+    {
+      "id": 3,
+      "name": "Samsung Note 20",
+      "categoryId": 2,
+      "price": 18500000
+    },
+    {
+      "id": 4,
+      "name": "Samsung S20+",
+      "categoryId": 2,
+      "price": 15000000
+    },
+    {
+      "id": 5,
+      "name": "Mi 11",
+      "categoryId": 3,
+      "price": 11000000
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "iPhone"
+    },
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "Xiaomi"
     }
   ]
 }

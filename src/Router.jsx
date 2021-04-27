@@ -10,7 +10,6 @@ import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import AboutPage from './pages/About'
 
-
 function BrowserRouter() {
   return (
     <Router history={history}>

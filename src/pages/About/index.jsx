@@ -7,7 +7,6 @@ function AboutPage() {
         src="https://bf5ylyhwc6obj.vcdn.cloud/templates/default/themes/news/images/main_tintuc.jpg"
         alt="img"
         style={{
-          backgroundImage: 'url("https://bf5ylyhwc6obj.vcdn.cloud/templates/default/themes/news/images/main_tintuc.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
