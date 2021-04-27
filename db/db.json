@@ -1,16 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "tuan@gmail.com",
-      "password": "1234",
-      "name": "Tuan"
-    },
-    {
       "id": 2,
       "email": "tuan1@gmail.com",
       "password": "4321",
-      "name": "Tuan 1"
+      "name": "Tuan 1",
+      "phone": "0123213214"
+    },
+    {
+      "email": "asdsadas@gmail.com",
+      "password": "123",
+      "name": "sdsd ",
+      "phone": "6263231239",
+      "id": 3
     }
   ],
   "products": [

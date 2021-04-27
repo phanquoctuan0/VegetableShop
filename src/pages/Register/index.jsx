@@ -1,9 +1,9 @@
 import { Form, Input, Select, Checkbox, Button, Card } from 'antd';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-// import { loginAction } from '../../redux/actions';
+import { registerAction } from '../../redux/actions';
 
-function RegisterPage() {
+function RegisterPage( {register} ) {
   const { Option } = Select;
   const formItemLayout = {
     labelCol: {
@@ -39,6 +39,7 @@ function RegisterPage() {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
+    register(values);
     console.log('Received values of form: ', values);
   };
 
@@ -180,12 +181,13 @@ function RegisterPage() {
     </div>
   );
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     login: (params) => dispatch(loginAction(params)),
-//   };
-// }
 
-// export default connect(null, mapDispatchToProps)(LoginPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (params) => dispatch(registerAction(params)),
+  };
+}
 
-export default RegisterPage;
+export default connect(null, mapDispatchToProps)(RegisterPage);
+
+// export default RegisterPage;

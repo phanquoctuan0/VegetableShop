@@ -71,6 +71,41 @@ export default function productReducer(state = initialState, action) {
         },
       }
     }
+
+    case 'REGISTER_REQUEST': {
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: true,
+        }
+      }
+    }
+
+    case 'REGISTER_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: false,
+          data: data,
+        }
+      }
+    }
+
+    case 'REGISTER_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: false,
+          error: error,
+        }
+      }
+    }
+
     default: {
       return state;
     }
