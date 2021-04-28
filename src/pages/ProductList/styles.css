@@ -30,9 +30,10 @@ a{
   flex-direction: column;
 }
 .type a{
-  color: #222222;
+  color: #008848;
   margin: 5px 0px;
   font-weight: 700;
+  font-size: 120%;
   letter-spacing: 0.5px;
   padding-right: 8px;
 }

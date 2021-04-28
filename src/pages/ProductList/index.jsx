@@ -6,7 +6,7 @@ import history from '../../utils/history';
 
 import { getCategoryListAction } from '../../redux/actions';
 import { getProductListAction } from '../../redux/actions';
-import ItemProduct from './ItemProduct'
+import ItemProduct from './components/ItemProduct'
 
 function ProductListPage({
   getCategoryList,

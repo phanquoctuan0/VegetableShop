@@ -1,4 +1,4 @@
-import './styles.css'
+import '../styles.css'
 import {Col} from 'antd';
 
 function ItemProduct(props) {
