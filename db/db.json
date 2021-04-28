@@ -78,6 +78,27 @@
       "categoryId": 3,
       "price": 199000,
       "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"]
+    },
+    {
+      "id": 10,
+      "name": "Đu đủ",
+      "categoryId": 3,
+      "price": 35000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"]
+    },
+    {
+      "id": 11,
+      "name": "Cam sành",
+      "categoryId": 3,
+      "price": 199000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/4/4132-925611570165684-1570165684--400x400.png"]
+    },
+    {
+      "id": 12,
+      "name": "Chuối xiêm",
+      "categoryId": 3,
+      "price": 65000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"]
     }
   ],
   "categories": [
