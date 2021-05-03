@@ -19,15 +19,16 @@ function ProductListPage({
     getCategoryList();
     getProductList({
       page: 1,
-      limit: 10,
+      limit: 8,
     });
   }, []);
 
+  
   function handleFilterCategory(id) {
     setCategorySelected(id);
     getProductList({
       page: 1,
-      limit: 10,
+      limit: 8,
       categoryId: id,
     });
   }
@@ -41,7 +42,8 @@ function ProductListPage({
             style={{
               color: categorySelected === item.id ? '#e91e63' : 'RGBA(0,0,0,0.6)',
               borderBottom: categorySelected === item.id ? '#e91e63 1px solid' : '#e91e63',
-              padding: '0px 16px'
+              padding: '0px 16px',
+              cursor: 'pointer'
             }}
           >
             {item.name}
@@ -78,7 +80,8 @@ function ProductListPage({
             style={{
               color: categorySelected === null ? '#e91e63' : 'RGBA(0,0,0,0.6)',
               borderBottom: categorySelected === null ? '#e91e63 1px solid' : null,
-              padding: '0px 16px'
+              padding: '0px 16px',
+              cursor: 'pointer'
             }}
           >
             Tất cả
@@ -90,7 +93,12 @@ function ProductListPage({
         {renderProductList()}
       </Row>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        paging
+        <div 
+          className = 'btn-see-more'
+          onClick = {()=> {}}
+        >
+         Xem thêm
+        </div>
       </div>
     </div>
   );

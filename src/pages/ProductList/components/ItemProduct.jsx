@@ -3,7 +3,6 @@ import {Col} from 'antd';
 
 function ItemProduct(props) {
   const {title,price,img} = props;
-  console.log(title);
   return (
     <Col span={6} style = {{display: 'flex' , justifyContent: 'center',alignItems:'center'}}>
       <div className="box" style={{ marginTop: 16,marginBottom: 16 }}>
@@ -18,7 +17,7 @@ function ItemProduct(props) {
             <a href="#">{title}</a>
             <span>Rate</span>
           </div>
-          <a href="#" className="price">{price}</a>
+          <a href="#" className="price">{price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</a>
         </div>
       </div>
     </Col>
