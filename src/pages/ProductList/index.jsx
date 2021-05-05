@@ -59,7 +59,8 @@ function ProductListPage({
           title = {productItem.name}
           price = {productItem.price}
           img = {productItem.img[0]}
-          onClick={() => history.push(`/product/${productItem.id}`)}
+          // onClick={() => history.push(`/product/${productItem.id}`)}
+          id = {productItem.id}
         />
       )
     })

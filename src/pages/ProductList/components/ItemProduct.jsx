@@ -5,7 +5,6 @@ import history from '../../../utils/history';
 
 function ItemProduct(props) {
   const {title,price,img,id} = props;
-  console.log(title);
   return (
     <Col span={6} style = {{display: 'flex' , justifyContent: 'center',alignItems:'center'}}>
       <div className="box" style={{ marginTop: 16,marginBottom: 16 }}>

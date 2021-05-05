@@ -9,6 +9,7 @@ import ProductListPage from './pages/ProductList';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import AboutPage from './pages/About'
+import ProductDetailPage from './pages/ProductDetail'
 
 function BrowserRouter() {
   return (
@@ -18,6 +19,7 @@ function BrowserRouter() {
         <DefaultLayout exact path="/login" component={LoginPage} />
         <DefaultLayout exact path="/register" component={RegisterPage}/>
         <DefaultLayout exact path="/about" component = {AboutPage}/>
+        <DefaultLayout exaxt path = "/product/:id" component = {ProductDetailPage}/>
         {/* <DefaultLayout exact path="/product/:id" component={UserProductDetailPage} />
         <PrivateLayout exact path="/admin/products" component={AdminProductListPage} /> */}
       </Switch>

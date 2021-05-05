@@ -11,39 +11,40 @@ function ProductDetailPage({
   match,
 }) {
   const productId = match.params.id;
-  const [optionSelected, setOptionSelected] = useState({});
+  // const [optionSelected, setOptionSelected] = useState({});
 
   useEffect(() => {
     getProductDetail({ id: productId });
   }, [])
 
-  useEffect(() => {
-    if (productDetail.data.id) {
-      setOptionSelected(productDetail.data.productOptions[0] || {})
-    }
-  }, [productDetail.data])
+  // useEffect(() => {
+  //   if (productDetail.data.id) {
+  //     setOptionSelected(productDetail.data.productOptions[0] || {})
+  //   }
+  // }, [productDetail.data])
 
-  function renderProductOptions() {
-    return productDetail.data.productOptions.map((item, index) => {
-      return (
-        <Radio.Button value={item}>
-          {item.title}
-        </Radio.Button>
-      )
-    })
-  }
+  // console.log('123',productDetail);
+  // function renderProductOptions() {
+  //   return productDetail.data.productOptions.map((item, index) => {
+  //     return (
+  //       <Radio.Button value={item}>
+  //         {item.title}
+  //       </Radio.Button>
+  //     )
+  //   })
+  // }
 
   return (
     <Card title={productDetail.data.name}>
       <p>Hãng: {productDetail.data.category.name}</p>
-      <Radio.Group
+      {/* <Radio.Group
         onChange={(e) => setOptionSelected(e.target.value)}
         value={optionSelected}
       >
         {renderProductOptions()}
-      </Radio.Group>
+      </Radio.Group> */}
       <p>Giá: 
-        {productDetail.data.price + (optionSelected.price || 0)}
+        {productDetail.data.price }
       </p>
     </Card>
   );
