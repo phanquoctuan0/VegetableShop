@@ -1,6 +1,7 @@
 const initialState = {
   productList: {
     data: [],
+    page: 1,
     load: false,
     error: '',
   },
@@ -31,7 +32,20 @@ export default function productReducer(state = initialState, action) {
       }
     }
     case 'GET_PRODUCT_LIST_SUCCESS': {
-      const { data } = action.payload;
+      const { data, more } = action.payload;
+      if (more) {
+        return {
+          ...state,
+          productList: {
+            ...state.productList,
+            data: [
+              ...state.productList.data,
+              ...data,
+            ],
+            load: false,
+          },
+        }
+      }
       return {
         ...state,
         productList: {

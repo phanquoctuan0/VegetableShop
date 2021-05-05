@@ -15,6 +15,7 @@ function ProductListPage({
   productList, }) {
 
   const [categorySelected, setCategorySelected] = useState(null);
+  const [page,setPage] = useState(1)
   useEffect(() => {
     getCategoryList();
     getProductList({
@@ -23,7 +24,6 @@ function ProductListPage({
     });
   }, []);
 
-  
   function handleFilterCategory(id) {
     setCategorySelected(id);
     getProductList({
@@ -33,10 +33,20 @@ function ProductListPage({
     });
   }
 
+  function handleShowMoreProduct() {
+    getProductList({
+      more: true,
+      page: page + 1,
+      limit: 8,
+      categoryId: categorySelected,
+    });
+    setPage(page+1)
+  }
+
   function renderCategory() {
     return categoryList.data.map((item) => {
       return (
-        <div style = {{display:'flex',justifyContent: 'center',alignItems:'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h3
             onClick={() => handleFilterCategory(item.id)}
             style={{
@@ -58,23 +68,23 @@ function ProductListPage({
     return productList.data.map((productItem, productIndex) => {
       return (
         <ItemProduct
-          title = {productItem.name}
-          price = {productItem.price}
-          img = {productItem.img[0]}
+          title={productItem.name}
+          price={productItem.price}
+          img={productItem.img[0]}
           onClick={() => history.push(`/product/${productItem.id}`)}
         />
       )
     })
   }
-
+  console.log('lengthArr',productList.data.length)
   return (
-    <div style={{ maxWidth: '1170px', margin: '16px auto 16px' }}>
+    <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
         display: 'flex',
         justifyContent: 'flex-end',
         padding: '0px 10px'
       }}>
-        <div style = {{display:'flex',justifyContent: 'center',alignItems:'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h3
             onClick={() => handleFilterCategory(null)}
             style={{
@@ -92,12 +102,16 @@ function ProductListPage({
       <Row gutter={8}>
         {renderProductList()}
       </Row>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div 
-          className = 'btn-see-more'
-          onClick = {()=> {}}
+      <div style={{
+          display: productList.data.length % 8 !==0 ? 'none' : 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <div
+          className='btn-see-more'
+          onClick={() => handleShowMoreProduct()}
         >
-         Xem thêm
+          {productList.load ? 'Đang tải...' : 'Xem thêm'}
         </div>
       </div>
     </div>
