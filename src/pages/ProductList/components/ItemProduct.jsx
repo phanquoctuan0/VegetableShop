@@ -1,8 +1,10 @@
 import '../styles.css'
 import {Col} from 'antd';
 
+import history from '../../../utils/history';
+
 function ItemProduct(props) {
-  const {title,price,img} = props;
+  const {title,price,img,id} = props;
   console.log(title);
   return (
     <Col span={6} style = {{display: 'flex' , justifyContent: 'center',alignItems:'center'}}>
@@ -10,7 +12,7 @@ function ItemProduct(props) {
         <div className="slide-img">
           <img src={img}></img>
           <div className="overlay">
-            <a href="#" className="buy-btn">Mua ngay</a>
+            <a onClick={() => history.push(`/product/${id}`)} className="buy-btn">Mua ngay</a>
           </div>
         </div>
         <div className="detail-box">
