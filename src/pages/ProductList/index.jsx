@@ -15,7 +15,7 @@ function ProductListPage({
   productList, }) {
 
   const [categorySelected, setCategorySelected] = useState(null);
-  const [page,setPage] = useState(1)
+  const [page, setPage] = useState(1)
   useEffect(() => {
     getCategoryList();
     getProductList({
@@ -25,6 +25,7 @@ function ProductListPage({
   }, []);
 
   function handleFilterCategory(id) {
+    productList.arrCategoryId.push(id)
     setCategorySelected(id);
     getProductList({
       page: 1,
@@ -40,7 +41,7 @@ function ProductListPage({
       limit: 8,
       categoryId: categorySelected,
     });
-    setPage(page+1)
+    setPage(page+1);
   }
 
   function renderCategory() {
@@ -76,7 +77,7 @@ function ProductListPage({
       )
     })
   }
-  console.log('lengthArr',productList.data.length)
+  console.log('lengthArr', productList.data.length)
   return (
     <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
@@ -103,10 +104,10 @@ function ProductListPage({
         {renderProductList()}
       </Row>
       <div style={{
-          display: productList.data.length % 8 !==0 ? 'none' : 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+        display: productList.data.length % 8 !== 0 ? 'none' : 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
         <div
           className='btn-see-more'
           onClick={() => handleShowMoreProduct()}

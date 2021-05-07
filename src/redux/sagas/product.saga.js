@@ -20,7 +20,7 @@ function* getProductListSaga(action) {
       type: "GET_PRODUCT_LIST_SUCCESS",
       payload: {
         data: result.data,
-        more,
+        more
       },
     });
   } catch (e) {

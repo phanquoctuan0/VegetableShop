@@ -132,7 +132,21 @@
       "categoryId": 3,
       "price": 65000,
       "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"]
-    } 
+    },
+    {
+      "id": 2,
+      "name": "Bó xôi",
+      "categoryId": 1,
+      "price": 37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
+    },
+    {
+      "id": 2,
+      "name": "Bó xôi",
+      "categoryId": 1,
+      "price": 37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
+    }
   ],
   "categories": [
     {
