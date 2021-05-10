@@ -40,7 +40,6 @@ function* getProductDetailSaga(action) {
       method: 'GET',
       url: `http://localhost:3001/products/${id}`,
       params: {
-        _embed: 'productOptions',
         _expand: 'category'
       }
     });

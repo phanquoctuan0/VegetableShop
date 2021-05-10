@@ -69,10 +69,11 @@ function ProductListPage({
     return productList.data.map((productItem, productIndex) => {
       return (
         <ItemProduct
-          title={productItem.name}
-          price={productItem.price}
-          img={productItem.img[0]}
-          onClick={() => history.push(`/product/${productItem.id}`)}
+          title = {productItem.name}
+          price = {productItem.price}
+          img = {productItem.img[0]}
+          // onClick={() => history.push(`/product/${productItem.id}`)}
+          id = {productItem.id}
         />
       )
     })
