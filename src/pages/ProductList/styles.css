@@ -6,6 +6,7 @@ a{
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 .slide-img{
   height:auto;
@@ -30,7 +31,7 @@ a{
   flex-direction: column;
 }
 .type a{
-  color: #008848;
+  color: RGBA(0,0,0,0.6);
   margin: 5px 0px;
   font-weight: 700;
   font-size: 120%;
@@ -41,9 +42,9 @@ a{
   color: rgba(26 , 26, 26, 0.5);
 }
 .price{
-  color: #333333;
+  color: #008848;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-family: poppins;
   letter-spacing: 0.5px;
 }
@@ -86,4 +87,20 @@ a{
   100%{
     opacity: 1;
   }
+}
+.btn-see-more{
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px 56px;
+  color: #008848;
+  outline: none;
+  border: 1px solid #008848;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+.btn-see-more:hover {
+  transition: all 0.2s ease-in-out;
+  background: #008848;
+  color: #fff;
 }

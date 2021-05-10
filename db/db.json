@@ -52,6 +52,39 @@
       "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"]
     },
     {
+      "id": 13,
+      "name":"Rau cải bẹ",
+      "categoryId": 1,
+      "price": 30000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"]
+    },
+    {
+      "id":14,
+      "name":"Cải thảo",
+      "categoryId":1,
+      "price":37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"]
+    },
+    {
+      "id":15,
+      "name":"Bông cải xanh",
+      "categoryId":1,
+      "price":43500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"]
+    },{
+      "id":16,
+      "name":"Măng tây xanh",
+      "categoryId":1,
+      "price":78000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"]
+    },{
+      "id":17,
+      "name":"Rau dền",
+      "categoryId":1,
+      "price":37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"]
+    },
+    {
       "id": 6,
       "name": "Su hào",
       "categoryId": 2,
@@ -99,6 +132,20 @@
       "categoryId": 3,
       "price": 65000,
       "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"]
+    },
+    {
+      "id": 2,
+      "name": "Bó xôi",
+      "categoryId": 1,
+      "price": 37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
+    },
+    {
+      "id": 2,
+      "name": "Bó xôi",
+      "categoryId": 1,
+      "price": 37500,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
     }
   ],
   "categories": [

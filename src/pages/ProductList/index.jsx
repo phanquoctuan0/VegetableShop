@@ -15,33 +15,46 @@ function ProductListPage({
   productList, }) {
 
   const [categorySelected, setCategorySelected] = useState(null);
+  const [page, setPage] = useState(1)
   useEffect(() => {
     getCategoryList();
     getProductList({
       page: 1,
-      limit: 10,
+      limit: 8,
     });
   }, []);
 
   function handleFilterCategory(id) {
+    productList.arrCategoryId.push(id)
     setCategorySelected(id);
     getProductList({
       page: 1,
-      limit: 10,
+      limit: 8,
       categoryId: id,
     });
+  }
+
+  function handleShowMoreProduct() {
+    getProductList({
+      more: true,
+      page: page + 1,
+      limit: 8,
+      categoryId: categorySelected,
+    });
+    setPage(page+1);
   }
 
   function renderCategory() {
     return categoryList.data.map((item) => {
       return (
-        <div style = {{display:'flex',justifyContent: 'center',alignItems:'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h3
             onClick={() => handleFilterCategory(item.id)}
             style={{
               color: categorySelected === item.id ? '#e91e63' : 'RGBA(0,0,0,0.6)',
               borderBottom: categorySelected === item.id ? '#e91e63 1px solid' : '#e91e63',
-              padding: '0px 16px'
+              padding: '0px 16px',
+              cursor: 'pointer'
             }}
           >
             {item.name}
@@ -65,21 +78,22 @@ function ProductListPage({
       )
     })
   }
-
+  console.log('lengthArr', productList.data.length)
   return (
-    <div style={{ maxWidth: '1170px', margin: '16px auto 16px' }}>
+    <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
         display: 'flex',
         justifyContent: 'flex-end',
         padding: '0px 10px'
       }}>
-        <div style = {{display:'flex',justifyContent: 'center',alignItems:'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h3
             onClick={() => handleFilterCategory(null)}
             style={{
               color: categorySelected === null ? '#e91e63' : 'RGBA(0,0,0,0.6)',
               borderBottom: categorySelected === null ? '#e91e63 1px solid' : null,
-              padding: '0px 16px'
+              padding: '0px 16px',
+              cursor: 'pointer'
             }}
           >
             Tất cả
@@ -90,8 +104,17 @@ function ProductListPage({
       <Row gutter={8}>
         {renderProductList()}
       </Row>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        paging
+      <div style={{
+        display: productList.data.length % 8 !== 0 ? 'none' : 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <div
+          className='btn-see-more'
+          onClick={() => handleShowMoreProduct()}
+        >
+          {productList.load ? 'Đang tải...' : 'Xem thêm'}
+        </div>
       </div>
     </div>
   );
