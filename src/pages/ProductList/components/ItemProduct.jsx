@@ -1,5 +1,5 @@
-import '../styles.css'
 import {Col} from 'antd';
+import '../styles.css'
 
 function ItemProduct(props) {
   const {title,price,img} = props;

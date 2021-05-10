@@ -19,7 +19,9 @@ import {
   SearchIcon,
   NavLinkImg,
   LinkItem,
-  HeaderContainer
+  HeaderContainer,
+  AmountContainer,
+  TotalAmount
 } from './HeaderElements';
 
 function Header({ userInfo }) {
@@ -97,8 +99,13 @@ function Header({ userInfo }) {
               Đăng nhập
           </NavLink>
           }
-          <NavLink to='/cart'>
+          <NavLink to='/cart' style = {{position: 'relative'}}>
             <Cart />
+            <AmountContainer>
+              <TotalAmount>
+                3
+              </TotalAmount>
+            </AmountContainer>
           </NavLink>
         </NavMenu>
       </Nav>

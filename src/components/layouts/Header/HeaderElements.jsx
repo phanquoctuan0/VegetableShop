@@ -1,4 +1,4 @@
-import { FaBars, FaCartPlus,FaSearch,FaArrowCircleDown } from 'react-icons/fa';
+import { FaBars, FaCartPlus, FaSearch } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,8 +8,6 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  /* padding: 0.5rem calc((100vw - 1000px) / 2);
-  width: 100%; */
   max-width: 1170px;
   margin: auto;
   z-index: 10;
@@ -21,7 +19,7 @@ export const NavLinkImg = styled(Link)`
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
-` 
+`
 export const HeaderContainer = styled.div`
   background-color: #008848;
 `
@@ -113,6 +111,23 @@ export const Cart = styled(FaCartPlus)`
   &:hover {
     color: #fff;
   }
+`
+export const AmountContainer = styled.div`
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #d42c2c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const TotalAmount = styled.div`
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 110%;
 `
 
 export const NavMenu = styled.div`

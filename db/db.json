@@ -132,20 +132,6 @@
       "categoryId": 3,
       "price": 65000,
       "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"]
-    },
-    {
-      "id": 2,
-      "name": "Bó xôi",
-      "categoryId": 1,
-      "price": 37500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
-    },
-    {
-      "id": 2,
-      "name": "Bó xôi",
-      "categoryId": 1,
-      "price": 37500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
     }
   ],
   "categories": [
@@ -164,6 +150,22 @@
     {
       "id": 4,
       "name": "Nước ép"
+    }
+  ],
+  "cart":[
+    { 
+      "id": 1,
+      "name": "Chuối xiêm",
+      "price": 65000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"],
+      "amount": 3
+    },
+    { 
+      "id": 2,
+      "name":"Rau cải bẹ",
+      "price": 30000,
+      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"],
+      "amount": 2
     }
   ]
 }
