@@ -23,7 +23,7 @@ function ProductListPage({
       limit: 8,
     });
   }, []);
-
+  console.log(getCategoryList);
   function handleFilterCategory(id) {
     productList.arrCategoryId.push(id)
     setCategorySelected(id);
