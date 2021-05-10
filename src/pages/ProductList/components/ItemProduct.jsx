@@ -16,10 +16,10 @@ function ItemProduct(props) {
         </div>
         <div className="detail-box">
           <div className="type">
-            <a href="#">{title}</a>
+            <a onClick={() => history.push(`/product/${id}`)}>{title}</a>
             <span>Rate</span>
           </div>
-          <a href="#" className="price">{price}</a>
+          <a onClick={() => history.push(`/product/${id}`)} className="price">{price}</a>
         </div>
       </div>
     </Col>
