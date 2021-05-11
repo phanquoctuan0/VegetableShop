@@ -3,21 +3,23 @@ import { useEffect, useState } from 'react';
 import { Card, Row, Col, InputNumber, Radio } from 'antd';
 import { connect } from 'react-redux';
 
-import { getProductDetailAction } from '../../redux/actions';
+import { getProductDetailAction, getCartListAction } from '../../redux/actions';
 
 function ProductDetailPage({
   productDetail,
   getProductDetail,
-  productItem,
   match,
+  getCartList,
+  cartList
 }) {
 
   // const {title,price,img,id} = props;
-
+  console.log(cartList.data)
   const productId = match.params.id;
   // const [optionSelected, setOptionSelected] = useState({});
 
   useEffect(() => {
+    getCartList();
     getProductDetail({ id: productId });
   }, [])
 
@@ -67,7 +69,8 @@ function ProductDetailPage({
               </div>
               <div>
                 <button className="buy-btn" style={{ color: '#008848', fontSize: '90%' }}>
-                  Cho vào giỏ hàng</button>
+                  Cho vào giỏ hàng
+                </button>
               </div>
             </div>
           </Card>
@@ -80,14 +83,18 @@ function ProductDetailPage({
 
 const mapStateToProps = (state) => {
   const { productDetail } = state.productReducer;
+  const { cartList} = state.cartReducer;
+
   return {
     productDetail,
+    cartList
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getProductDetail: (params) => dispatch(getProductDetailAction(params)),
+    getCartList: (params) => dispatch(getCartListAction(params)),
   };
 }
 

@@ -6,13 +6,11 @@ import {getCartListAction} from '../../redux/actions'
 import CartItem from './components/CartItem'
 
 
-function CartPage({getCartList, cartList, userInfo}) {
+function CartPage({getCartList, cartList}) {
   useEffect(() => {
     getCartList();
   }, []);
 
-  // console.log(cartList.data.cart)
-  console.log(userInfo)
   function renderCartList() {
     if (cartList.load) return <p>Loading...</p>;
     return cartList.data.map((item, index) => {
@@ -63,11 +61,8 @@ function CartPage({getCartList, cartList, userInfo}) {
 
 const mapStateToProps = (state) => {
   const { cartList} = state.cartReducer;
-  const { userInfo} = state.userReducer;
-
   return {
     cartList,
-    userInfo
   }
 };
 

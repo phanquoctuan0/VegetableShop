@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
+import { useEffect} from 'react';
+
 
 import history from '../../../utils/history';
 import logo from '../../../images/logo.png'
+import {getCartListAction} from '../../../redux/actions'
 
 import { Menu } from 'antd';
 
@@ -24,7 +27,20 @@ import {
   TotalAmount
 } from './HeaderElements';
 
-function Header({ userInfo }) {
+function Header({ userInfo,getCartList, cartList }) {
+  useEffect(() => {
+    getCartList();
+  }, []);
+
+  function showTotalAmount(){
+    var total = 0
+    if(cartList.data.lenth === 0 ) return 0
+    cartList.data.forEach((item)=>{
+      total = total + item.amount
+    })
+    return total
+  }
+
   function handleLogout() {
     localStorage.removeItem("userInfo");
     window.location.reload();
@@ -103,7 +119,7 @@ function Header({ userInfo }) {
             <Cart />
             <AmountContainer>
               <TotalAmount>
-                3
+                {showTotalAmount()}
               </TotalAmount>
             </AmountContainer>
           </NavLink>
@@ -115,9 +131,18 @@ function Header({ userInfo }) {
 
 const mapStateToProps = (state) => {
   const { userInfo } = state.userReducer;
+  const { cartList} = state.cartReducer;
+
   return {
     userInfo,
+    cartList
   }
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCartList: (params) => dispatch(getCartListAction(params)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -39,6 +39,39 @@ export default function cartReducer(state = initialState, action) {
         },
       }
     }
+    case 'ADD_TO_CART_REQUEST': {
+      return {
+        ...state,
+        cartList: {
+          ...state.cartList,
+          load: true,
+        }
+      }
+    }
+
+    case 'ADD_TO_CART_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        cartList: {
+          ...state.cartList,
+          load: false,
+          data: data,
+        }
+      }
+    }
+
+    case 'ADD_TO_CART_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        cartList: {
+          ...state.cartList,
+          load: false,
+          error: error,
+        }
+      }
+    }
     default: {
       return state;
     }

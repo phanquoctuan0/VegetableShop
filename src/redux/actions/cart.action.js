@@ -4,3 +4,9 @@ export function getCartListAction(params) {
     payload: params,
   }
 }
+export function addToCartAction(params) {
+  return {
+    type: 'ADD_TO_CART_REQUEST',
+    payload: params,
+  }
+}
