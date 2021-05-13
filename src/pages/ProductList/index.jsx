@@ -6,8 +6,7 @@ import history from '../../utils/history';
 
 import { getCategoryListAction } from '../../redux/actions';
 import { getProductListAction } from '../../redux/actions';
-import ItemProduct from './components/ItemProduct';
-import ProductDetail from '../ProductDetail';
+import ItemProduct from './components/ItemProduct'
 
 function ProductListPage({
   getCategoryList,
@@ -27,7 +26,6 @@ function ProductListPage({
 
   function handleFilterCategory(id) {
     setCategorySelected(id);
-    setPage(1);
     getProductList({
       page: 1,
       limit: 8,
@@ -59,12 +57,12 @@ function ProductListPage({
             }}
           >
             {item.name}
-            
           </h3>
         </div>
       )
     })
   }
+
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
     return productList.data.map((productItem, productIndex) => {
@@ -79,6 +77,7 @@ function ProductListPage({
       )
     })
   }
+  console.log('lengthArr', productList.data.length)
   return (
     <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
