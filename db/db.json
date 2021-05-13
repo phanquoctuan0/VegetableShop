@@ -2,15 +2,15 @@
   "users": [
     {
       "id": 2,
-      "email": "tuan1@gmail.com",
-      "password": "4321",
-      "name": "Tuan 1",
+      "email": "tra@gmail.com",
+      "password": "1234",
+      "name": "Tra Duong",
       "phone": "0123213214"
     },
     {
-      "email": "asdsadas@gmail.com",
-      "password": "123",
-      "name": "sdsd ",
+      "email": "tuan@gmail.com",
+      "password": "4321",
+      "name": "Tuan ",
       "phone": "6263231239",
       "id": 3
     }
@@ -23,7 +23,9 @@
       "price": 22500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3504-254121561720917-1561720917--400x400.png"
-      ]
+      ],
+      "description": "Rau lang cũng giống như các loại rau khác đều có thể luộc, xào hoặc trộn gỏi với vị ngọt nhẹ và mềm, rất dễ ăn. các nhà khoa học đã cho thấy: vitamin C và vitamin B6 chứa nhiều ở mô trên mặt lá non và chồi, hơn so với bộ phận thân dây, cuống lá và củ khoai lang. Ngoài ra, hàm lượng riboflavin và vitamin B6 ở lá già rau lang nhiều hơn so với củ và lá non. Nói một cách khác, rau lang cũng chứa nhiều thành phần dinh dưỡng không thua gì củ khoai lang."
+
     },
     {
       "id": 2,
@@ -32,7 +34,8 @@
       "price": 37500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
-      ]
+      ],
+      "description": "Cải bó xôi còn được giới chuyên gia dinh dưỡng ưu ái gọi là “siêu thực phẩm”, chỉ với cái tên này cũng đủ biết giá trị dinh dưỡng của rau cải bó xôi lớn thế nào rồi. Cải bó xôi có thành phần vitamin và các nguyên tố khoáng vi lượng rất phong phú, trong đó có sắt bổ máu; vitamin A tốt cho mắt và tăng cường sức đề kháng; canxi và vitamin K tốt cho răng và xương; vitamin E, C và carotenoid có khả năng chống oxy hóa mạnh, giúp cơ thể chống lại các tế bào ác tính. Ngoài ra, nó còn chứa vitamin D và một lượng axit béo thực vật Omega 3 dồi dào."
     },
     {
       "id": 3,
@@ -41,7 +44,9 @@
       "price": 24000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
-      ]
+      ],
+      "description": "Xà lách của VFresh được canh tác theo hướng hữu cơ tại trang trại của VFresh tại Xuân Thành, Lâm Đồng. Quá trình canh tác hoàn toàn không sử dụng phân bón hóa học, thuốc diệt cỏ, thuốc bảo vệ thực vật và chất kích thích tăng trưởng. Xà lách romaine là loại rau xanh chứa rất nhiều chất dinh dưỡng. Vị giòn, ngọt, ít mùi hăng giúp cho các món nước uống và món ăn từ xà lách romaine có thể làm hài lòng bất cứ ai. Dùng chung với cà chua bi, củ cải đỏ, ớt chuông, dưa leo và dầu olive, bạn sẽ có ngay một đĩa salad hoàn hảo và đầy đủ chất xơ."
+
     },
     {
       "id": 4,
@@ -50,7 +55,9 @@
       "price": 78000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
-      ]
+      ],
+      "description": "Cần tây thuộc thành phần của họ Apiaceae, bao gồm: cà rốt, củ mùi, mùi tây và celeriac. Thân cây giòn khiến cho loại rau này trở thành một món ăn nhẹ phổ biến, ít calo và có thể mang lại nhiều lợi ích cho sức khỏe. Chất xơ trong cần tây có lợi cho hệ tiêu hóa và tim mạch. Cần tây cũng chứa chất chống oxy hóa, đóng một vai trò trong việc ngăn ngừa bệnh tật."
+
     },
     {
       "id": 5,
@@ -59,7 +66,10 @@
       "price": 34000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
-      ]
+
+      ],
+      "description": "Cải cầu vồng là một loại rau, thuộc nhóm Flavescens, có nguồn gốc từ các nước phương Tây. Ngoài ra, người ta cũng gọi cải cầu vồng là cải Thụy Sĩ, thậm chí còn gọi là củ cải seakale, củ cải lá hoặc củ cải bạc vì có tên khoa học là Beta vulgaris. Cải cầu vồng có tên gọi tiếng Anh là Swiss chard và thường xuất hiện trong các bữa ăn hằng ngày ở các nước phương Tây vì giá trị dinh dưỡng của loại rau này khá cao."
+
     },
     {
       "id": 13,
@@ -68,7 +78,8 @@
       "price": 30000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-      ]
+      ],
+      "description": "Cải bẹ xanh còn gọi là cải xanh, cải canh, cải cay… Nó có tên khoa học là Brassica juncea (L.) Cải bẹ xanh có màu xanh, vị đắng nhẹ, cay mạnh. Loại cải này thường được dùng để luộc, nấu canh hoặc xào, dùng làm rau sống ăn kèm. Cải bẹ xanh có lượng calorie thấp nhưng lại nhiều chất xơ cùng các vitamin và khoáng chất thiết yếu. Đặc biệt, chúng là nguồn cung cấp vitamin C và K dồi dào."
     },
     {
       "id": 14,
@@ -77,7 +88,9 @@
       "price": 37500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-      ]
+      ],
+      "description": "Cây cải thảo là loài thực vật thuộc họ cải và là loại rau phổ biến trong đời sống con người. Ngoài ra, cải thảo còn có một số tên gọi khác như: Cải bao, cải cuốn, bắp cải tây,...Tên khoa học là Brassicaceae. Trong cải thảo có nhiều thành phần hóa học mang nhiều dinh dưỡng cần thiết cho con người. Vì thế, cải thảo được ứng dụng chủ yếu trong chế biến thực phẩm. Một số tình huống cụ thể, cải thảo còn được xem là thảo dược chữa bệnh."
+
     },
     {
       "id": 15,
@@ -86,7 +99,9 @@
       "price": 43500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"
-      ]
+      ],
+      "description": "Bông cải xanh được chia làm ba loại chính gồm súp lơ xanh, bông cải mầm, súp lơ tím. Đây là nguồn thực phẩm chứa nhiều chất dinh dưỡng như vitamin, khoáng chất, chất xơ và chất chống oxy hóa. Một trong những lợi ích lớn nhất mà bông cải xanh mang lại chính là hàm lượng các chất thiết yếu cao. Lượng vitamin, khoáng chất, chất xơ và một số hợp chất sinh học có trong bông cải xanh rất tốt cho sức khỏe. Bông cải xanh chứa nhiều vitamin C, vitamin A, vitamin K, vitamin B9 (Folate) và một số khoáng chất như Kali, Phốt-pho và Selen."
+
     },
     {
       "id": 16,
@@ -95,7 +110,9 @@
       "price": 78000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
-      ]
+      ],
+      "description": "Cây măng tây xanh chứa nhiều chất xơ, đạm, glucid, các vitammin K, C, A, pyridoxine (B6), riboflavin (B2), thiamin (B1), acid folid, các chất khoáng cần thiết cho cơ thể con người như: kali, magnê, canxi, sắt, kẽm… có tác dụng cải thiện sức khỏe ngăn ngừa bệnh tật. Măng tây xanh rất được nhiều người ưa chuộng bởi độ giòn ngọt ngon của măng, măng có thể được chế biến thành nhiều món ăn cực kỳ hấp dẫn bắt mắt dinh dưỡng cao như xào, hấp, luộc, súp,.."
+
     },
     {
       "id": 17,
@@ -104,7 +121,9 @@
       "price": 37500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
-      ]
+      ],
+      "description": "Rau dền là loại rau phổ biến trong các bữa ăn của mọi gia đình. Nó có vị ngọt, tính mát, chứa nhiều chất dinh dưỡng cần thiết cho cơ thể. Đặc biệt, với hàm lượng chất sắt rất cao, đây là một trong những loại thực phẩm cung cấp chất sắt phổ biến nhất hiện nay với mọi gia đình Việt. "
+
     },
     {
       "id": 6,
@@ -113,7 +132,9 @@
       "price": 31500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"
-      ]
+      ],
+      "description": "Su hào có các thành phần chính gồm: anbumin, đường, chất xơ, canxi, phốt pho, sắt, vitamin C, axit nicotic. Theo Đông y, su hào có tính mát, vị ngọt hơi đắng, có tác dụng hóa đờm, giải khát, giải độc, lợi thủy, tiêu viêm, giúp dạ dày. Chủ yếu dùng chữa nước tiểu đục, đi ngoài ra máu, nhọt độc không rõ nguyên nhân, tỳ hư hỏa vượng, trúng phong bất tỉnh. Lợi ích bất ngờ từ su hào Tốt hệ tiêu hóa Để hệ tiêu hóa khỏe mạnh, nên ăn su hào vì nó có hàm lượng chất xơ tuyệt vời. Chất xơ giúp hệ tiêu hóa hoạt động tốt bằng cách duy trì sức khỏe của ruột và ruột kết. Nó cũng có vai trò quan trọng trong việc duy trì lượng vi khuẩn có lợi trong ruột ở mức cân bằng. Tất cả những yếu tố trên giúp bạn giảm nguy cơ mắc các bệnh ở đường tiêu hóa, bệnh trĩ và ung thư ruột kết."
+
     },
     {
       "id": 7,
@@ -122,7 +143,9 @@
       "price": 31500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/24/7822-525151614147042-1614147042--400x400.png"
-      ]
+      ],
+      "description": "Củ dền, thuộc loại củ cải ngọt (tên gọi tiếng Anh là Beetroot) hay được gọi là củ dền đỏ (Red beet), thường được trồng nhiều nhất ở các khu vực tại Anh Quốc, Trung Mỹ và Bắc Mỹ. Bên trong củ dền và cả lá của nó có chứa nhiều vitamin A, B1, B2, B6 và C. Đặc biệt, lá và thân rau dền chứa nhiều chất sắt hơn cả rau bina (còn gọi là: rau chân vịt, spinach). Ngoài ra, củ dền cũng chứa rất nhiều khoáng chất như: canxi, magiê, đồng, phốt pho, natri và sắt. Hơn thế nữa, củ dền cũng cung cấp các chất như: choline (một chất dinh dưỡng quan trọng như viramin B, acid folic, iốt, mangan, natri hữu cơ, kali, chất xơ và carbohydrates ở dạng đường tiêu hóa tự nhiên."
+
     },
     {
       "id": 8,
@@ -131,7 +154,9 @@
       "price": 31500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png"
-      ]
+      ],
+      "description": "Cà rốt giàu chất chống oxy hóa, chất xơ, beta carotene, các vitamin và khoáng chất. Nghiên cứu đã cho thấy tác dụng của cà rốt có thể giúp bạn cải thiện thị lực, tăng cường sức khỏe của da và giảm nguy cơ mắc một số bệnh ung thư đấy."
+
     },
     {
       "id": 9,
@@ -140,7 +165,9 @@
       "price": 199000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
-      ]
+      ],
+      "description": "JULIET là loại táo duy nhất trên thế giới được sản xuất độc quyền trong canh tác hữu cơ. Táo được trồng độc quyền tại Pháp và chỉ được trồng hữu cơ. Tại Pháp, táo Juliet Organic thực sự rất phổ biến và được ưa chuộng. Nó thậm chí có cả nhân vật hoạt hình làm biểu tượng riêng mà chưa giống táo nào khác có. Táo tráng miệng hữu cơ có hương thơm khá thu hút, vị ngọt cân bằng, giòn ngon miệng. Táo Juliet được thu hoạch từ đầu tháng 10 đến giữa tháng 11. Táo tráng miệng hữu cơ Juliet phù hợp cho các mục đích sử dụng khác nhau: hoàn toàn tự nhiên, nó có thể được ăn cả quả, và không gọt vỏ! Trong nấu ăn, , táo Juliet là một nguyên liệu tuyệt vời trong nấu ăn và làm bánh hoặc nước ép.. Táo Juliet® được bảo quản trong tủ lạnh ở nhiệt độ 2 ° C. Nhờ lớp da dày, táo Juliet bảo quản khá tốt. Chúng có thể được lưu trữ trong vài tuần, hoặc thậm chí vài tháng, nếu được giữ ở nơi khô, lạnh."
+
     },
     {
       "id": 10,
@@ -149,7 +176,9 @@
       "price": 35000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"
-      ]
+      ], 
+      "description": "Đu đủ là loại trái cây nhiệt đới có hương vị thanh mát, dịu ngọt cùng màu sắc hấp dẫn. Từ lâu, tác dụng của đu đủ đã được chứng minh thông qua hàng loạt các lợi ích sức khỏe, khiến cho nó trở thành loại trái cây được nhiều người ưa thích."
+
     },
     {
       "id": 11,
@@ -158,7 +187,9 @@
       "price": 199000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/4/4132-925611570165684-1570165684--400x400.png"
-      ]
+      ],
+      "description": "Cam sành là loại trái cây vốn được nhiều người yêu thích, đặc biệt là trẻ nhỏ và chị em phụ nữ, bởi cam rất bổ dưỡng và cao cấp. Trái cam sành có đặc điểm mang màu xanh sậm đến khi chín thì ngả màu vàng, dáng tròn dẹt, hương vị chua ngọt, thị trái nhiều nước. Một đặc điểm nữa đó là cam sành có khá nhiều hạt nên thường được dùng phổ biến để vắt cam."
+
     },
     {
       "id": 12,
@@ -167,7 +198,9 @@
       "price": 65000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
-      ]
+      ],
+      "description": "Chuối xiêm chứa nhiều vitamin, protein, các chất khoáng như magie, natri, canxi, lưu huỳnh, kẽm, sắt, kalium, lipid, protid, glucid, phosphat. Soi với khoai tây, thịt, thì chuối có giá trị về dinh dưỡng hơn và dễ tiêu hóa hơn. Thường xuyên ăn chuối xiêm giúp ổn định huyết áp, nhuận trường, hỗ trợ dạ dày, bổ máu, giảm căng thẳng, giảm đột quỵ, tăng cường sức khỏe tim mạch, hỗ trợ điều trị gout…"
+
     }
   ],
   "categories": [
@@ -219,6 +252,26 @@
         }
       ],
       "id": 2
+=======
+  "cart": [
+    {
+      "id": 1,
+      "name": "Chuối xiêm",
+      "price": 65000,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
+      ],
+      "amount": 3
+    },
+    {
+      "id": 2,
+      "name": "Rau cải bẹ",
+      "price": 30000,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
+      ],
+      "amount": 2
+
     }
   ]
 }

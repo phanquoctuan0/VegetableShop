@@ -4,7 +4,7 @@ import '../styles.css'
 import history from '../../../utils/history';
 
 function ItemProduct(props) {
-  const {title,price,img,id} = props;
+  const {title,price,img,id , description} = props;
   return (
     <Col span={6} style = {{display: 'flex' , justifyContent: 'center',alignItems:'center'}}>
       <div className="box" style={{ marginTop: 16,marginBottom: 16 }}>
