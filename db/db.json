@@ -21,117 +21,153 @@
       "name": "Rau lang",
       "categoryId": 1,
       "price": 22500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3504-254121561720917-1561720917--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3504-254121561720917-1561720917--400x400.png"
+      ]
     },
     {
       "id": 2,
       "name": "Bó xôi",
       "categoryId": 1,
       "price": 37500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+      ]
     },
     {
       "id": 3,
       "name": "Xà lách ria",
       "categoryId": 1,
       "price": 24000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
+      ]
     },
     {
       "id": 4,
       "name": "Cần tây",
       "categoryId": 1,
       "price": 78000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
+      ]
     },
     {
       "id": 5,
       "name": "Cải cầu vồng",
       "categoryId": 1,
       "price": 34000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
+      ]
     },
     {
       "id": 13,
-      "name":"Rau cải bẹ",
+      "name": "Rau cải bẹ",
       "categoryId": 1,
       "price": 30000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
+      ]
     },
     {
-      "id":14,
-      "name":"Cải thảo",
-      "categoryId":1,
-      "price":37500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"]
+      "id": 14,
+      "name": "Cải thảo",
+      "categoryId": 1,
+      "price": 37500,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
+      ]
     },
     {
-      "id":15,
-      "name":"Bông cải xanh",
-      "categoryId":1,
-      "price":43500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"]
-    },{
-      "id":16,
-      "name":"Măng tây xanh",
-      "categoryId":1,
-      "price":78000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"]
-    },{
-      "id":17,
-      "name":"Rau dền",
-      "categoryId":1,
-      "price":37500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"]
+      "id": 15,
+      "name": "Bông cải xanh",
+      "categoryId": 1,
+      "price": 43500,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Măng tây xanh",
+      "categoryId": 1,
+      "price": 78000,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Rau dền",
+      "categoryId": 1,
+      "price": 37500,
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
+      ]
     },
     {
       "id": 6,
       "name": "Su hào",
       "categoryId": 2,
       "price": 31500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"
+      ]
     },
     {
       "id": 7,
       "name": "Củ dền",
       "categoryId": 2,
       "price": 31500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/24/7822-525151614147042-1614147042--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/24/7822-525151614147042-1614147042--400x400.png"
+      ]
     },
     {
       "id": 8,
       "name": "Cà rốt",
       "categoryId": 2,
       "price": 31500,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png"
+      ]
     },
     {
       "id": 9,
       "name": "Táo Juliet",
       "categoryId": 3,
       "price": 199000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
+      ]
     },
     {
       "id": 10,
       "name": "Đu đủ",
       "categoryId": 3,
       "price": 35000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"
+      ]
     },
     {
       "id": 11,
       "name": "Cam sành",
       "categoryId": 3,
       "price": 199000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/4/4132-925611570165684-1570165684--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/4/4132-925611570165684-1570165684--400x400.png"
+      ]
     },
     {
       "id": 12,
       "name": "Chuối xiêm",
       "categoryId": 3,
       "price": 65000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"]
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
+      ]
     }
   ],
   "categories": [
@@ -152,20 +188,37 @@
       "name": "Nước ép"
     }
   ],
-  "cart":[
-    { 
-      "id": 1,
-      "name": "Chuối xiêm",
-      "price": 65000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"],
-      "amount": 3
+  "orders": [
+    {
+      "userId": 3,
+      "isPay": false,
+      "carts": [],
+      "id": 1
     },
-    { 
-      "id": 2,
-      "name":"Rau cải bẹ",
-      "price": 30000,
-      "img":["https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"],
-      "amount": 2
+    {
+      "userId": 2,
+      "isPay": false,
+      "carts": [
+        {
+          "productId": 2,
+          "count": 1,
+          "name": "Bó xôi",
+          "price": 37500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+          ]
+        },
+        {
+          "productId": 5,
+          "count": 2,
+          "name": "Cải cầu vồng",
+          "price": 34000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
+          ]
+        }
+      ],
+      "id": 2
     }
   ]
 }

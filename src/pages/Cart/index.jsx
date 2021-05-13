@@ -1,38 +1,44 @@
-import { useEffect} from 'react';
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
-import {getCartListAction} from '../../redux/actions'
+import { getCartListAction } from '../../redux/actions'
 
 import CartItem from './components/CartItem'
 
 
-function CartPage({getCartList, cartList}) {
-  useEffect(() => {
-    getCartList();
-  }, []);
+function CartPage({ cartList }) {
 
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  console.log(cartList.data)
   function renderCartList() {
-    if (cartList.load) return <p>Loading...</p>;
-    return cartList.data.map((item, index) => {
-      return (
-        <CartItem
-          key = {index}
-          title={item.name}
-          price={item.price}
-          img={item.img[0]}
-          amount = {item.amount}
-        />
-      )
-    })
+    if (userInfo) {
+      if (cartList.load) return <p>Loading...</p>;
+      return cartList.data.map((item) => {
+          return (
+            <CartItem
+              title={item.name}
+              price={item.price}
+              img={item.img[0]}
+              count={item.count}
+            />
+          )
+      })
+    }
+    return null;
   }
 
-  function showTotalOrder(){
-    var total = 0
-    if(cartList.data.lenth === 0 ) return 0
-    cartList.data.forEach((item)=>{
-      total = total + item.price * item.amount
-    })
-    return total.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+  function showTotalOrder() {
+    if (userInfo) {
+      var total = 0
+      if (cartList.data.lenth === 0) return 0
+      cartList.data.forEach((item) => {
+          total = total + item.price*item.count
+      })
+      return total.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
+    } else {
+      return 0
+    }
   }
   return (
     <div className="cart">
@@ -60,7 +66,7 @@ function CartPage({getCartList, cartList}) {
 }
 
 const mapStateToProps = (state) => {
-  const { cartList} = state.cartReducer;
+  const { cartList } = state.cartReducer;
   return {
     cartList,
   }

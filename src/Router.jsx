@@ -2,7 +2,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 // utils
 import history from './utils/history';
 // components
-import LoginLayout from './components/layouts/LoginLayout';
+
 import DefaultLayout from './components/layouts/DefaultLayout';
 
 import ProductListPage from './pages/ProductList';
