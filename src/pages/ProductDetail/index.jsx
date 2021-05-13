@@ -111,19 +111,22 @@ function ProductDetailPage({
   //     categoryId: id,
   //   });
   // }
-
+  console.log(productDetail.data.categoryId);
+  console.log(productList)
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
     return  productList.data.map((productItem) => {
-      return (
-        <ItemProduct
-          title={productItem.name}
-          price={productItem.price}
-          img={productItem.img[0]}
-          // onClick={() => history.push(`/product/${productItem.id}`)}
-          id={productItem.id}
-        />
-      )
+      if(productDetail.data.categoryId === productItem.categoryId){
+        return (
+          <ItemProduct
+            title={productItem.name}
+            price={productItem.price}
+            img={productItem.img[0]}
+            // onClick={() => history.push(`/product/${productItem.id}`)}
+            id={productItem.id}
+          />
+        )
+      }
     })
   }
 
