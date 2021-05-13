@@ -6,7 +6,8 @@ import history from '../../utils/history';
 
 import { getCategoryListAction } from '../../redux/actions';
 import { getProductListAction } from '../../redux/actions';
-import ItemProduct from './components/ItemProduct'
+import ItemProduct from './components/ItemProduct';
+import ProductDetail from '../ProductDetail';
 
 function ProductListPage({
   getCategoryList,
@@ -25,7 +26,7 @@ function ProductListPage({
   }, []);
   console.log(getCategoryList);
   function handleFilterCategory(id) {
-    productList.arrCategoryId.push(id)
+    productList.arrCategoryId.push(id);
     setCategorySelected(id);
     getProductList({
       page: 1,
@@ -58,12 +59,12 @@ function ProductListPage({
             }}
           >
             {item.name}
+            
           </h3>
         </div>
       )
     })
   }
-
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
     return productList.data.map((productItem, productIndex) => {
