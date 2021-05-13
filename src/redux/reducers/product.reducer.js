@@ -1,10 +1,8 @@
 const initialState = {
   productList: {
     data: [],
-    page: 1,
     load: false,
     error: '',
-    arrCategoryId: [null]
   },
   productDetail: {
     data: {

@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { useEffect} from 'react';
-
 
 import history from '../../../utils/history';
 import logo from '../../../images/logo.png'
-import {getCartListAction} from '../../../redux/actions'
+import { getCartListAction } from '../../../redux/actions'
 
 import { Menu } from 'antd';
+import { useEffect } from 'react';
 
 
 
@@ -27,18 +26,24 @@ import {
   TotalAmount
 } from './HeaderElements';
 
-function Header({ userInfo,getCartList, cartList }) {
-  useEffect(() => {
-    getCartList();
-  }, []);
+function Header({ userInfo, cartList }) {
 
-  function showTotalAmount(){
-    var total = 0
-    if(cartList.data.lenth === 0 ) return 0
-    cartList.data.forEach((item)=>{
-      total = total + item.amount
-    })
-    return total
+  useEffect(()=>{
+    
+  },[])
+  const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
+  
+  function showTotalAmount() {
+    if (userInfoLocal) {
+      var total = 0
+      if (cartList.data.lenth === 0) return 0
+      cartList.data.forEach((item) => {
+          total = total + item.count
+      })
+      return total
+    } else {
+      return 0
+    }
   }
 
   function handleLogout() {
@@ -74,12 +79,12 @@ function Header({ userInfo,getCartList, cartList }) {
             ? (
               <div>
                 <NavLink to='/profile' style=
-                {
                   {
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }
-                }>
+                    {
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }
+                  }>
                   <Menu style={
                     {
                       width: 100,
@@ -92,7 +97,6 @@ function Header({ userInfo,getCartList, cartList }) {
                         {
                           color: '#fff',
                           fontSize: '120%',
-                          "&:hover": { background: "red" }
                         }
                       } title={`${userInfo.data.name}`}>
                       <Menu.Item>
@@ -115,7 +119,7 @@ function Header({ userInfo,getCartList, cartList }) {
               Đăng nhập
           </NavLink>
           }
-          <NavLink to='/cart' style = {{position: 'relative'}}>
+          <NavLink to='/cart' style={{ position: 'relative' }}>
             <Cart />
             <AmountContainer>
               <TotalAmount>
@@ -131,7 +135,7 @@ function Header({ userInfo,getCartList, cartList }) {
 
 const mapStateToProps = (state) => {
   const { userInfo } = state.userReducer;
-  const { cartList} = state.cartReducer;
+  const { cartList } = state.cartReducer;
 
   return {
     userInfo,
@@ -139,10 +143,5 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getCartList: (params) => dispatch(getCartListAction(params)),
-  };
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

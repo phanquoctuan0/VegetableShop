@@ -24,10 +24,10 @@ function ProductListPage({
       limit: 8,
     });
   }, []);
-  console.log(getCategoryList);
+
   function handleFilterCategory(id) {
-    productList.arrCategoryId.push(id);
     setCategorySelected(id);
+    setPage(1);
     getProductList({
       page: 1,
       limit: 8,
@@ -79,7 +79,6 @@ function ProductListPage({
       )
     })
   }
-  console.log('lengthArr', productList.data.length)
   return (
     <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{

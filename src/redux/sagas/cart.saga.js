@@ -1,35 +1,70 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import history from '../../utils/history';
 
 function* getCartListSaga(action) {
   try {
+    const { userId } = action.payload;
     const result = yield axios({
       method: 'GET',
-      url: `http://localhost:3001/cart`,
+      url: 'http://localhost:3001/orders',
+      params: {
+        userId,
+        isPay: false,
+      }
     });
+    if (result.data.length === 0) {
+      const newResult = yield axios({
+        method: 'POST',
+        url: 'http://localhost:3001/orders',
+        data: {
+          userId,
+          isPay: false,
+          carts: [],
+        }
+      });
+      yield put({
+        type: "GET_CART_LIST_SUCCESS",
+        payload: {
+          data: newResult.data.carts,
+          orderId: newResult.data.id,
+        },
+      });
+    } else {
+      yield put({
+        type: "GET_CART_LIST_SUCCESS",
+        payload: {
+          data: result.data[0].carts,
+          orderId: result.data[0].id,
+        },
+      });
+    }
+  } catch (e) {
     yield put({
-      type: "GET_CART_LIST_SUCCESS",
+      type: "GET_CART_LIST_FAIL",
       payload: {
-        data: result.data,
+        error: e.error
       },
     });
-  } catch (e) {
-    yield put({type: "GET_CART_LIST_FAIL", message: e.message});
   }
 }
 
 function* addToCartSaga(action) {
   try {
-    const { email, password, name, phone } = action.payload;
-    const result = yield axios.post(`http://localhost:3001/cart`, { email , password, name, phone});
+    const { orderId, carts } = action.payload;
+    const result = yield axios({
+      method: 'PATCH',
+      url: `http://localhost:3001/orders/${orderId}`,
+      data: {
+        carts: carts,
+      }
+    });
     yield put({
       type: "ADD_TO_CART_SUCCESS",
       payload: {
-        data: result.data,
+        data: result.data.carts,
+        orderId: orderId,
       },
     });
-    yield history.push('/login');
   } catch (e) {
     yield put({
       type: "ADD_TO_CART_FAIL",

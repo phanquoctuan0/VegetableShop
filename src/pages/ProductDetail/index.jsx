@@ -1,52 +1,91 @@
 
 import { useEffect, useState } from 'react';
-import { Card, Row, Col, InputNumber, Descriptions } from 'antd';
+
+import { Card, Row, Col, InputNumber, notification,Descriptions } from 'antd';
+
 import { connect } from 'react-redux';
-
-import { getProductDetailAction, getCartListAction } from '../../redux/actions';
-import { getCategoryListAction } from '../../redux/actions';
-import { getProductListAction } from '../../redux/actions';
-
+import { CheckCircleTwoTone } from '@ant-design/icons';
 import ItemProduct from '../ProductList/components/ItemProduct';
+
+import {
+  getProductDetailAction,
+  addToCartAction,
+} from '../../redux/actions';
 
 function ProductDetailPage({
   productDetail,
   getProductDetail,
   match,
-  getCartList,
+
   cartList,
+  addToCart,
   categoryList,
   getCategoryList,
   getProductList,
   productList,
 }) {
-
-  // const {title,price,img,id} = props;
-  console.log(cartList.data)
   const productId = match.params.id;
-  // const [optionSelected, setOptionSelected] = useState({});
+  const [amount, setAmount] = useState(1);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   useEffect(() => {
-    getCartList();
     getProductDetail({ id: productId });
   }, [])
 
-  // useEffect(() => {
-  //   if (productDetail.data.id) {
-  //     setOptionSelected(productDetail.data.productOptions[0] || {})
-  //   }
-  // }, [productDetail.data])
 
-  // console.log('123',productDetail);
-  // function renderProductOptions() {
-  //   return productDetail.data.productOptions.map((item, index) => {
-  //     return (
-  //       <Radio.Button value={item}>
-  //         {item.title}
-  //       </Radio.Button>
-  //     )
-  //   })
-  // }
+  const openNotificationAdd = () => {
+    notification.open({
+      message: 'Thêm vào giỏ hàng thành công !',
+    });
+  };
+
+  const openNotificationUpdate = () => {
+    notification.open({
+      message: 'Cập nhật giỏ hàng thành công !',
+      icon: <CheckCircleTwoTone style={{ color: '#108ee9' }} />,
+    });
+  };
+
+  function onChange(value) {
+    setAmount(value)
+  }
+
+  console.log(cartList)
+  function handleAddToCart() {
+    const existProductIndex = cartList.data.findIndex((item) => item.productId === parseInt(productId));
+    if (existProductIndex !== -1) {
+      const newCart = cartList.data;
+      newCart.splice(existProductIndex, 1, {
+        productId: parseInt(productId),
+        count: cartList.data[existProductIndex].count + amount,
+        name: productDetail.data.name,
+        price: productDetail.data.price,
+        img: productDetail.data.img
+      })
+      addToCart({
+        orderId: cartList.orderId,
+        carts: newCart,
+      })
+      openNotificationUpdate()
+    } else {
+      addToCart({
+        orderId: cartList.orderId,
+        carts: [
+          ...cartList.data,
+          {
+            productId: parseInt(productId),
+            count: amount,
+            name: productDetail.data.name,
+            price: productDetail.data.price,
+            img: productDetail.data.img
+          }
+        ]
+      })
+      openNotificationAdd()
+    }
+  }
+
+
 
 
 
@@ -112,10 +151,10 @@ function ProductDetailPage({
                 <p>Giá: {productDetail.data.price} </p>
               </div>
               <div className="number">
-                <p>Số lượng: <InputNumber className="" min={1} max={99} defaultValue='1' /></p>
+                <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
               </div>
               <div>
-                <button className="buy-btn" style={{ color: '#008848', fontSize: '90%' }}>
+                <button className="buy-btn" style={{ color: '#008848', fontSize: '90%' }} onClick={() => handleAddToCart()}>
                   Cho vào giỏ hàng
                 </button>
               </div>
@@ -136,7 +175,6 @@ function ProductDetailPage({
         </Row>
       </Descriptions>
     </Row>
-
   );
 }
 
@@ -156,7 +194,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProductDetail: (params) => dispatch(getProductDetailAction(params)),
-    getCartList: (params) => dispatch(getCartListAction(params)),
+    addToCart: (params) => dispatch(addToCartAction(params)),
     getProductList: (params) => dispatch(getProductListAction(params)),
     getCategoryList: (params) => dispatch(getCategoryListAction(params)),
   };

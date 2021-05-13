@@ -1,9 +1,10 @@
 const initialState = {
   cartList: {
+    orderId: NaN,
     data: [],
     load: false,
     error: '',
-  }
+  },
 };
 
 export default function cartReducer(state = initialState, action) {
@@ -18,11 +19,12 @@ export default function cartReducer(state = initialState, action) {
       }
     }
     case 'GET_CART_LIST_SUCCESS': {
-      const { data } = action.payload;
+      const { data, orderId } = action.payload;
       return {
         ...state,
         cartList: {
           ...state.cartList,
+          orderId: orderId,
           data: data,
           load: false,
         },
@@ -39,37 +41,17 @@ export default function cartReducer(state = initialState, action) {
         },
       }
     }
-    case 'ADD_TO_CART_REQUEST': {
-      return {
-        ...state,
-        cartList: {
-          ...state.cartList,
-          load: true,
-        }
-      }
-    }
 
     case 'ADD_TO_CART_SUCCESS': {
-      const { data } = action.payload;
+      const { data, orderId } = action.payload;
       return {
         ...state,
         cartList: {
           ...state.cartList,
-          load: false,
+          orderId: orderId,
           data: data,
-        }
-      }
-    }
-
-    case 'ADD_TO_CART_FAIL': {
-      const { error } = action.payload;
-      return {
-        ...state,
-        cartList: {
-          ...state.cartList,
           load: false,
-          error: error,
-        }
+        },
       }
     }
     default: {
