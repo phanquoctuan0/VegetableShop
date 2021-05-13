@@ -1,22 +1,23 @@
 
 import { useEffect, useState } from 'react';
-
 import { Card, Row, Col, InputNumber, notification,Descriptions } from 'antd';
 
 import { connect } from 'react-redux';
 import { CheckCircleTwoTone } from '@ant-design/icons';
 import ItemProduct from '../ProductList/components/ItemProduct';
-
 import {
   getProductDetailAction,
   addToCartAction,
+  getCategoryListAction,
+  getProductListAction
 } from '../../redux/actions';
+
+
 
 function ProductDetailPage({
   productDetail,
   getProductDetail,
   match,
-
   cartList,
   addToCart,
   categoryList,

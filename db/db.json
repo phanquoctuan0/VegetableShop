@@ -66,7 +66,6 @@
       "price": 34000,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
-
       ],
       "description": "Cải cầu vồng là một loại rau, thuộc nhóm Flavescens, có nguồn gốc từ các nước phương Tây. Ngoài ra, người ta cũng gọi cải cầu vồng là cải Thụy Sĩ, thậm chí còn gọi là củ cải seakale, củ cải lá hoặc củ cải bạc vì có tên khoa học là Beta vulgaris. Cải cầu vồng có tên gọi tiếng Anh là Swiss chard và thường xuất hiện trong các bữa ăn hằng ngày ở các nước phương Tây vì giá trị dinh dưỡng của loại rau này khá cao."
 
@@ -252,26 +251,6 @@
         }
       ],
       "id": 2
-=======
-  "cart": [
-    {
-      "id": 1,
-      "name": "Chuối xiêm",
-      "price": 65000,
-      "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
-      ],
-      "amount": 3
-    },
-    {
-      "id": 2,
-      "name": "Rau cải bẹ",
-      "price": 30000,
-      "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-      ],
-      "amount": 2
-
     }
   ]
 }
