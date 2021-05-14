@@ -32,7 +32,6 @@ function Header({ userInfo, cartList }) {
     
   },[])
   const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
-  
   function showTotalAmount() {
     if (userInfoLocal) {
       var total = 0

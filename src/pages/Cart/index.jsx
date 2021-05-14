@@ -1,15 +1,24 @@
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { getCartListAction } from '../../redux/actions'
+import { getCartListAction,addToCartAction } from '../../redux/actions'
 
 import CartItem from './components/CartItem'
 
 
-function CartPage({ cartList }) {
+function CartPage({ cartList,addToCart }) {
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
+  const [value,setValue] = useState();
+  function handleIncrease(){
+
+  }
+
+  function handleDecrease(){
+    
+  }
+  
   console.log(cartList.data)
   function renderCartList() {
     if (userInfo) {
@@ -27,6 +36,7 @@ function CartPage({ cartList }) {
     }
     return null;
   }
+
 
   function showTotalOrder() {
     if (userInfo) {
@@ -75,6 +85,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCartList: (params) => dispatch(getCartListAction(params)),
+    addToCart: (params) => dispatch(addToCartAction(params)),
   };
 }
 

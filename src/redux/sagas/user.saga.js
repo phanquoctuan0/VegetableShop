@@ -21,7 +21,11 @@ function* loginSaga(action) {
           data: result.data[0],
         },
       });
-      yield history.push('/');
+      if (result.data[0].role === 'user') {
+        yield history.push('/');
+      } else {
+        yield history.push('/admin/');
+      }
     } else {
       yield put({
         type: "LOGIN_FAIL",

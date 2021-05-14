@@ -4,7 +4,12 @@ function LoginLayout(props) {
   const { exact, path, component: Component, ...other } = props;
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   if (userInfo && userInfo.id) {
-    return <Redirect to="/" />;
+    if (userInfo.role === 'user') {
+      return <Redirect to="/" />;
+    }
+    if (userInfo.role === 'admin') {
+      return <Redirect to="/admin/" />;
+    }
   }
   return (
     <Route
