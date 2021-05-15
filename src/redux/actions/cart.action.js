@@ -11,10 +11,3 @@ export function getCartListAction(params) {
     payload: params,
   }
 }
-
-// export function addToCartAction(params) {
-//   return {
-//     type: 'DELETE_CART_REQUEST',
-//     payload: params,
-//   }
-// }

@@ -7,19 +7,20 @@ import CartItem from './components/CartItem'
 
 
 function CartPage({ cartList,addToCart }) {
-
+  
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
+  
   const [value,setValue] = useState();
   function handleIncrease(){
-
+    
   }
-
+  
   function handleDecrease(){
     
   }
   
-  console.log(cartList.data)
+  console.log("🚀 ~ file: index.jsx ~ line 10 ~ CartPage ~ cartList", cartList)
+  
   function renderCartList() {
     if (userInfo) {
       if (cartList.load) return <p>Loading...</p>;

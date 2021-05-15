@@ -1,6 +1,6 @@
-
 import { useEffect, useState } from 'react';
-import { Card, Row, Col, InputNumber, notification,Descriptions } from 'antd';
+import { Card, Row, Col, InputNumber, notification, Descriptions } from 'antd';
+import history from '../../utils/history';
 
 import { connect } from 'react-redux';
 import { CheckCircleTwoTone } from '@ant-design/icons';
@@ -86,43 +86,25 @@ function ProductDetailPage({
     }
   }
 
-
-
-
-
-
-  const [categorySelected, setCategorySelected] = useState(null);
-  const [page, setPage] = useState(1)
-  useEffect(() => {
-    getCategoryList();
-    getProductList({
-      page: 1,
-      limit: 8,
-    });
-  }, []);
-  console.log(getCategoryList);
-
-  // function handleFilterCategory(id) {
-  //   productList.arrCategoryId.push(id)
-  //   setCategorySelected(id);
+  // const [categorySelected, setCategorySelected] = useState(null);
+  // const [page, setPage] = useState(1)
+  // useEffect(() => {
+  //   getCategoryList();
   //   getProductList({
   //     page: 1,
   //     limit: 8,
-  //     categoryId: id,
   //   });
-  // }
-  console.log(productDetail.data.categoryId);
-  console.log(productList)
+  // }, []);
+
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
-    return  productList.data.map((productItem) => {
-      if(productDetail.data.categoryId === productItem.categoryId){
+    return productList.data.map((productItem) => {
+      if (productDetail.data.categoryId === productItem.categoryId) {
         return (
           <ItemProduct
             title={productItem.name}
             price={productItem.price}
             img={productItem.img[0]}
-            // onClick={() => history.push(`/product/${productItem.id}`)}
             id={productItem.id}
           />
         )
@@ -175,7 +157,6 @@ function ProductDetailPage({
       <Descriptions title="Sản phẩm tương tự:" style={{ marginLeft: 130, marginRight: 130 }}>
         <Row gutter={8}>
           {renderProductList()}
-          {/* {handleFilterCategory()} */}
         </Row>
       </Descriptions>
     </Row>
