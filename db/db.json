@@ -6,27 +6,7 @@
       "password": "1234",
       "name": "Tra",
       "phone": "0123213214",
-      "role": "admin",
-      "carts": [
-        {
-          "productId": 2,
-          "count": 1,
-          "name": "Bó xôi",
-          "price": 37500,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
-          ]
-        },
-        {
-          "productId": 13,
-          "count": 2,
-          "name": "Rau cải bẹ",
-          "price": 30000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-          ]
-        }
-      ]
+      "role": "admin"
     },
     {
       "email": "tuan@gmail.com",
@@ -34,27 +14,7 @@
       "name": "Tuan ",
       "phone": "6263231239",
       "role": "user",
-      "id": 3,
-      "carts": [
-        {
-          "productId": 2,
-          "count": 1,
-          "name": "Bó xôi",
-          "price": 37500,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
-          ]
-        },
-        {
-          "productId": 13,
-          "count": 2,
-          "name": "Rau cải bẹ",
-          "price": 30000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-          ]
-        }
-      ]
+      "id": 3
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -62,8 +22,7 @@
       "name": "Phan",
       "phone": "0967794663",
       "role": "user",
-      "id": 4,
-      "carts": []
+      "id": 4
     }
   ],
   "products": [
@@ -258,16 +217,59 @@
   ],
   "orders": [
     {
+      "userId": 3,
+      "isPay": false,
+      "carts": [
+        {
+          "productId": 3,
+          "count": 1,
+          "name": "Xà lách ria",
+          "price": 24000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
+          ]
+        },
+        {
+          "productId": 2,
+          "count": 4,
+          "name": "Bó xôi",
+          "price": 37500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+          ]
+        },
+        {
+          "productId": 15,
+          "count": 4,
+          "name": "Bông cải xanh",
+          "price": 43500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
       "userId": 2,
       "isPay": false,
       "carts": [
         {
-          "productId": 4,
+          "productId": 2,
           "count": 1,
-          "name": "Cần tây",
-          "price": 78000,
+          "name": "Bó xôi",
+          "price": 37500,
           "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+          ]
+        },
+        {
+          "productId": 5,
+          "count": 2,
+          "name": "Cải cầu vồng",
+          "price": 34000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
           ]
         }
       ],
