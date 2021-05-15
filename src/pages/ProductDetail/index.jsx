@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Card, Row, Col, InputNumber, notification, Descriptions } from 'antd';
 import history from '../../utils/history';
