@@ -4,6 +4,11 @@ const initialState = {
     load: false,
     error: '',
   },
+  userList: {
+    data: [],
+    load: false,
+    error: '',
+  },
 };
 
 export default function productReducer(state = initialState, action) {
@@ -105,7 +110,77 @@ export default function productReducer(state = initialState, action) {
         }
       }
     }
+    case 'GET_USER_LIST_REQUEST': {
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          load: true,
+        },
+      }
+    }
+    case 'GET_USER_LIST_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          data: data,
+          load: false,
+        },
+      }
+    }
+    case 'GET_USER_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          load: false,
+          error: error,
+        },
+      }
+    }
 
+    case 'DELETE_USER_REQUEST': {
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          load: true
+        },
+      };
+    }
+    case 'DELETE_USER_SUCCESS': {
+      const {id, data } = action.payload;      
+      const newUser = state.userList.data;
+      const indexOf = newUser.findIndex((item)=>{
+        return item.id == id;
+      })
+      
+      newUser.splice(indexOf,1,data);
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          data: newUser,
+          load: false
+        },
+      };
+    }
+
+    case 'DELETE_USER_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userList: {
+          ...state.userList,
+          error: error,
+          load: false
+        },
+      };
+    }
+    
     default: {
       return state;
     }

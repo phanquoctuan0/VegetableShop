@@ -20,7 +20,7 @@ function PrivateLayout(props) {
         return (
           <>
             {/* <Header {...routeProps} /> */}
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', maxWidth : '1370px',margin : 'auto' }}>
               <SidebarAdmin {...routeProps} />
               <div style = {{width: 'calc(100% - 300px)', marginLeft : '26px', marginTop : '14px'}}>
                 <Component {...other} {...routeProps} />

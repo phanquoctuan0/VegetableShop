@@ -2,6 +2,29 @@ import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import history from '../../utils/history';
 
+
+function* getUserListSaga(action) {
+  try {
+    const result = yield axios({
+      method: 'GET',
+      url: 'http://localhost:3001/users',
+    });
+    yield put({
+      type: "GET_USER_LIST_SUCCESS",
+      payload: {
+        data: result.data,
+      },
+    });
+  } catch (e) {
+    yield put({
+      type: "GET_USER_LIST_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
+
 function* loginSaga(action) {
   try {
     const { email, password } = action.payload;
@@ -85,8 +108,43 @@ function* registerSaga(action) {
   }
 }
 
+function* deleteUserSaga(action) {
+  console.log("🚀 ~ file: user.saga.js ~ line 112 ~ function*deleteUserSaga ~ action", action)
+  try {
+    const { id, user } = action.payload;
+    console.log(user);
+    const result = yield axios({
+      method: 'PATCH',
+      url: `http://localhost:3001/users/${id}`,
+      data: {
+        email: user.email,
+        password: user.password,
+        name:user.name,
+        phone:user.phone,
+        role: user.role
+      }
+    });
+    yield put({
+      type: "DELETE_USER_SUCCESS",
+      payload: {
+        id : id,
+        data: result.data
+      }
+    });
+  } catch (e) {
+    yield put({
+      type: "DELETE_USER_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
 export default function* userSaga() {
   yield takeEvery('LOGIN_REQUEST', loginSaga);
   yield takeEvery('GET_USER_INFO_REQUEST', getUserInfoSaga);
   yield takeEvery('REGISTER_REQUEST', registerSaga);
+  yield takeEvery('GET_USER_LIST_REQUEST', getUserListSaga);
+  yield takeEvery('DELETE_USER_REQUEST', deleteUserSaga);
+
 }
