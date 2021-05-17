@@ -28,7 +28,7 @@
       "email": "phan@gmail.com",
       "password": "123",
       "name": "KM",
-      "role": "user",
+      "role": "admin",
       "phone": "0967794663",
       "id": 5
     },
@@ -36,7 +36,7 @@
       "email": "quoc@gmail.com",
       "password": "123",
       "name": "LA",
-      "role": "banned",
+      "role": "user",
       "phone": "0967794663",
       "id": 6
     },
@@ -53,7 +53,7 @@
       "password": "123",
       "name": "kk",
       "phone": "0967794663",
-      "role": "user",
+      "role": "banned",
       "id": 8
     },
     {
@@ -61,7 +61,7 @@
       "password": "123",
       "name": "gh",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 9
     },
     {
@@ -69,7 +69,7 @@
       "password": "123",
       "name": "gn",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "admin",
       "id": 10
     },
     {
@@ -77,7 +77,7 @@
       "password": "123",
       "name": "A",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 11
     },
     {
@@ -85,7 +85,7 @@
       "password": "123",
       "name": "bv",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 12
     },
     {
@@ -93,7 +93,7 @@
       "password": "123",
       "name": "bv",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 13
     },
     {
@@ -109,7 +109,7 @@
       "password": "123",
       "name": "kj",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 15
     },
     {
@@ -117,7 +117,7 @@
       "password": "123",
       "name": "ff",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 16
     },
     {
@@ -125,7 +125,7 @@
       "password": "123",
       "name": "qq",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 17
     },
     {
@@ -133,7 +133,7 @@
       "password": "123",
       "name": "dd",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 18
     },
     {
@@ -141,8 +141,24 @@
       "password": "123",
       "name": "ss",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 19
+    },
+    {
+      "email": "tuanday@gmail.com",
+      "password": "123",
+      "name": "Tu",
+      "phone": "0967794663",
+      "role": "user",
+      "id": 20
+    },
+    {
+      "email": "day@gmail.com",
+      "password": "123",
+      "name": "day",
+      "phone": "0967794663",
+      "role": "user",
+      "id": 21
     }
   ],
   "products": [
