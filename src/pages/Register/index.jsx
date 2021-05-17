@@ -40,7 +40,6 @@ function RegisterPage( {register} ) {
 
   const onFinish = (values) => {
     register(values);
-    console.log('Received values of form: ', values);
   };
 
   const prefixSelector = (

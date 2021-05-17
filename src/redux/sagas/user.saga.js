@@ -3,6 +3,7 @@ import axios from 'axios';
 import history from '../../utils/history';
 
 
+
 function* getUserListSaga(action) {
   try {
     const result = yield axios({
@@ -89,15 +90,19 @@ function* getUserInfoSaga(action) {
 
 function* registerSaga(action) {
   try {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
     const { email, password, name, phone } = action.payload;
-    const result = yield axios.post(`http://localhost:3001/users`, { email , password, name, phone});
+    const result = yield axios.post(`http://localhost:3001/users`, { email, password, name, phone, role: 'user' });
     yield put({
       type: "REGISTER_SUCCESS",
       payload: {
         data: result.data,
       },
     });
-    yield history.push('/login');
+    if (userInfo.role !== 'admin') {
+      yield history.push('/login');
+    }
   } catch (e) {
     yield put({
       type: "REGISTER_FAIL",
@@ -119,15 +124,15 @@ function* deleteUserSaga(action) {
       data: {
         email: user.email,
         password: user.password,
-        name:user.name,
-        phone:user.phone,
+        name: user.name,
+        phone: user.phone,
         role: user.role
       }
     });
     yield put({
       type: "DELETE_USER_SUCCESS",
       payload: {
-        id : id,
+        id: id,
         data: result.data
       }
     });

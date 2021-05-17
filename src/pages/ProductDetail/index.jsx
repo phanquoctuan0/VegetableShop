@@ -31,7 +31,7 @@ function ProductDetailPage({
 
   useEffect(() => {
     getProductDetail({ id: productId });
-  }, [])
+  }, [productId])
 
 
   const openNotificationAdd = () => {
