@@ -89,12 +89,14 @@ export default function productReducer(state = initialState, action) {
 
     case 'REGISTER_SUCCESS': {
       const { data } = action.payload;
+      const newUserList = state.userList.data;
+      newUserList.splice(newUserList.length,0,data);
       return {
         ...state,
         userInfo: {
           ...state.userInfo,
           load: false,
-          data: data,
+          data: newUserList,
         }
       }
     }

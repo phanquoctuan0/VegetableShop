@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles.css'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
@@ -15,17 +15,6 @@ function UserItem(props) {
     handleEditUser
   } = props;
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
   const { Option } = Select;
   const formItemLayout = {
     labelCol: {
@@ -58,8 +47,12 @@ function UserItem(props) {
     },
   };
 
+  console.log(email);
   const [form] = Form.useForm();
 
+  useEffect(()=>{
+    form.resetFields()
+  },[id])
   const onFinish = values => {
     console.log('Received values of form:', values);
   };
@@ -89,23 +82,25 @@ function UserItem(props) {
 
   return (
     <>
-      <Modal title="Chỉnh sửa thông tin" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Chỉnh sửa thông tin"
+        visible={isModalVisible}
+        onOk={() => { setIsModalVisible(false) }}
+        onCancel={() => { setIsModalVisible(false) }}
+      >
         <Space>
           <Card size="small">
             <Form
               {...formItemLayout}
               form={form}
-              name="register"
+              name= {`register${id}`}
+              initialValues={{ email: email, name: name }}
               onFinish={(values) => { handleEditUser(id, values); }}
-              initialValues={{
-                prefix: '86',
-              }}
               scrollToFirstError
             >
               <Form.Item
                 name="email"
                 label="E-mail"
-                values = {email}
+                
                 rules={[
                   {
                     type: 'email',
@@ -117,7 +112,7 @@ function UserItem(props) {
                   },
                 ]}
               >
-                <Input />
+                <Input placeholder={email}/>
               </Form.Item>
 
               <Form.Item
@@ -161,7 +156,7 @@ function UserItem(props) {
               <Form.Item
                 name="name"
                 label="Nickname"
-                value = {name}
+                value={name}
                 tooltip="What do you want others to call you?"
                 rules={[
                   {
@@ -231,12 +226,12 @@ function UserItem(props) {
         <td className='icon-options'>
           <btn onClick={() => { handleDeleteUser(id) }}>
             <span>
-              <DeleteOutlined style={{ color: 'red', cursor: 'pointer' }} />
+              <DeleteOutlined style={{ color: 'red', cursor: 'pointer', fontSize: '180%' }} />
             </span>
           </btn>
           <button >
             <span>
-              <EditOutlined onClick={showModal} style={{ color: 'blue', cursor: 'pointer' }} />
+              <EditOutlined onClick={() => { setIsModalVisible(true) }} style={{ color: 'blue', cursor: 'pointer', fontSize: '150%' }} />
             </span>
           </button>
         </td>

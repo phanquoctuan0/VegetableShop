@@ -26,16 +26,16 @@ function Sidebar() {
           </div>
         </div>
         <Menu theme="" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<HomeOutlined />} onClick={() => { history.push('admin/') }}>
+          <Menu.Item key="1" icon={<HomeOutlined />} onClick={() => { history.push('/admin/') }}>
             Dashboard
         </Menu.Item>
-          <Menu.Item key="2" icon={<ShopOutlined />} onClick={() => { history.push('admin/product') }} >
+          <Menu.Item key="2" icon={<ShopOutlined />} onClick={() => { history.push('/admin/product') }} >
             Sản phẩm
         </Menu.Item>
-          <Menu.Item key="3" icon={<ShoppingCartOutlined />} onClick={() => { history.push('admin/order') }}>
+          <Menu.Item key="3" icon={<ShoppingCartOutlined />} onClick={() => { history.push('/admin/order') }}>
             Đơn hàng
         </Menu.Item>
-          <Menu.Item key="4" icon={<UserOutlined />} onClick={() => { history.push('admin/user') }}>
+          <Menu.Item key="4" icon={<UserOutlined />} onClick={() => { history.push('/admin/user') }}>
             Thành viên
         </Menu.Item>
         </Menu>
