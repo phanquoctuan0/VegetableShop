@@ -40,26 +40,28 @@ function ProductListPage({
       limit: 8,
       categoryId: categorySelected,
     });
-    setPage(page+1);
+    setPage(page + 1);
   }
 
   function renderCategory() {
     return categoryList.data.map((item) => {
-      return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <h3
-            onClick={() => handleFilterCategory(item.id)}
-            style={{
-              color: categorySelected === item.id ? '#e91e63' : 'RGBA(0,0,0,0.6)',
-              borderBottom: categorySelected === item.id ? '#e91e63 1px solid' : '#e91e63',
-              padding: '0px 16px',
-              cursor: 'pointer'
-            }}
-          >
-            {item.name}
-          </h3>
-        </div>
-      )
+      if (item.active !== 'off') {
+        return (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <h3
+              onClick={() => handleFilterCategory(item.id)}
+              style={{
+                color: categorySelected === item.id ? '#e91e63' : 'RGBA(0,0,0,0.6)',
+                borderBottom: categorySelected === item.id ? '#e91e63 1px solid' : '#e91e63',
+                padding: '0px 16px',
+                cursor: 'pointer'
+              }}
+            >
+              {item.name}
+            </h3>
+          </div>
+        )
+      }
     })
   }
 
@@ -68,11 +70,11 @@ function ProductListPage({
     return productList.data.map((productItem, productIndex) => {
       return (
         <ItemProduct
-          title = {productItem.name}
-          price = {productItem.price}
-          img = {productItem.img[0]}
+          title={productItem.name}
+          price={productItem.price}
+          img={productItem.img[0]}
           // onClick={() => history.push(`/product/${productItem.id}`)}
-          id = {productItem.id}
+          id={productItem.id}
         />
       )
     })

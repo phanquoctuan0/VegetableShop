@@ -2,6 +2,13 @@ import { FaBars, FaCartPlus, FaSearch } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// export default createGlobalStyle`
+//   * {
+//       @import url('../../font.css');
+//       font-family: Vazir !important;
+//         // CSS you want global. 
+//     }  
+// `
 
 export const Nav = styled.nav`
   background: #008848;

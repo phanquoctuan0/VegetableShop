@@ -149,7 +149,7 @@
       "password": "123",
       "name": "Tu",
       "phone": "0967794663",
-      "role": "user",
+      "role": "admin",
       "id": 20
     },
     {
@@ -336,19 +336,33 @@
   "categories": [
     {
       "id": 1,
-      "name": "Rau xanh"
+      "name": "Rau xanh",
+      "status": "on"
     },
     {
       "id": 2,
-      "name": "Củ"
+      "name": "Củ",
+      "status": "on"
     },
     {
       "id": 3,
-      "name": "Trái cây"
+      "name": "Trái cây",
+      "status": "on"
     },
     {
       "id": 4,
-      "name": "Nước ép"
+      "name": "Nước ép",
+      "status": "off"
+    },
+    {
+      "id": 9,
+      "name": "Rong biển",
+      "status": "off"
+    },
+    {
+      "name": "Rau thơm",
+      "status": "off",
+      "id": 10
     }
   ],
   "orders": [

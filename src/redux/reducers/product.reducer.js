@@ -129,8 +129,119 @@ export default function productReducer(state = initialState, action) {
         },
       }
     }
+    case 'EDIT_CATEGORY_LIST_REQUEST': {
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          load: true
+        },
+      };
+    }
+    case 'EDIT_CATEGORY_LIST_SUCCESS': {
+      const {id, data } = action.payload;      
+      const newCategory = state.categoryList.data;
+      const indexOf = newCategory.findIndex((item)=>{
+        return item.id == id;
+      })
+      
+      newCategory.splice(indexOf,1,data);
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          data: newCategory,
+          load: false
+        },
+      };
+    }
+
+    case 'EDIT_CATEGORY_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          error: error,
+          load: false
+        },
+      };
+    }
+    
+    case 'DELETE_CATEGORY_LIST_REQUEST': {
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          load: true
+        },
+      };
+    }
+    case 'DELETE_CATEGORY_LIST_SUCCESS': {
+      const { id } = action.payload;
+      const newCategory = state.categoryList.data;
+      const indexOf = newCategory.findIndex((item)=>{
+        return item.id == id;
+      })
+      
+      newCategory.splice(indexOf,1);
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          data: newCategory,
+          load: false
+        },
+      };
+    }
+    case 'DELETE_CATEGORY_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          error: error,
+          load: false
+        },
+      };
+    }
+    case 'ADD_CATEGORY_LIST_REQUEST': {
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          load: true
+        },
+      };
+    }
+    case 'ADD_CATEGORY_LIST_SUCCESS': {
+      const {data } = action.payload;      
+      const newCategory = state.categoryList.data;   
+      newCategory.splice(0,0,data);
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          data: newCategory,
+          load: false
+        },
+      };
+    }
+
+    case 'ADD_CATEGORY_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        categoryList: {
+          ...state.categoryList,
+          error: error,
+          load: false
+        },
+      };
+    }
     default: {
       return state;
     }
+    
   }
 }
