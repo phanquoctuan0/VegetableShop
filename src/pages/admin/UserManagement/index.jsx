@@ -1,5 +1,5 @@
-import { Table, Modal, Space, Radio, Input } from 'antd';
-import { EditOutlined, UserDeleteOutlined, PlusSquareOutlined } from '@ant-design/icons';
+import { Table, Modal, Space, Radio, Input, Button } from 'antd';
+import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -33,7 +33,6 @@ function AdminUserPage({
     setValueRadio(e.target.value);
   };
 
-  console.log("🚀 ~ file: index.jsx ~ line 36 ~ userList.data.forEach ~ userList", userList.data)
   function handleEditUser(id) {
     userList.data.forEach((item) => {
       if (id === item.id) {
@@ -72,12 +71,12 @@ function AdminUserPage({
       }
     })
   }
-  
-  
- 
+
+
+
 
   return (
-    <div className='home'>
+    <div className='home' >
       <Modal title="Edit role"
         visible={isModalVisible}
         onOk={() => { handleEditUser(isIdEdit) }}
@@ -100,7 +99,7 @@ function AdminUserPage({
         <Register />
       </Modal>
       <h2>Quản lý người dùng</h2>
-      <div style={{ display: 'flex',justifyContent : 'space-between', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
         <div></div>
         <Search
           placeholder="Nhập vào thông tin"
@@ -111,13 +110,17 @@ function AdminUserPage({
           onSearch={onSearch}
         />
         <div>
-          <PlusSquareOutlined
+          <Button type="primary"
+            style={{ height : '100%' }}
             onClick={() => { setIsModalVisible2(true) }}
-            style={{ fontSize: '290%', color: '#008848', cursor: 'pointer' }}
-          />
+          >
+            Thêm người dùng
+          </Button>
         </div>
       </div>
-      <Table dataSource={userList.data}>
+      <Table dataSource={userList.data}
+        size='middle'
+      >
         <Column title="ID" dataIndex="id" id="id" />
         <Column title="Name" dataIndex="name" id="name" />
         <Column title="Email" dataIndex="email" id="email" />

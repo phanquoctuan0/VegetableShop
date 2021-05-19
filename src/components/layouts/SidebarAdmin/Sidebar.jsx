@@ -1,7 +1,7 @@
 import history from '../../../utils/history'
 import './styles.css';
 import { Layout, Menu } from 'antd';
-import { ShoppingCartOutlined, UserOutlined, ShopOutlined, HomeOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, UserOutlined, ShopOutlined, HomeOutlined, TableOutlined } from '@ant-design/icons';
 import logo from '../../../images/logo.png'
 
 const { Sider } = Layout;
@@ -30,13 +30,16 @@ function Sidebar() {
             Dashboard
         </Menu.Item>
           <Menu.Item key="2" icon={<ShopOutlined />} onClick={() => { history.push('/admin/product') }} >
-            Sản phẩm
+            Quản lý sản phẩm
         </Menu.Item>
           <Menu.Item key="3" icon={<ShoppingCartOutlined />} onClick={() => { history.push('/admin/order') }}>
-            Đơn hàng
+            Quản lý đơn hàng
         </Menu.Item>
           <Menu.Item key="4" icon={<UserOutlined />} onClick={() => { history.push('/admin/user') }}>
-            Thành viên
+            Quản lý thành viên
+        </Menu.Item>
+        <Menu.Item key="5" icon={<TableOutlined />} onClick={() => { history.push('/admin/category') }}>
+            Quản lý danh mục
         </Menu.Item>
         </Menu>
       </Sider>
