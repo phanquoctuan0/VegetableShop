@@ -1,55 +1,97 @@
-import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { Modal, Button, Space } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
-import { getCartListAction,addToCartAction } from '../../redux/actions'
+import { connect } from 'react-redux';
+import {useState } from 'react';
+
+import { addToCartAction, deleteItemCartAction } from '../../redux/actions'
 
 import CartItem from './components/CartItem'
 
 
-function CartPage({ cartList,addToCart }) {
+function CartPage({
+  cartList,
+  addToCart,
+  deleteItemCart
+}) {
+
+  console.log("🚀 ~ file: index.jsx ~ line 14 ~ cartList", cartList)
+
+  const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+  function handleDeteteItem(productId) {
   
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  
-  const [value,setValue] = useState();
-  function handleIncrease(){
-    
+    const indexOfProduct = cartList.data.findIndex((item) => item.productId === parseInt(productId));
+    const newCartList = cartList.data;
+    newCartList.splice(indexOfProduct, 1);
+    deleteItemCart({
+      userId: userInfoLocal.id,
+      carts: newCartList,
+    })
   }
-  
-  function handleDecrease(){
-    
+
+  function handleIncrease(productId, productDetail) {
+    const indexOfProduct = cartList.data.findIndex((item) => item.productId === parseInt(productId));
+    const newCartList = cartList.data;
+    newCartList.splice(indexOfProduct, 1, {
+      productId: parseInt(productId),
+      count: cartList.data[indexOfProduct].count + 1,
+      name: productDetail.name,
+      price: productDetail.price,
+      img: [productDetail.img]
+    })
+    addToCart({
+      userId: userInfoLocal.id,
+      carts: newCartList,
+    })
   }
-  
-  console.log("🚀 ~ file: index.jsx ~ line 10 ~ CartPage ~ cartList", cartList)
-  
+
+  function handleDecrease(productId, productDetail) {
+    const indexOfProduct = cartList.data.findIndex((item) => item.productId === parseInt(productId));
+    const newCartList = cartList.data;
+    newCartList.splice(indexOfProduct, 1, {
+      productId: parseInt(productId),
+      count: cartList.data[indexOfProduct].count - 1,
+      name: productDetail.name,
+      price: productDetail.price,
+      img: [productDetail.img]
+    })
+    addToCart({
+      userId: userInfoLocal.id,
+      carts: newCartList,
+    })
+  }
+
+
   function renderCartList() {
-    if (userInfo) {
-      if (cartList.load) return <p>Loading...</p>;
-      return cartList.data.map((item) => {
-          return (
-            <CartItem
-              title={item.name}
-              price={item.price}
-              img={item.img[0]}
-              count={item.count}
-            />
-          )
-      })
-    }
-    return null;
+    if (cartList.load) return <p>Loading...</p>;
+    return cartList.data.map((item) => {
+      return (
+        <CartItem
+          title={item.name}
+          price={item.price}
+          img={item.img[0]}
+          count={item.count}
+          productId={item.productId}
+          handleIncrease={handleIncrease}
+          handleDecrease={handleDecrease}
+          handleDeteteItem={handleDeteteItem}
+          setIsModalVisible = {setIsModalVisible}
+        />
+      )
+    })
   }
 
 
   function showTotalOrder() {
-    if (userInfo) {
-      var total = 0
-      if (cartList.data.lenth === 0) return 0
-      cartList.data.forEach((item) => {
-          total = total + item.price*item.count
-      })
-      return total.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
-    } else {
-      return 0
-    }
+    var total = 0
+    if (cartList.data.lenth === 0) return 0
+    cartList.data.forEach((item) => {
+      total = total + item.price * item.count
+    })
+    return total.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
   }
   return (
     <div className="cart">
@@ -85,8 +127,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCartList: (params) => dispatch(getCartListAction(params)),
     addToCart: (params) => dispatch(addToCartAction(params)),
+    deleteItemCart: (params) => dispatch(deleteItemCartAction(params)),
   };
 }
 

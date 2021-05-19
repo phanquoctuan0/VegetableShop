@@ -20,14 +20,15 @@ function ProductDetailPage({
   match,
   cartList,
   addToCart,
-  categoryList,
-  getCategoryList,
-  getProductList,
   productList,
 }) {
+  console.log("🚀 ~ file: index.jsx ~ line 25 ~ cartList", cartList)
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   const productId = match.params.id;
   const [amount, setAmount] = useState(1);
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
+
 
   useEffect(() => {
     getProductDetail({ id: productId });
@@ -51,50 +52,43 @@ function ProductDetailPage({
     setAmount(value)
   }
 
-  console.log(cartList)
   function handleAddToCart() {
-    const existProductIndex = cartList.data.findIndex((item) => item.productId === parseInt(productId));
-    if (existProductIndex !== -1) {
-      const newCart = cartList.data;
-      newCart.splice(existProductIndex, 1, {
-        productId: parseInt(productId),
-        count: cartList.data[existProductIndex].count + amount,
-        name: productDetail.data.name,
-        price: productDetail.data.price,
-        img: productDetail.data.img
-      })
-      addToCart({
-        orderId: cartList.orderId,
-        carts: newCart,
-      })
-      openNotificationUpdate()
+    if (!userInfoLocal) {
+      history.push('/login')
     } else {
-      addToCart({
-        orderId: cartList.orderId,
-        carts: [
-          ...cartList.data,
-          {
-            productId: parseInt(productId),
-            count: amount,
-            name: productDetail.data.name,
-            price: productDetail.data.price,
-            img: productDetail.data.img
-          }
-        ]
-      })
-      openNotificationAdd()
+      const existProductIndex = cartList.data.findIndex((item) => item.productId === parseInt(productId));
+      if (existProductIndex !== -1) {
+        const newCartList = cartList.data;
+        newCartList.splice(existProductIndex, 1, {
+          productId: parseInt(productId),
+          count: cartList.data[existProductIndex].count + amount,
+          name: productDetail.data.name,
+          price: productDetail.data.price,
+          img: productDetail.data.img
+        })
+        addToCart({
+          userId: userInfo.id,
+          carts: newCartList,
+        })
+        openNotificationAdd()
+      } else {
+        addToCart({
+          userId: userInfo.id,
+          carts: [
+            ...cartList.data,
+            {
+              productId: parseInt(productId),
+              count: amount,
+              name: productDetail.data.name,
+              price: productDetail.data.price,
+              img: productDetail.data.img
+            }
+          ]
+        })
+        openNotificationUpdate()
+      }
     }
   }
-
-  // const [categorySelected, setCategorySelected] = useState(null);
-  // const [page, setPage] = useState(1)
-  // useEffect(() => {
-  //   getCategoryList();
-  //   getProductList({
-  //     page: 1,
-  //     limit: 8,
-  //   });
-  // }, []);
 
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;

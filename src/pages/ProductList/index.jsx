@@ -45,7 +45,7 @@ function ProductListPage({
 
   function renderCategory() {
     return categoryList.data.map((item) => {
-      if (item.active !== 'off') {
+      if (item.status === 'on') {
         return (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h3
@@ -79,7 +79,7 @@ function ProductListPage({
       )
     })
   }
-  console.log('lengthArr', productList.data.length)
+
   return (
     <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
