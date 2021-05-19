@@ -6,7 +6,54 @@
       "password": "1234",
       "name": "Tra",
       "phone": "0123213214",
-      "role": "admin"
+      "role": "admin",
+      "carts": [
+        {
+          "productId": 1,
+          "count": 2,
+          "name": "Rau lang",
+          "price": 22500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3504-254121561720917-1561720917--400x400.png"
+          ]
+        },
+        {
+          "productId": 2,
+          "count": 2,
+          "name": "Bó xôi",
+          "price": 37500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+          ]
+        },
+        {
+          "productId": 13,
+          "count": 1,
+          "name": "Rau cải bẹ",
+          "price": 30000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
+          ]
+        },
+        {
+          "productId": 14,
+          "count": 6,
+          "name": "Cải thảo",
+          "price": 37500,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
+          ]
+        },
+        {
+          "productId": 4,
+          "count": 1,
+          "name": "Cần tây",
+          "price": 78000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
+          ]
+        }
+      ]
     },
     {
       "email": "tuan@gmail.com",
@@ -14,7 +61,8 @@
       "name": "Tuan ",
       "phone": "6263231239",
       "role": "user",
-      "id": 3
+      "id": 3,
+      "carts": []
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -22,143 +70,45 @@
       "name": "Phan",
       "phone": "0967794663",
       "role": "user",
-      "id": 4
+      "id": 4,
+      "carts": []
     },
     {
-      "email": "phan@gmail.com",
+      "email": "tuanpq@gmail.com",
       "password": "123",
-      "name": "KM",
-      "role": "admin",
-      "phone": "0967794663",
-      "id": 5
-    },
-    {
-      "email": "quoc@gmail.com",
-      "password": "123",
-      "name": "LA",
-      "role": "user",
-      "phone": "0967794663",
-      "id": 6
-    },
-    {
-      "email": "bn@gmail.com",
-      "password": "123",
-      "name": "Mark",
-      "phone": "0967794663",
-      "id": 7,
-      "role": "user"
-    },
-    {
-      "email": "kh@gmail.com",
-      "password": "123",
-      "name": "kk",
-      "phone": "0967794663",
-      "role": "banned",
-      "id": 8
-    },
-    {
-      "email": "nn@gmail.com",
-      "password": "123",
-      "name": "gh",
+      "name": "Tuan",
       "phone": "0967794663",
       "role": "user",
-      "id": 9
-    },
-    {
-      "email": "ng@gmail.com",
-      "password": "123",
-      "name": "gn",
-      "phone": "0967794663",
-      "role": "admin",
-      "id": 10
-    },
-    {
-      "email": "aa@gmail.com",
-      "password": "123",
-      "name": "A",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 11
-    },
-    {
-      "email": "ll@gmail.com",
-      "password": "123",
-      "name": "bv",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 12
-    },
-    {
-      "email": "ll@gmail.com",
-      "password": "123",
-      "name": "bv",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 13
-    },
-    {
-      "email": "tuan123@gmail.com",
-      "password": "123",
-      "name": "jh",
-      "phone": "0967794663",
-      "role": "banned",
-      "id": 14
-    },
-    {
-      "email": "gn@gmail.com",
-      "password": "123",
-      "name": "kj",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 15
-    },
-    {
-      "email": "ff@gmail.com",
-      "password": "123",
-      "name": "ff",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 16
-    },
-    {
-      "email": "qq@gmail.com",
-      "password": "123",
-      "name": "qq",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 17
-    },
-    {
-      "email": "dd@gmail.com",
-      "password": "123",
-      "name": "dd",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 18
-    },
-    {
-      "email": "ss@gmail.com",
-      "password": "123",
-      "name": "ss",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 19
-    },
-    {
-      "email": "tuanday@gmail.com",
-      "password": "123",
-      "name": "Tu",
-      "phone": "0967794663",
-      "role": "admin",
-      "id": 20
-    },
-    {
-      "email": "day@gmail.com",
-      "password": "123",
-      "name": "day",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 21
+      "id": 5,
+      "carts": [
+        {
+          "productId": 13,
+          "count": 5,
+          "name": "Rau cải bẹ",
+          "price": 30000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
+          ]
+        },
+        {
+          "productId": 9,
+          "count": 5,
+          "name": "Táo Juliet",
+          "price": 199000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
+          ]
+        },
+        {
+          "productId": 3,
+          "count": 6,
+          "name": "Xà lách ria",
+          "price": 24000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
+          ]
+        }
+      ]
     }
   ],
   "products": [
@@ -352,7 +302,7 @@
     {
       "id": 4,
       "name": "Nước ép",
-      "status": "off"
+      "status": "on"
     },
     {
       "id": 9,
