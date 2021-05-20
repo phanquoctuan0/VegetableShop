@@ -19,38 +19,11 @@
         },
         {
           "productId": 2,
-          "count": 2,
+          "count": 1,
           "name": "Bó xôi",
           "price": 37500,
           "img": [
             "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
-          ]
-        },
-        {
-          "productId": 13,
-          "count": 1,
-          "name": "Rau cải bẹ",
-          "price": 30000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-          ]
-        },
-        {
-          "productId": 14,
-          "count": 6,
-          "name": "Cải thảo",
-          "price": 37500,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-          ]
-        },
-        {
-          "productId": 4,
-          "count": 1,
-          "name": "Cần tây",
-          "price": 78000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
           ]
         }
       ]
@@ -69,7 +42,7 @@
       "password": "123",
       "name": "Phan",
       "phone": "0967794663",
-      "role": "user",
+      "role": "admin",
       "id": 4,
       "carts": []
     },
@@ -78,7 +51,7 @@
       "password": "123",
       "name": "Tuan",
       "phone": "0967794663",
-      "role": "user",
+      "role": "banned",
       "id": 5,
       "carts": [
         {
