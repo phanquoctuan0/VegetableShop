@@ -1,9 +1,15 @@
-import { Table, Modal, Space, Switch, Input, Button } from 'antd';
+import { Table, Modal, Switch, Input, Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import {addCategoryListAction ,deleteCategoryListAction, editCategoryListAction, getCategoryListAction } from '../../../redux/actions';
+import {
+  addCategoryListAction,
+  deleteCategoryListAction,
+  editCategoryListAction,
+  getCategoryListAction
+}
+  from '../../../redux/actions';
 
 
 function CategoryManagementPage({
@@ -31,50 +37,32 @@ function CategoryManagementPage({
     deleteCategoryList({ id: id })
   }
 
-  function handAddCategory() {
+  function handleAddCategory() {
     const newCategory = {
-      name: valueInput, 
+      name: valueInput,
       status: 'off'
     }
-    addCategoryList({ 
-      category : newCategory
+    addCategoryList({
+      category: newCategory
     })
     setIsModalVisible2(false)
   }
 
   function handleEditCategory(id, status) {
-    if (status == 'on') {
-      const newStatus = 'off'
-      categoryList.data.forEach((item) => {
-        if (id === item.id) {
-          const category = {
-            id: item.id,
-            name: item.name,
-            status: newStatus
-          }
-          editCategoryList({
-            id: id,
-            category: category
-          })
+    const newStatus = status === 'on' ? 'off' : 'on'
+    categoryList.data.forEach((item) => {
+      if (id === item.id) {
+        const category = {
+          id: item.id,
+          name: item.name,
+          status: newStatus
         }
-      })
-
-    } else {
-      const newStatus = 'on'
-      categoryList.data.forEach((item) => {
-        if (id === item.id) {
-          const category = {
-            id: item.id,
-            name: item.name,
-            status: newStatus
-          }
-          editCategoryList({
-            id: id,
-            category: category
-          })
-        }
-      })
-    }
+        editCategoryList({
+          id: id,
+          category: category
+        })
+      }
+    })
   }
 
   console.log(categoryList.data);
@@ -89,10 +77,12 @@ function CategoryManagementPage({
       <Modal title="Add category"
         width="800px"
         visible={isModalVisible2}
-        onOk={() => { handAddCategory() }}
+        onOk={() => { handleAddCategory() }}
         onCancel={() => { setIsModalVisible2(false) }}
       >
-        <Input placeholder="Add category name" onChange={(e) => { setValueInput(e.target.value) }} />
+        <Input placeholder="Add category name"
+          onChange={(e) => { setValueInput(e.target.value) }}
+        />
       </Modal>
       <h2>Quản lý danh mục</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>

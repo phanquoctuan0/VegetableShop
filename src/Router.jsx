@@ -13,11 +13,13 @@ import AboutPage from './pages/About'
 
 import CartPage from './pages/Cart'
 import ProductDetailPage from './pages/ProductDetail'
+import OrderPage from './pages/OrderPage';
 
 import AdminHomePage from './pages/admin/Home'
 import AdminProductListPage from './pages/admin/ProductList';
 import AdminUserPage from './pages/admin/UserManagement';
-import AdminCategoryPage from './pages/admin/CategoryManagement'
+import AdminCategoryPage from './pages/admin/CategoryManagement';
+
 function BrowserRouter() {
   return (
     <Router history={history}>
@@ -28,6 +30,8 @@ function BrowserRouter() {
         <DefaultLayout exact path="/about" component = {AboutPage}/>
         <DefaultLayout exact path="/cart" component={CartPage} />
         <DefaultLayout exaxt path = "/product/:id" component = {ProductDetailPage}/>
+        <DefaultLayout exaxt path = "/order" component = {OrderPage}/>
+        
         <PrivateLayout exact path="/admin/"component={AdminHomePage} />
         <PrivateLayout exact path="/admin/product" component={AdminProductListPage} />
         <PrivateLayout exact path="/admin/user" component={AdminUserPage} />
