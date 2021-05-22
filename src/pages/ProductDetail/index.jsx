@@ -13,7 +13,6 @@ import {
 } from '../../redux/actions';
 
 
-
 function ProductDetailPage({
   productDetail,
   getProductDetail,
@@ -22,7 +21,7 @@ function ProductDetailPage({
   addToCart,
   productList,
 }) {
-  console.log("🚀 ~ file: index.jsx ~ line 25 ~ cartList", cartList)
+
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const productId = match.params.id;
@@ -37,12 +36,16 @@ function ProductDetailPage({
 
   const openNotificationAdd = () => {
     notification.open({
+      top: 80,
+      duration: 2,
       message: 'Thêm vào giỏ hàng thành công !',
     });
   };
 
   const openNotificationUpdate = () => {
     notification.open({
+      top:80,
+      duration: 2,
       message: 'Cập nhật giỏ hàng thành công !',
       icon: <CheckCircleTwoTone style={{ color: '#108ee9' }} />,
     });
@@ -70,7 +73,7 @@ function ProductDetailPage({
           userId: userInfo.id,
           carts: newCartList,
         })
-        openNotificationAdd()
+        openNotificationUpdate()
       } else {
         addToCart({
           userId: userInfo.id,
@@ -85,7 +88,7 @@ function ProductDetailPage({
             }
           ]
         })
-        openNotificationUpdate()
+        openNotificationAdd()
       }
     }
   }

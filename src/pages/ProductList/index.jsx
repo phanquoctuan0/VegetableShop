@@ -4,8 +4,8 @@ import { Row } from 'antd';
 
 import history from '../../utils/history';
 
-import { getCategoryListAction } from '../../redux/actions';
-import { getProductListAction } from '../../redux/actions';
+import { getCategoryListAction, getProductListAction } from '../../redux/actions';
+
 import ItemProduct from './components/ItemProduct'
 
 function ProductListPage({

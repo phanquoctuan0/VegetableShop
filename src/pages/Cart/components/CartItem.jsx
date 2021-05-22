@@ -9,8 +9,7 @@ function CartItem(props) {
     productId,
     handleIncrease,
     handleDecrease,
-    handleDeteteItem,
-    setIsModalVisible
+    handleDeteteItem
   } = props;
 
   return (

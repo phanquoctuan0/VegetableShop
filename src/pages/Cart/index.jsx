@@ -1,8 +1,7 @@
-import { Modal, Button, Space } from 'antd';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 import { connect } from 'react-redux';
-import {useState } from 'react';
+import history from '../../utils/history';
+
 
 import { addToCartAction, deleteItemCartAction } from '../../redux/actions'
 
@@ -15,10 +14,8 @@ function CartPage({
   deleteItemCart
 }) {
 
-  console.log("🚀 ~ file: index.jsx ~ line 14 ~ cartList", cartList)
 
   const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
-  const [isModalVisible, setIsModalVisible] = useState(false);
 
 
   function handleDeteteItem(productId) {
@@ -78,7 +75,6 @@ function CartPage({
           handleIncrease={handleIncrease}
           handleDecrease={handleDecrease}
           handleDeteteItem={handleDeteteItem}
-          setIsModalVisible = {setIsModalVisible}
         />
       )
     })
@@ -110,6 +106,7 @@ function CartPage({
         </div>
         <button
           className="btn order-btn"
+          // onClick = {history.push('/order')}
         >
           Tiến hành đặng hàng
         </button>
