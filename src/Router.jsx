@@ -19,6 +19,7 @@ import AdminHomePage from './pages/admin/Home'
 import AdminProductListPage from './pages/admin/ProductListManagement';
 import AdminUserPage from './pages/admin/UserManagement';
 import AdminCategoryPage from './pages/admin/CategoryManagement';
+import OrderCategoryPage from './pages/admin/OrderManagementPage';
 
 function BrowserRouter() {
   return (
@@ -36,6 +37,7 @@ function BrowserRouter() {
         <PrivateLayout exact path="/admin/product" component={AdminProductListPage} />
         <PrivateLayout exact path="/admin/user" component={AdminUserPage} />
         <PrivateLayout exact path="/admin/category" component={AdminCategoryPage} />
+        <PrivateLayout exact path="/admin/order" component={OrderCategoryPage} />
 
       </Switch>
     </Router>

@@ -33,7 +33,6 @@ function AdminProductPage({
   console.log("🚀 ~ file: index.jsx ~ line 21 ~ productList", productList)
 
 
-
   const { Search } = Input;
   const onSearch = value => console.log(value);
   const [isModalVisible, setIsModalVisible] = useState(false);
