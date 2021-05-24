@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Card, Row, Col, InputNumber, notification, Descriptions } from 'antd';
+import {
+  Row,
+  Space,
+  Button,
+  notification,
+  Form,
+  Input,
+  Select,
+  InputNumber,
+} from 'antd';
 import history from '../../utils/history';
 
 import { connect } from 'react-redux';
@@ -14,7 +23,7 @@ import {
 
 
 
-function ProductDetailPage({
+function ProfilePage({
   productDetail,
   getProductDetail,
   match,
@@ -28,6 +37,8 @@ function ProductDetailPage({
   const productId = match.params.id;
   const [amount, setAmount] = useState(1);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  const [productForm] = Form.useForm();
 
   useEffect(() => {
     getProductDetail({ id: productId });
@@ -102,53 +113,48 @@ function ProductDetailPage({
   }
 
   return (
-    <Row gutter={6}>
-      <Col span={12} style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ marginTop: 16, marginBottom: 16 }}>
-          <div style={{ width: 420, marginLeft: 130 }}>
-            <div className="slide-img">
-              <img src={productDetail.data.img}></img>
-            </div>
-          </div>
-        </div>
-      </Col>
-      <Col span={12} style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ marginTop: 32, marginBottom: 16 }}>
-          <div style={{ width: 420, height: 420, marginLeft: 130, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
-            <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
-              <p>{productDetail.data.name}</p>
-            </div>
-            <div>
-              <div className="type">
-                <p>Loại: {productDetail.data.category.name}</p>
-              </div>
-              <div className="price" style={{ color: '#008848', fontWeight: 700, fontSize: '120%' }}>
-                <p>Giá: {productDetail.data.price} </p>
-              </div>
-              <div className="number">
-                <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
-              </div>
-              <div>
-                <button className="buy-btn" style={{ color: '#008848', fontSize: '90%' }} onClick={() => handleAddToCart()}>
-                  Cho vào giỏ hàng
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Col>
-
-      <Descriptions title="Mô tả:" style={{ marginLeft: 130, marginRight: 130, textAlign: 'justify' }}>
-        <Descriptions.Item style={{ width: 500, marginLeft: 130, fontWeight: 700, }}>
-          {productDetail.data.description}</Descriptions.Item>
-      </Descriptions>
-
-      <Descriptions title="Sản phẩm tương tự:" style={{ marginLeft: 130, marginRight: 130 }}>
-        <Row gutter={8}>
-          {renderProductList()}
-        </Row>
-      </Descriptions>
-    </Row>
+    <>
+      <div style={{ width:700, margin: '16px auto', padding: 15, backgroundColor:"#edeae6" }}>
+        <h2>Thông tin tài khoản</h2>
+        <Form
+          form={productForm}
+          layout="vertical"
+          name="productForm"
+          // initialValues={productSelected.id
+          //   ? { ...productSelected, hasOption: false }
+          //   : {}
+          // }
+        >
+          <Form.Item name="email" label="Email">
+            <Input placeholder="Email" />
+          </Form.Item>
+          <Form.Item name="name" label="Họ tên">
+            <Input placeholder="Họ tên">
+              {/* {renderCategoryOptions()} */}
+            </Input>
+          </Form.Item>
+          <Form.Item name="phone" label="SĐT">
+            <Input placeholder="SĐT" />
+          </Form.Item>
+          <Form.Item name="password" label="Mật khẩu cũ">
+            <Input placeholder="Mật khẩu cũ" />
+          </Form.Item>
+          <Form.Item name="re-password" label="Mật khẩu mới">
+            <Input placeholder="Mật khẩu mới" />
+          </Form.Item>
+          <Row justify="end">
+            <Space>
+              <Button style={{backgroundColor:"#d42c2c", color:"white"}}>Lưu</Button>
+              {/* <Button type="primary" onClick={() => handleSubmitForm()}>Lưu</Button> */}
+            </Space>
+          </Row>
+        </Form>
+      </div>
+      <div style={{ width:700, margin: '16px auto', padding: 15, backgroundColor:"#edeae6" }}>
+        <h2>Lịch sử mua hàng</h2>
+        
+      </div>
+    </>
   );
 }
 
@@ -174,4 +180,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

@@ -9,6 +9,7 @@ const initialState = {
     load: false,
     error: '',
   },
+  productSelected: {},
 };
 
 export default function productReducer(state = initialState, action) {
@@ -90,7 +91,7 @@ export default function productReducer(state = initialState, action) {
     case 'REGISTER_SUCCESS': {
       const { data } = action.payload;
       const newUserList = state.userList.data;
-      newUserList.splice(newUserList.length,0,data);
+      newUserList.splice(newUserList.length, 0, data);
       return {
         ...state,
         userInfo: {
@@ -154,13 +155,13 @@ export default function productReducer(state = initialState, action) {
       };
     }
     case 'DELETE_USER_SUCCESS': {
-      const {id, data } = action.payload;      
+      const { id, data } = action.payload;
       const newUser = state.userList.data;
-      const indexOf = newUser.findIndex((item)=>{
+      const indexOf = newUser.findIndex((item) => {
         return item.id == id;
       })
-      
-      newUser.splice(indexOf,1,data);
+
+      newUser.splice(indexOf, 1, data);
       return {
         ...state,
         userList: {
@@ -182,9 +183,10 @@ export default function productReducer(state = initialState, action) {
         },
       };
     }
-    
+
     default: {
       return state;
     }
   }
 }
+
