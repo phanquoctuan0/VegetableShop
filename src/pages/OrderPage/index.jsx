@@ -33,7 +33,6 @@ function OrderPage({ cartList, addToOrder }) {
     const name = e.target.name;
     setOrderInfo({
       ...orderInfo,
-      delivery: 'waiting',
       [name]: value,
     });
   }
@@ -52,7 +51,8 @@ function OrderPage({ cartList, addToOrder }) {
     }
 
     addToOrder({
-      orderInforAddress: orderInforAddress
+      orderInforAddress: orderInforAddress,
+      status: 'waiting',
     })
     openNotification();
     history.push('/')

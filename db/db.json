@@ -237,6 +237,16 @@
       "description": "Bưởi năm roi của Organica đạt chứng nhận Global GAP. Bưởi được trồng tại Cần Thơ.",
       "price": 75000,
       "id": 19
+    },
+    {
+      "name": "Dưa hấu",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/8/7751-962831612756494-1612756494--400x400.png"
+      ],
+      "categoryId": 3,
+      "description": "Dưa hấu - loại trái cây được yêu thích nhất mùa hè được xếp hạng là loại thực phẩm lành mạnh nhất bởi nó không có chất béo và giàu vitamin cùng các dưỡng chất thiết yếu cho cơ thể khỏe mạnh.",
+      "price": 216000,
+      "id": 20
     }
   ],
   "categories": [
@@ -341,5 +351,102 @@
       "id": 4
     }
   ],
-  "carts": []
+  "carts": [
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 37500,
+        "date": "Tu/35/2021",
+        "time": "1:35 AM",
+        "cartList": [
+          {
+            "productId": 2,
+            "count": 1,
+            "name": "Bó xôi",
+            "price": 37500,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+            ]
+          }
+        ],
+        "userId": 3
+      },
+      "status": "confirmed",
+      "id": 1
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 225000,
+        "date": "Tu/38/2021",
+        "time": "1:38 AM",
+        "cartList": [
+          {
+            "productId": 2,
+            "count": 6,
+            "name": "Bó xôi",
+            "price": 37500,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+            ]
+          }
+        ],
+        "userId": 3
+      },
+      "status": "cancelled",
+      "id": 2
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 102000,
+        "date": "Tu/39/2021",
+        "time": "1:39 AM",
+        "cartList": [
+          {
+            "productId": 5,
+            "count": 3,
+            "name": "Cải cầu vồng",
+            "price": 34000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
+            ]
+          }
+        ],
+        "userId": 3
+      },
+      "status": "confirmed",
+      "id": 3
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 112500,
+        "date": "Tu/54/2021",
+        "time": "1:54 AM",
+        "cartList": [
+          {
+            "productId": 2,
+            "count": 3,
+            "name": "Bó xôi",
+            "price": 37500,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
+            ]
+          }
+        ],
+        "userId": 3
+      },
+      "status": "waiting",
+      "id": 4
+    }
+  ]
 }
