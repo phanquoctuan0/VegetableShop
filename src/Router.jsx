@@ -16,7 +16,7 @@ import ProductDetailPage from './pages/ProductDetail'
 import OrderPage from './pages/OrderPage';
 
 import AdminHomePage from './pages/admin/Home'
-import AdminProductListPage from './pages/admin/ProductList';
+import AdminProductListPage from './pages/admin/ProductListManagement';
 import AdminUserPage from './pages/admin/UserManagement';
 import AdminCategoryPage from './pages/admin/CategoryManagement';
 

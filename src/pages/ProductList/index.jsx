@@ -102,7 +102,7 @@ function ProductListPage({
         </div>
         {renderCategory()}
       </Row>
-      <Row gutter={8}>
+      <Row gutter={[16,16]}>
         {renderProductList()}
       </Row>
       <div style={{

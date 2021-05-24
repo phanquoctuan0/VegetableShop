@@ -7,7 +7,7 @@ function ItemProduct(props) {
   const { title, price, img, id, description } = props;
   return (
     <Col span={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div className="box" style={{ marginTop: 16, marginBottom: 16 }}>
+      <div className="box" >
         <div className="slide-img">
           <img src={img}></img>
           <div className="overlay">

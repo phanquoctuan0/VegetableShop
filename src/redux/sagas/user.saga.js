@@ -114,7 +114,6 @@ function* registerSaga(action) {
 }
 
 function* deleteUserSaga(action) {
-  console.log("🚀 ~ file: user.saga.js ~ line 112 ~ function*deleteUserSaga ~ action", action)
   try {
     const { id, user } = action.payload;
     console.log(user);
@@ -129,6 +128,7 @@ function* deleteUserSaga(action) {
         role: user.role
       }
     });
+    yield put({ type: "GET_USER_LIST_REQUEST"});
     yield put({
       type: "DELETE_USER_SUCCESS",
       payload: {
@@ -151,5 +151,4 @@ export default function* userSaga() {
   yield takeEvery('REGISTER_REQUEST', registerSaga);
   yield takeEvery('GET_USER_LIST_REQUEST', getUserListSaga);
   yield takeEvery('DELETE_USER_REQUEST', deleteUserSaga);
-
 }

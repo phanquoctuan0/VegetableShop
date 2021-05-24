@@ -13,7 +13,7 @@ function LoginPage({ login }) {
   };
 
   return (
-    <div style={{ width: 500, margin: '16px auto' }}>
+    <div style={{ width: 500, margin: '16px auto',height: '70vh' }}>
       <Card size="small">
         {/* <h2>LOGIN</h2> */}
         <Form
