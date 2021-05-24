@@ -33,6 +33,7 @@ function OrderPage({ cartList, addToOrder }) {
     const name = e.target.name;
     setOrderInfo({
       ...orderInfo,
+      delivery: 'waiting',
       [name]: value,
     });
   }

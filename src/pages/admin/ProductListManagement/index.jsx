@@ -52,10 +52,6 @@ function AdminProductPage({
   const [addProductForm] = Form.useForm();
 
 
-  function renderEditProduct() {
-
-  }
-
   function callModal(id) {
     productList.data.forEach((item) => {
       if (id === item.id) {
@@ -90,7 +86,8 @@ function AdminProductPage({
       name: item.name,
       categoryName: item.category.name,
       price: item.price.toLocaleString(),
-      id: item.id
+      id: item.id,
+      img: item.img
     }
   })
 
@@ -99,6 +96,16 @@ function AdminProductPage({
       title: 'Tên sản phẩm',
       dataIndex: 'name',
       key: 'name',
+    },
+    {
+      title: 'Hình ảnh',
+      dataIndex: 'img',
+      key: 'img',
+      render: (_, record) => {
+        return (
+          <img src = {record.img} style = {{height: '32px'}}/>
+        )
+      }
     },
     {
       title: 'Loại sản phẩm',
@@ -132,6 +139,8 @@ function AdminProductPage({
         )
       }
     },
+
+
   ];
   return (
     <div className='products'>
@@ -175,7 +184,7 @@ function AdminProductPage({
               style={{ width: '100%' }}
             />
           </Form.Item>
-          <div style = {{textAlign: 'right'}}>
+          <div style={{ textAlign: 'right' }}>
             <Button htmlType='submit'>Thay đổi</Button>
           </div>
         </Form>
@@ -232,7 +241,7 @@ function AdminProductPage({
           <Form.Item name="description" label="Mô tả">
             <Input placeholder="Mô tả" />
           </Form.Item>
-          <div style = {{textAlign: 'right'}}>
+          <div style={{ textAlign: 'right' }}>
             <Button htmlType='submit'>Thêm sản phẩm</Button>
           </div>
         </Form>
@@ -246,7 +255,6 @@ function AdminProductPage({
         marginBottom: '14px'
       }}
       >
-        <div></div>
         <Search
           placeholder="Nhập vào thông tin"
           allowClear
