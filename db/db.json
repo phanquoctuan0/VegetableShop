@@ -1,30 +1,11 @@
 {
   "users": [
     {
-      "id": 2,
-      "email": "tra@gmail.com",
-      "password": "1234",
-      "name": "Tra",
-      "phone": "0123213214",
-      "role": "admin",
-      "carts": [
-        {
-          "productId": 12,
-          "count": 1,
-          "name": "Chuối xiêm",
-          "price": 65000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
-          ]
-        }
-      ]
-    },
-    {
       "email": "tuan@gmail.com",
       "password": "4321",
       "name": "Tuan ",
       "phone": "6263231239",
-      "role": "user",
+      "role": "admin",
       "id": 3,
       "carts": []
     },
@@ -42,7 +23,7 @@
       "password": "123",
       "name": "Tuan",
       "phone": "0967794663",
-      "role": "banned",
+      "role": "user",
       "id": 5,
       "carts": [
         {
@@ -147,16 +128,6 @@
       "description": "Cây cải thảo là loài thực vật thuộc họ cải và là loại rau phổ biến trong đời sống con người. Ngoài ra, cải thảo còn có một số tên gọi khác như: Cải bao, cải cuốn, bắp cải tây,...Tên khoa học là Brassicaceae. Trong cải thảo có nhiều thành phần hóa học mang nhiều dinh dưỡng cần thiết cho con người. Vì thế, cải thảo được ứng dụng chủ yếu trong chế biến thực phẩm. Một số tình huống cụ thể, cải thảo còn được xem là thảo dược chữa bệnh."
     },
     {
-      "id": 15,
-      "name": "Bông cải xanh",
-      "categoryId": 1,
-      "price": 43500,
-      "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"
-      ],
-      "description": "Bông cải xanh được chia làm ba loại chính gồm súp lơ xanh, bông cải mầm, súp lơ tím. Đây là nguồn thực phẩm chứa nhiều chất dinh dưỡng như vitamin, khoáng chất, chất xơ và chất chống oxy hóa. Một trong những lợi ích lớn nhất mà bông cải xanh mang lại chính là hàm lượng các chất thiết yếu cao. Lượng vitamin, khoáng chất, chất xơ và một số hợp chất sinh học có trong bông cải xanh rất tốt cho sức khỏe. Bông cải xanh chứa nhiều vitamin C, vitamin A, vitamin K, vitamin B9 (Folate) và một số khoáng chất như Kali, Phốt-pho và Selen."
-    },
-    {
       "id": 16,
       "name": "Măng tây xanh",
       "categoryId": 1,
@@ -168,18 +139,19 @@
     },
     {
       "id": 17,
-      "name": "Rau dền",
+      "name": "Rau dềnn",
       "categoryId": 1,
       "price": 37500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
       ],
-      "description": "Rau dền là loại rau phổ biến trong các bữa ăn của mọi gia đình. Nó có vị ngọt, tính mát, chứa nhiều chất dinh dưỡng cần thiết cho cơ thể. Đặc biệt, với hàm lượng chất sắt rất cao, đây là một trong những loại thực phẩm cung cấp chất sắt phổ biến nhất hiện nay với mọi gia đình Việt. "
+      "description": "Rau dền là loại rau phổ biến trong các bữa ăn của mọi gia đình. Nó có vị ngọt, tính mát, chứa nhiều chất dinh dưỡng cần thiết cho cơ thể. Đặc biệt, với hàm lượng chất sắt rất cao, đây là một trong những loại thực phẩm cung cấp chất sắt phổ biến nhất hiện nay với mọi gia đình Việt. ",
+      "categoryName": "Rau xanh"
     },
     {
       "id": 6,
-      "name": "Su hào",
-      "categoryId": 2,
+      "name": "Su hàoo",
+      "categoryId": 1,
       "price": 31500,
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"
@@ -245,6 +217,26 @@
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/October/17/6831-874531602922792-1602922792--400x400.png"
       ],
       "description": "Chuối xiêm chứa nhiều vitamin, protein, các chất khoáng như magie, natri, canxi, lưu huỳnh, kẽm, sắt, kalium, lipid, protid, glucid, phosphat. Soi với khoai tây, thịt, thì chuối có giá trị về dinh dưỡng hơn và dễ tiêu hóa hơn. Thường xuyên ăn chuối xiêm giúp ổn định huyết áp, nhuận trường, hỗ trợ dạ dày, bổ máu, giảm căng thẳng, giảm đột quỵ, tăng cường sức khỏe tim mạch, hỗ trợ điều trị gout…"
+    },
+    {
+      "name": "Bơ 034 hữu cơ",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
+      ],
+      "categoryId": 3,
+      "description": "Bơ 034 có hình dáng thon dài, còn được nhiều người gọi là bơ dài. Bơ có màu xanh tươi khi xanh, khi chín chuyển màu xanh đậm hơi bóng và có lấm tấm đốm vàng. Vỏ mỏng, cơm vàng ươm, độ mềm dẻo cao. Tỷ lệ thịt bơ chiếm đến 85%. Hương thơm nhẹ đặc trưng mùi bơ, chín cũng không gắt và nồng.",
+      "price": 199000,
+      "id": 18
+    },
+    {
+      "name": "Bưởi năm roi",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/10/8246-908371620619748-1620619748--400x400.jpg"
+      ],
+      "categoryId": 3,
+      "description": "Bưởi năm roi của Organica đạt chứng nhận Global GAP. Bưởi được trồng tại Cần Thơ.",
+      "price": 75000,
+      "id": 19
     }
   ],
   "categories": [
@@ -267,16 +259,6 @@
       "id": 4,
       "name": "Nước ép",
       "status": "on"
-    },
-    {
-      "id": 9,
-      "name": "Rong biển",
-      "status": "off"
-    },
-    {
-      "name": "Rau thơm",
-      "status": "on",
-      "id": 10
     }
   ],
   "orders": [
@@ -313,40 +295,6 @@
         }
       ],
       "id": 1
-    },
-    {
-      "userId": 2,
-      "isPay": false,
-      "carts": [
-        {
-          "productId": 2,
-          "count": 1,
-          "name": "Bó xôi",
-          "price": 37500,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
-          ]
-        },
-        {
-          "productId": 5,
-          "count": 2,
-          "name": "Cải cầu vồng",
-          "price": 34000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/20/7793-400151613807268-1613807268--400x400.png"
-          ]
-        },
-        {
-          "productId": 3,
-          "count": 1,
-          "name": "Xà lách ria",
-          "price": 24000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
-          ]
-        }
-      ],
-      "id": 2
     },
     {
       "userId": 4,
@@ -389,114 +337,32 @@
         "fullName": "Phan Quốc Tuấn",
         "phone": "0967794663",
         "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 698000,
-        "date": "Sa/10/2021",
-        "time": "2:10 PM",
+        "totalPrice": 184500,
+        "date": "Su/29/2021",
+        "time": "9:29 AM",
         "cartList": [
           {
-            "productId": 14,
-            "count": 2,
-            "name": "Cải thảo",
-            "price": 37500,
+            "productId": 3,
+            "count": 3,
+            "name": "Xà lách ria",
+            "price": 24000,
             "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
             ]
           },
           {
-            "productId": 17,
-            "count": 2,
-            "name": "Rau dền",
+            "productId": 2,
+            "count": 3,
+            "name": "Bó xôi",
             "price": 37500,
             "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
-            ]
-          },
-          {
-            "productId": 9,
-            "count": 1,
-            "name": "Táo Juliet",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7648-727531611722157-1611722157--400x400.png"
             ]
           }
         ],
-        "userId": 2
+        "userId": 3
       },
       "id": 1
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "",
-        "phone": "",
-        "address": "-",
-        "totalPrice": 453000,
-        "date": "Sa/23/2021",
-        "time": "2:23 PM",
-        "cartList": [
-          {
-            "productId": 10,
-            "count": 3,
-            "name": "Đu đủ",
-            "price": 35000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"
-            ]
-          },
-          {
-            "productId": 15,
-            "count": 1,
-            "name": "Bông cải xanh",
-            "price": 43500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7185-245751606894010-1606894010--400x400.png"
-            ]
-          },
-          {
-            "productId": 4,
-            "count": 1,
-            "name": "Cần tây",
-            "price": 78000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
-            ]
-          }
-        ],
-        "userId": 2
-      },
-      "id": 2
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 94500,
-        "date": "Sa/37/2021",
-        "time": "2:37 PM",
-        "cartList": [
-          {
-            "productId": 6,
-            "count": 2,
-            "name": "Su hào",
-            "price": 31500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"
-            ]
-          },
-          {
-            "productId": 8,
-            "count": 1,
-            "name": "Cà rốt",
-            "price": 31500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png"
-            ]
-          }
-        ],
-        "userId": 2
-      },
-      "id": 3
     }
   ]
 }

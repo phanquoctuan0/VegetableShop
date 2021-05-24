@@ -31,7 +31,7 @@ export default function productReducer(state = initialState, action) {
       }
     }
     case 'GET_PRODUCT_LIST_SUCCESS': {
-      const { data, more} = action.payload;
+      const { data, more } = action.payload;
       if (more) {
         return {
           ...state,
@@ -139,13 +139,13 @@ export default function productReducer(state = initialState, action) {
       };
     }
     case 'EDIT_CATEGORY_LIST_SUCCESS': {
-      const {id, data } = action.payload;      
+      const { id, data } = action.payload;
       const newCategory = state.categoryList.data;
-      const indexOf = newCategory.findIndex((item)=>{
+      const indexOf = newCategory.findIndex((item) => {
         return item.id == id;
       })
-      
-      newCategory.splice(indexOf,1,data);
+
+      newCategory.splice(indexOf, 1, data);
       return {
         ...state,
         categoryList: {
@@ -167,7 +167,7 @@ export default function productReducer(state = initialState, action) {
         },
       };
     }
-    
+
     case 'DELETE_CATEGORY_LIST_REQUEST': {
       return {
         ...state,
@@ -180,11 +180,11 @@ export default function productReducer(state = initialState, action) {
     case 'DELETE_CATEGORY_LIST_SUCCESS': {
       const { id } = action.payload;
       const newCategory = state.categoryList.data;
-      const indexOf = newCategory.findIndex((item)=>{
+      const indexOf = newCategory.findIndex((item) => {
         return item.id == id;
       })
-      
-      newCategory.splice(indexOf,1);
+
+      newCategory.splice(indexOf, 1);
       return {
         ...state,
         categoryList: {
@@ -215,9 +215,9 @@ export default function productReducer(state = initialState, action) {
       };
     }
     case 'ADD_CATEGORY_LIST_SUCCESS': {
-      const {data } = action.payload;      
-      const newCategory = state.categoryList.data;   
-      newCategory.splice(0,0,data);
+      const { data } = action.payload;
+      const newCategory = state.categoryList.data;
+      newCategory.splice(0, 0, data);
       return {
         ...state,
         categoryList: {
@@ -242,6 +242,116 @@ export default function productReducer(state = initialState, action) {
     default: {
       return state;
     }
-    
+
+    case 'EDIT_PRODUCT_LIST_REQUEST': {
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          load: true
+        },
+      };
+    }
+    case 'EDIT_PRODUCT_LIST_SUCCESS': {
+      const { id, data } = action.payload;
+      const newProductList = state.productList.data;
+      const indexOf = newProductList.findIndex((item) => {
+        return item.id == id;
+      })
+
+      newProductList.splice(indexOf, 1, data);
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          data: newProductList,
+          load: false
+        },
+      };
+    }
+
+    case 'EDIT_PRODUCT_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          error: error,
+          load: false
+        },
+      };
+    }
+    case 'DELETE_PRODUCT_LIST_REQUEST': {
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          load: true
+        },
+      };
+    }
+    case 'DELETE_PRODUCT_LIST_SUCCESS': {
+      const { id } = action.payload;
+      const newCategory = state.productList.data;
+      const indexOf = newCategory.findIndex((item) => {
+        return item.id == id;
+      })
+
+      newCategory.splice(indexOf, 1);
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          data: newCategory,
+          load: false
+        },
+      };
+    }
+    case 'DELETE_PRODUCT_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          error: error,
+          load: false
+        },
+      };
+    }
+
+    case 'ADD_PRODUCT_LIST_REQUEST': {
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          load: true
+        },
+      };
+    }
+    case 'ADD_PRODUCT_LIST_SUCCESS': {
+      const { data } = action.payload;
+      const newProduct = state.productList.data;
+      newProduct.splice(0, 0, data);
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          data: newProduct,
+          load: false
+        },
+      };
+    }
+
+    case 'ADD_PRODUCT_LIST_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          error: error,
+          load: false
+        },
+      };
+    }
   }
 }
