@@ -86,7 +86,6 @@ function CategoryManagementPage({
       </Modal>
       <h2>Quản lý danh mục</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
-        <div></div>
         <Search
           placeholder="Nhập vào thông tin"
           allowClear

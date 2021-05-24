@@ -100,7 +100,6 @@ function AdminUserPage({
       </Modal>
       <h2>Quản lý người dùng</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
-        <div></div>
         <Search
           placeholder="Nhập vào thông tin"
           allowClear
