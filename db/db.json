@@ -23,7 +23,7 @@
       "password": "123",
       "name": "Tuan",
       "phone": "0967794663",
-      "role": "user",
+      "role": "admin",
       "id": 5,
       "carts": [
         {
@@ -269,16 +269,6 @@
       "id": 4,
       "name": "Nước ép",
       "status": "on"
-    },
-    {
-      "name": "Trái cây nhiệt đới",
-      "status": "off",
-      "id": 5
-    },
-    {
-      "name": "Trái cây khô",
-      "status": "off",
-      "id": 6
     }
   ],
   "orders": [
@@ -447,6 +437,57 @@
       },
       "status": "waiting",
       "id": 4
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 1269500,
+        "date": "Tu/44/2021",
+        "time": "3:44 PM",
+        "cartList": [
+          {
+            "productId": 3,
+            "count": 6,
+            "name": "Xà lách ria",
+            "price": 24000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
+            ]
+          },
+          {
+            "productId": 17,
+            "count": 9,
+            "name": "Rau dềnn",
+            "price": 37500,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
+            ]
+          },
+          {
+            "productId": 16,
+            "count": 5,
+            "name": "Măng tây xanh",
+            "price": 78000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
+            ]
+          },
+          {
+            "productId": 18,
+            "count": 2,
+            "name": "Bơ 034 hữu cơ",
+            "price": 199000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
+            ]
+          }
+        ],
+        "userId": 3
+      },
+      "status": "waiting",
+      "id": 5
     }
   ]
 }

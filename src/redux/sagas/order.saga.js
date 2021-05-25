@@ -43,6 +43,8 @@ function* getOrderListSaga(action) {
       url: `http://localhost:3001/carts`,
       params: {
         ...status && { status },
+        _sort : "id",
+        _order: "desc"
       }
     });
     yield put({

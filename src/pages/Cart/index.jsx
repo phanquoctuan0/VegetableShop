@@ -34,7 +34,7 @@ function CartPage({
     const newCartList = cartList.data;
     newCartList.splice(indexOfProduct, 1, {
       productId: parseInt(productId),
-      count: cartList.data[indexOfProduct].count + 1,
+      count: productDetail.count + 1,
       name: productDetail.name,
       price: productDetail.price,
       img: [productDetail.img]
@@ -50,7 +50,7 @@ function CartPage({
     const newCartList = cartList.data;
     newCartList.splice(indexOfProduct, 1, {
       productId: parseInt(productId),
-      count: cartList.data[indexOfProduct].count - 1,
+      count: productDetail.count - 1,
       name: productDetail.name,
       price: productDetail.price,
       img: [productDetail.img]
@@ -106,7 +106,7 @@ function CartPage({
         </div>
         <button
           className="btn order-btn"
-          // onClick = {history.push('/order')}
+          onClick = {()=>{history.push('/order')}}
         >
           Tiến hành đặng hàng
         </button>
@@ -114,6 +114,11 @@ function CartPage({
     </div>
   )
 }
+
+var redirectPage = function(){
+  window.location=""
+};
+setTimeout(redirectPage, 3000);
 
 const mapStateToProps = (state) => {
   const { cartList } = state.cartReducer;

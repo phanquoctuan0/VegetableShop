@@ -247,7 +247,7 @@ function AdminProductPage({
       </Modal>
 
 
-      <h2>Quản lý danh mục</h2>
+      <h2>Quản lý sản phẩm</h2>
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -267,12 +267,12 @@ function AdminProductPage({
             style={{ height: '100%' }}
             onClick={() => { setIsModalVisible2(true) }}
           >
-            Thêm danh mục
+            Thêm sản phẩm
           </Button>
         </div>
       </div>
       <Table
-        // loading={productList.load}
+        loading={productList.load}
         size="middle"
         columns={tableColumns}
         dataSource={tableData}
