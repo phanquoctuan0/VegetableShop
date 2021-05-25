@@ -1,4 +1,4 @@
-import { Table, Modal, Switch, Input, Button } from 'antd';
+import { Table, Modal, Switch, Input, Button, Popconfirm } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -22,9 +22,7 @@ function CategoryManagementPage({
 
   const { Search } = Input;
   const onSearch = value => console.log(value);
-  const { Column } = Table;
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
   const [valueInput, setValueInput] = useState('');
 
@@ -65,22 +63,67 @@ function CategoryManagementPage({
     })
   }
 
-  console.log(categoryList.data);
+  const tableColumns = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: 'Tên danh mục',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Trạng thái',
+      dataIndex: 'status',
+      key: 'status',
+      render: (_, record) => {
+        if (record.status == 'on') {
+          return <div>Đang bán</div>
+        } else {
+          return <div>Tạm ngưng bán</div>
+        }
+      }
+    },
+    {
+      title: 'Hành động',
+      dataIndex: 'action',
+      key: 'action',
+      render: (_, record) => (
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Switch defaultChecked={record.status === 'on' ? true : false}
+            onChange={() => { handleEditCategory(record.id, record.status) }}
+          />
+          <Popconfirm
+            title={`Bạn có chắc muốn xóa danh mục ${record.name}`}
+            onConfirm={() => { handleDeleteCategory(record.id) }}
+          >
+            <DeleteOutlined
+              style={{
+                color: 'red',
+                cursor: 'pointer',
+                fontSize: '180%'
+              }}
+            />
+          </Popconfirm>
+          <div></div>
+        </div>
+      )
+    },
+  ];
+
   return (
     <div className='category'>
-      <Modal title="Edit category"
-        visible={isModalVisible}
-        onOk={() => { handleEditCategory() }}
-        onCancel={() => { setIsModalVisible(false) }}
-      >
-      </Modal>
-      <Modal title="Add category"
+      <Modal title="Thêm danh mục sản phẩm"
         width="800px"
         visible={isModalVisible2}
         onOk={() => { handleAddCategory() }}
         onCancel={() => { setIsModalVisible2(false) }}
+        okText='Thêm'
+        cancelText='Hủy'
       >
-        <Input placeholder="Add category name"
+        <Input placeholder="Tên danh mục sản phẩm"
           onChange={(e) => { setValueInput(e.target.value) }}
         />
       </Modal>
@@ -103,32 +146,12 @@ function CategoryManagementPage({
           </Button>
         </div>
       </div>
-      <Table dataSource={categoryList.data}
+      <Table
+        dataSource={categoryList.data}
+        loading={categoryList.load}
+        columns={tableColumns}
         size='middle'
-      >
-        <Column title="ID" dataIndex="id" id="id" />
-        <Column title="Name" dataIndex="name" id="name" />
-        <Column title="Status" dataIndex="status" id="status" />
-        <Column
-          width='200px'
-          title="Action"
-          render={(record) => (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Switch defaultChecked={record.status === 'on' ? true : false}
-                onChange={() => { handleEditCategory(record.id, record.status) }}
-              />
-              <DeleteOutlined
-                onClick={() => { handleDeleteCategory(record.id) }}
-                style={{
-                  color: 'red',
-                  cursor: 'pointer',
-                  fontSize: '180%'
-                }}
-              />
-            </div>
-          )}
-        />
-      </Table>
+      />
     </div>
   )
 }

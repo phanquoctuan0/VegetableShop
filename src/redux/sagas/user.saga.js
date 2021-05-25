@@ -9,6 +9,10 @@ function* getUserListSaga(action) {
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/users',
+      params: {
+        _sort : "id",
+        _order: "desc"
+      }
     });
     yield put({
       type: "GET_USER_LIST_SUCCESS",

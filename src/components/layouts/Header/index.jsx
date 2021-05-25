@@ -31,8 +31,6 @@ function Header({ userInfo, cartList }) {
   useEffect(() => {
 
   }, [])
-  const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
-
   function handleLogout() {
     localStorage.removeItem("userInfo");
     window.location.reload();

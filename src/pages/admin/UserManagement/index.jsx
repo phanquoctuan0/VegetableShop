@@ -1,4 +1,4 @@
-import { Table, Modal, Space, Radio, Input, Button } from 'antd';
+import { Table, Modal, Space, Radio, Input, Button, Popconfirm } from 'antd';
 import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
@@ -16,7 +16,6 @@ function AdminUserPage({
   useEffect(() => {
     getUserList();
   }, []);
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const { Search } = Input;
   const onSearch = value => console.log(value);
@@ -72,15 +71,69 @@ function AdminUserPage({
     })
   }
 
+  const tableColumns = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: 'Tên',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: 'Loại tài khoản',
+      dataIndex: 'role',
+      key: 'role',
+    },
+    {
+      title: 'Hành động',
+      dataIndex: 'action',
+      key: 'action',
+      render: (_,record) => (
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <EditOutlined
+            onClick={() => { setIsModalVisible(true); setIsIdEdit(record.id) }}
+            style={{
+              color: 'blue',
+              cursor: 'pointer',
+              fontSize: '180%'
+            }}
+          />
+          <Popconfirm
+            title={`Bạn có chắc muốn khóa người dùng này`}
+            onConfirm={() => { handleDeleteUser(record.id) }}
+          >
+            <UserDeleteOutlined
+              style={{
+                color: 'red',
+                cursor: 'pointer',
+                fontSize: '180%'
+              }}
+            />
+          </Popconfirm>
+          <div></div>
+        </div>
+      )
+    },
 
+  ];
 
 
   return (
     <div className='home' >
-      <Modal title="Edit role"
+      <Modal title="Chỉnh sửa tài khoản"
         visible={isModalVisible}
         onOk={() => { handleEditUser(isIdEdit) }}
         onCancel={() => { setIsModalVisible(false) }}
+        okText='Xác nhận'
+        cancelText='Hủy'
       >
         <Radio.Group onChange={onChange} value={valueRadio}>
           <Space direction="vertical">
@@ -90,11 +143,13 @@ function AdminUserPage({
           </Space>
         </Radio.Group>
       </Modal>
-      <Modal title="Add User"
+      <Modal title="Thêm tài khoản"
         width="800px"
         visible={isModalVisible2}
         onOk={() => { setIsModalVisible2(false) }}
         onCancel={() => { setIsModalVisible2(false) }}
+        okText='Thêm'
+        cancelText='Hủy'
       >
         <Register />
       </Modal>
@@ -110,45 +165,19 @@ function AdminUserPage({
         />
         <div>
           <Button type="primary"
-            style={{ height : '100%' }}
+            style={{ height: '100%' }}
             onClick={() => { setIsModalVisible2(true) }}
           >
             Thêm người dùng
           </Button>
         </div>
       </div>
-      <Table dataSource={userList.data}
+      <Table
+        dataSource={userList.data}
+        loading={userList.load}
+        columns={tableColumns}
         size='middle'
-      >
-        <Column title="ID" dataIndex="id" id="id" />
-        <Column title="Name" dataIndex="name" id="name" />
-        <Column title="Email" dataIndex="email" id="email" />
-        <Column title="Role" dataIndex="role" id="role" />
-        <Column
-          width='200px'
-          title="Action"
-          render={(record) => (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <EditOutlined
-                onClick={() => { setIsModalVisible(true); setIsIdEdit(record.id) }}
-                style={{
-                  color: 'blue',
-                  cursor: 'pointer',
-                  fontSize: '180%'
-                }}
-              />
-              <UserDeleteOutlined
-                onClick={() => { handleDeleteUser(record.id) }}
-                style={{
-                  color: 'red',
-                  cursor: 'pointer',
-                  fontSize: '180%'
-                }}
-              />
-            </div>
-          )}
-        />
-      </Table>
+      />
     </div>
   );
 }

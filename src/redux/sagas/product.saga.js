@@ -12,6 +12,8 @@ function* getProductListSaga(action) {
         _limit: limit,
         ...categoryId && { categoryId },
         _expand: 'category',
+        _sort : "id",
+        _order: "desc"
         // ...searchKey && { q: searchKey },
         // _sort: 'price',
         // _order: 'desc',
@@ -41,7 +43,8 @@ function* getProductDetailSaga(action) {
       method: 'GET',
       url: `http://localhost:3001/products/${id}`,
       params: {
-        _expand: 'category'
+        _expand: 'category',
+        q: '123'
       }
     });
     yield put({

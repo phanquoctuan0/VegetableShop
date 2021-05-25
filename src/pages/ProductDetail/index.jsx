@@ -5,6 +5,8 @@ import history from '../../utils/history';
 import { connect } from 'react-redux';
 import { CheckCircleTwoTone } from '@ant-design/icons';
 import ItemProduct from '../ProductList/components/ItemProduct';
+import './styles.css';
+
 import {
   getProductDetailAction,
   addToCartAction,
@@ -20,6 +22,7 @@ function ProductDetailPage({
   cartList,
   addToCart,
   productList,
+  getProductList
 }) {
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -31,6 +34,10 @@ function ProductDetailPage({
 
   useEffect(() => {
     getProductDetail({ id: productId });
+    getProductList({
+      page: 1,
+      limit: 99,
+    });
   }, [productId])
 
 
@@ -44,7 +51,7 @@ function ProductDetailPage({
 
   const openNotificationUpdate = () => {
     notification.open({
-      top:80,
+      top: 80,
       duration: 2,
       message: 'Cập nhật giỏ hàng thành công !',
       icon: <CheckCircleTwoTone style={{ color: '#108ee9' }} />,
@@ -96,7 +103,9 @@ function ProductDetailPage({
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
     return productList.data.map((productItem) => {
-      if (productDetail.data.categoryId === productItem.categoryId) {
+      if (productDetail.data.categoryId === productItem.categoryId &&
+        productItem.id != productId
+      ) {
         return (
           <ItemProduct
             title={productItem.name}
@@ -137,7 +146,8 @@ function ProductDetailPage({
                 <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
               </div>
               <div>
-                <button className="buy-btn" style={{ color: '#008848', fontSize: '90%' }} onClick={() => handleAddToCart()}>
+                <button className="btn-add-cart"
+                  onClick={() => handleAddToCart()}>
                   Cho vào giỏ hàng
                 </button>
               </div>
