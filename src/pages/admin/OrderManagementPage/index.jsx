@@ -1,7 +1,6 @@
 import { Table, Popconfirm, Space, Input, Button, List, Row, Select, Form } from 'antd';
-import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getOrderListAction, reviewOrderListAction } from '../../../redux/actions';
@@ -12,8 +11,6 @@ function OrderManagementPage({
   orderList,
   reviewOrderList
 }) {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  
   
   useEffect(() => {
     getOrderList({
@@ -22,7 +19,7 @@ function OrderManagementPage({
   }, []);
   const { Search } = Input;
   const onSearch = value => console.log(value);
-  //cancelled
+
   const { Option } = Select;
 
   function onSelect(value) {
@@ -44,9 +41,9 @@ function OrderManagementPage({
               date: item.orderInforAddress.date,
               time: item.orderInforAddress.time,
               cartList: [...item.orderInforAddress.cartList],
-              userId: item.orderInforAddress.userId,
             },
             id: id,
+            userId: item.orderInforAddress.userId,
             status: 'confirmed'
           }, id: id
         });
@@ -67,8 +64,7 @@ function OrderManagementPage({
               date: item.orderInforAddress.date,
               time: item.orderInforAddress.time,
               cartList: [...item.orderInforAddress.cartList],
-              userId: item.orderInforAddress.userId,
-              
+              userId: item.orderInforAddress.userId,             
             },
             id: id,
             status: 'cancelled'
@@ -166,7 +162,7 @@ function OrderManagementPage({
           onSearch={onSearch}
         />
         <div>
-          <Select defaultValue = "Chọn đơn hàng" style={{ width: 200 }} onSelect={onSelect}>
+          <Select defaultValue = "Chọn loại đơn hàng" style={{ width: 200 }} onSelect={onSelect}>
             <Option >Tất cả đơn hàng</Option>
             <Option value="waiting">Đang đợi xác nhận</Option>
             <Option value="confirmed">Đã xác nhận</Option>

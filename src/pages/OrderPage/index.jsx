@@ -44,15 +44,15 @@ function OrderPage({ cartList, addToOrder }) {
       phone: orderInfo.phone,
       address: `${orderInfo.city}-${orderInfo.address}`,
       totalPrice: total,
-      date: moment().format("dd/mm/yyyy"),
+      date: moment().format('MMMM Do YYYY'),
       time: moment().format('LT'),
-      cartList: cartList.data,
-      userId: userInfoLocal.id,
+      cartList: cartList.data,      
     }
 
     addToOrder({
       orderInforAddress: orderInforAddress,
       status: 'waiting',
+      userId: userInfoLocal.id,
     })
     openNotification();
     history.push('/')

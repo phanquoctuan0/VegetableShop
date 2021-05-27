@@ -115,11 +115,6 @@ function CartPage({
   )
 }
 
-var redirectPage = function(){
-  window.location=""
-};
-setTimeout(redirectPage, 3000);
-
 const mapStateToProps = (state) => {
   const { cartList } = state.cartReducer;
   return {

@@ -1,0 +1,20 @@
+
+.container-graph{
+
+  display: flex;
+  justify-content: space-between; 
+}
+
+.graph{
+  border-radius: 4px;
+  border: 1px solid rgb(0, 0, 0,0.1);
+  padding: 16px 8px;
+}
+
+.content-total{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 400px);
+
+}

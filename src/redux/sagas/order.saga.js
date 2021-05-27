@@ -3,13 +3,14 @@ import axios from "axios";
 
 function* addToOrderSaga(action) {
   try {
-    const { orderInforAddress,status  } = action.payload;
+    const { orderInforAddress,status, userId  } = action.payload;
     const result = yield axios({
       method: "POST",
       url: `http://localhost:3001/carts/`,
       data: {
         orderInforAddress: orderInforAddress,
-        status : status
+        status : status,
+        userId : userId
       },
     });
     yield axios({
