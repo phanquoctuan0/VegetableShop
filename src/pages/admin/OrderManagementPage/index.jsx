@@ -64,8 +64,8 @@ function OrderManagementPage({
               date: item.orderInforAddress.date,
               time: item.orderInforAddress.time,
               cartList: [...item.orderInforAddress.cartList],
-              userId: item.orderInforAddress.userId,             
             },
+            userId: item.orderInforAddress.userId,             
             id: id,
             status: 'cancelled'
           }, id: id

@@ -15,7 +15,7 @@ function* addToOrderSaga(action) {
     });
     yield axios({
       method: 'PATCH',
-      url: `http://localhost:3001/users/${orderInforAddress.userId}`,
+      url: `http://localhost:3001/users/${userId}`,
       data: {
         carts: [],
       }
