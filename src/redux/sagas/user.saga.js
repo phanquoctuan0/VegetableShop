@@ -145,11 +145,45 @@ function* deleteUserSaga(action) {
     });
   }
 }
+
+function* updateProfileSaga(action) {
+  console.log("🚀 ~ file: user.saga.js ~ line 150 ~ function*updateProfileSaga ~ action", action)
+  try {
+    const { user } = action.payload;
+    console.log("🚀 ~ file: user.saga.js ~ line 152 ~ function*updateProfileSaga ~ user", user)
+    const result = yield axios({
+      method: 'PATCH',
+      url: `http://localhost:3001/users/${user.id}`,
+      data: {
+        id: user.id,
+        email: user.email,
+        password: user.password,
+        name: user.name,
+        phone: user.phone,
+      }
+    });
+    yield localStorage.setItem('userInfo', JSON.stringify(result.data));
+    yield put({
+      type: "UPDATE_PROFILE_SUCCESS",
+      payload: {
+        data: result.data
+      }
+    });
+  } catch (e) {
+    yield put({
+      type: "UPDATE_PROFILE_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
 export default function* userSaga() {
   yield takeEvery('LOGIN_REQUEST', loginSaga);
   yield takeEvery('GET_USER_INFO_REQUEST', getUserInfoSaga);
   yield takeEvery('REGISTER_REQUEST', registerSaga);
   yield takeEvery('GET_USER_LIST_REQUEST', getUserListSaga);
   yield takeEvery('DELETE_USER_REQUEST', deleteUserSaga);
+  yield takeEvery('UPDATE_PROFILE_REQUEST', updateProfileSaga);
 
 }

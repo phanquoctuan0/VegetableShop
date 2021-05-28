@@ -12,7 +12,7 @@ const initialState = {
   productSelected: {},
 };
 
-export default function productReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_REQUEST': {
       return {
@@ -178,6 +178,38 @@ export default function productReducer(state = initialState, action) {
         ...state,
         userList: {
           ...state.userList,
+          error: error,
+          load: false
+        },
+      };
+    }
+    case 'UPDATE_PROFILE_REQUEST': {
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: true
+        },
+      };
+    }
+    case 'UPDATE_PROFILE_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          data,
+          load: false
+        },
+      };
+    }
+
+    case 'UPDATE_PROFILE_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
           error: error,
           load: false
         },
