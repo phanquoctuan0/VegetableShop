@@ -1,4 +1,4 @@
-import { Table, Modal, Input, Button, Space, Popconfirm, Select, Form, InputNumber } from 'antd';
+import { Table, Modal, Input, Button, Popconfirm, Select, Form, InputNumber } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -30,8 +30,6 @@ function AdminProductPage({
     });
   }, []);
 
-  console.log("🚀 ~ file: index.jsx ~ line 21 ~ productList", productList)
-
 
   const { Search } = Input;
   const onSearch = value => console.log(value);
@@ -61,7 +59,8 @@ function AdminProductPage({
           id: id,
           img: item.img,
           description: item.description,
-          categoryName: item.category.name
+          categoryName: item.category.name,
+          unit: item.unit
         })
       }
     })
@@ -84,9 +83,10 @@ function AdminProductPage({
     return {
       name: item.name,
       categoryName: item.category.name,
-      price: item.price.toLocaleString(),
+      price: item.price.toLocaleString('it-IT'),
       id: item.id,
-      img: item.img
+      img: item.img,
+      unit: item.unit
     }
   })
 
@@ -102,7 +102,7 @@ function AdminProductPage({
       key: 'img',
       render: (_, record) => {
         return (
-          <img src = {record.img} style = {{height: '32px'}}/>
+          <img src={record.img} style={{ height: '32px' }} />
         )
       }
     },
@@ -122,19 +122,31 @@ function AdminProductPage({
       key: 'action',
       render: (_, record) => {
         return (
-          <Space>
-            <Button type="primary" ghost onClick={() => callModal(record.id)}>
-              <EditOutlined />
-            </Button>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <EditOutlined
+              onClick={() => callModal(record.id)}
+              style={{
+                color: 'blue',
+                cursor: 'pointer',
+                fontSize: '180%'
+              }}
+            />
             <Popconfirm
               title={`Bạn có chắc muốn xóa ${record.name}`}
               onConfirm={() => deleteProductList({ id: record.id })}
               okText="Xóa"
               cancelText="Hủy"
             >
-              <Button danger ><DeleteOutlined /></Button>
+              <DeleteOutlined
+                style={{
+                  color: 'red',
+                  cursor: 'pointer',
+                  fontSize: '180%'
+                }}
+              />
             </Popconfirm>
-          </Space>
+            <div></div>
+          </div>
         )
       }
     },
@@ -160,7 +172,8 @@ function AdminProductPage({
               categoryId: values.categoryId,
               img: productSelected.img,
               description: productSelected.description,
-              categoryName: productSelected.categoryName
+              categoryName: productSelected.categoryName,
+              unit: values.unit
             }
             editProductList({
               product: product
@@ -180,8 +193,11 @@ function AdminProductPage({
             <InputNumber
               formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               placeholder="Giá"
-              style={{ width: '100%' }}
+              style={{ width: '50%' }}
             />
+          </Form.Item>
+          <Form.Item name="unit" label="Cân nặng">
+            <Input placeholder="Cân nặng sản phẩm" />
           </Form.Item>
           <div style={{ textAlign: 'right' }}>
             <Button htmlType='submit'>Thay đổi</Button>
@@ -211,7 +227,8 @@ function AdminProductPage({
               categoryId: values.categoryId,
               img: [values.img],
               description: values.description,
-              categoryName: categoryName
+              categoryName: categoryName,
+              unit: values.unit
             }
             addProductList({
               newProduct: newProduct
@@ -240,6 +257,9 @@ function AdminProductPage({
           <Form.Item name="description" label="Mô tả">
             <Input placeholder="Mô tả" />
           </Form.Item>
+          <Form.Item name="unit" label="Cân nặng">
+            <Input placeholder="Cân nặng sản phẩm" />
+          </Form.Item>
           <div style={{ textAlign: 'right' }}>
             <Button htmlType='submit'>Thêm sản phẩm</Button>
           </div>
@@ -260,7 +280,7 @@ function AdminProductPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={onSearch}
+          onSearch={(value)=>{getProductList({searchKey : value})}}
         />
         <div>
           <Button type="primary"

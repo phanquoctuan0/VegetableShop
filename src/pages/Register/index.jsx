@@ -188,5 +188,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(RegisterPage);
-
-// export default RegisterPage;

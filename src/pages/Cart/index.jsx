@@ -71,6 +71,7 @@ function CartPage({
           price={item.price}
           img={item.img[0]}
           count={item.count}
+          unit={item.unit}
           productId={item.productId}
           handleIncrease={handleIncrease}
           handleDecrease={handleDecrease}

@@ -38,7 +38,7 @@ function ProductDetailPage({
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const productId = match.params.id;
-  console.log("🚀 ~ file: index.jsx ~ line 41 ~ productId", productId)
+
   const [amount, setAmount] = useState(1);
 
   const [comment, setComment] = useState(null);
@@ -65,7 +65,6 @@ function ProductDetailPage({
     })
   }, [productId])
 
-  console.log("🚀 ~ file: index.jsx ~ line 34 ~ commentList", commentList)
 
   const onChangeComment = e => {
     setComment(e.target.value);
@@ -99,15 +98,16 @@ function ProductDetailPage({
         userId: userInfoLocal.id,
         productId: productId,
         name: userInfoLocal.name,
-        date: moment().format('MMMM Do YYYY'),
+        date: moment().format("L"),
         time: moment().format('LT'),
         rate: rate,
         comment: comment
       }
+      setRate(0);
       addToComment({
         comment: newComment
       })
-    }else{
+    } else {
       alert('Bạn phải nhập đầy đủ đánh giá')
     }
   }
@@ -124,7 +124,8 @@ function ProductDetailPage({
           count: cartList.data[existProductIndex].count + amount,
           name: productDetail.data.name,
           price: productDetail.data.price,
-          img: productDetail.data.img
+          img: productDetail.data.img,
+          unit: productDetail.data.unit
         })
         addToCart({
           userId: userInfo.id,
@@ -141,7 +142,8 @@ function ProductDetailPage({
               count: amount,
               name: productDetail.data.name,
               price: productDetail.data.price,
-              img: productDetail.data.img
+              img: productDetail.data.img,
+              unit: productDetail.data.unit
             }
           ]
         })
@@ -162,19 +164,36 @@ function ProductDetailPage({
             price={productItem.price}
             img={productItem.img[0]}
             id={productItem.id}
+            unit={productItem.unit}
           />
         )
       }
     })
   }
 
+  function getAvgRate() {
+    let avgRate = 0
+    commentList.data.forEach((item) => {
+      avgRate = avgRate + item.rate
+    })
+    return Math.ceil(avgRate / commentList.data.length)
+  }
+
+  function renderAvatarUser() {
+    let txtAvatar = userInfo.name.split(" ", 2);
+    let avatar = '';
+    txtAvatar.forEach((item) => {
+      avatar = avatar + item.slice(0, 1);
+    })
+    return avatar
+  }
   function renderCommetList() {
     if (commentList.load) return <p>Loading...</p>;
     return commentList.data.map((commentItem) => {
       return (
         <div className='comment-container'>
           <div className="user-comment">
-            <div className="user-comment-avatar">Avatar</div>
+            <div className="user-comment-avatar">{renderAvatarUser()}</div>
             <div className="user-comment-content">{commentItem.name}</div>
           </div>
           <div className='content-coment'>
@@ -222,14 +241,23 @@ function ProductDetailPage({
           <div style={{ marginTop: 32, marginBottom: 16 }}>
             <div style={{ width: 420, height: 420, marginLeft: 130, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
               <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
-                <p>{productDetail.data.name}</p>
+                <div>
+                  {productDetail.data.name}
+                </div>
+                <div style={{ color: "rgb(120,120,120)", fontSize: '70%', fontWeight: 450 }}>
+                  <Rate
+                    value={getAvgRate()}
+                    style={{ paddingRight: '26px', fontSize: '16px' }}
+                    disabled
+                  />  ({commentList.data.length} đánh giá)
+                </div>
               </div>
               <div>
                 <div className="type">
                   <p>Loại: {productDetail.data.category.name}</p>
                 </div>
                 <div className="price" style={{ color: '#008848', fontWeight: 700, fontSize: '120%' }}>
-                  <p>Giá: {productDetail.data.price} </p>
+                  <p>Giá: {productDetail.data.price ? productDetail.data.price.toLocaleString('it-IT') : ''}đ /{productDetail.data.unit}</p>
                 </div>
                 <div className="number">
                   <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
@@ -256,43 +284,54 @@ function ProductDetailPage({
           </Row>
         </Descriptions>
       </Row>
-      <div className='comment-rate'>
-        <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
-        <div>
-          Viết đánh giá
-          <br />
-          <Rate
-            onChange={(value) => { setRate(value) }}
-          />
-          {
-            rate ?
-              <span className="ant-rate-text">
-                {desc[rate - 1]}
-              </span>
-              :
-              <span className="ant-rate-text">
-                Chọn mức độ hài lòng
-            </span>
-          }
-          <br />
-          <TextArea
-            style={{ width: "500px" }}
-            placeholder="Nhập vào nhận xét của bạn"
-            autoSize={{ minRows: 2 }}
-            onChange={onChangeComment}
-          />
-          <button
-            className='btn-comment'
-            onClick={() => { handleAddToComment() }}
-          >
-            Đánh giá
-            </button>
-        </div>
-        <div className='show-comment'>
-          <p className='text-content'>ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG</p>
-          {userInfoLocal ? renderCommetList() : <h3>Đăng nhập để xem đánh giá</h3>}
-        </div>
-      </div>
+      {
+        userInfo ?
+          <div className='comment-rate'>
+            <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
+            <div>
+              Viết đánh giá
+              <br />
+              <Rate
+                onChange={(value) => { setRate(value) }}
+                value={rate}
+              />
+              {
+                rate ?
+                  <span className="ant-rate-text">
+                    {desc[rate - 1]}
+                  </span>
+                  :
+                  <span className="ant-rate-text">
+                    Chọn mức độ hài lòng
+                  </span>
+              }
+              <br />
+              <TextArea
+                value={comment}
+                style={{ width: "500px" }}
+                placeholder="Nhập vào nhận xét của bạn"
+                autoSize={{ minRows: 2 }}
+                onChange={onChangeComment}
+              />
+              <button
+                className='btn-comment'
+                onClick={() => {
+                  handleAddToComment();
+                  setComment("");
+                }}
+                type='submit'
+              >
+                Đánh giá
+              </button>
+            </div>
+            <div className='show-comment'>
+              <p className='text-content'>ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG</p>
+              {renderCommetList()}
+            </div>
+          </div>
+          :
+          <h3>Đăng nhập để xem nhận xét và đánh giá</h3>
+      }
     </>
   );
 }

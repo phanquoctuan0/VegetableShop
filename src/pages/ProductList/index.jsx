@@ -17,7 +17,7 @@ function ProductListPage({
   const [categorySelected, setCategorySelected] = useState(null);
   const [page, setPage] = useState(1)
   useEffect(() => {
-    getCategoryList();
+    getCategoryList({});
     getProductList({
       page: 1,
       limit: 8,
@@ -72,8 +72,7 @@ function ProductListPage({
         <ItemProduct
           title={productItem.name}
           price={productItem.price}
-          img={productItem.img[0]}
-          // onClick={() => history.push(`/product/${productItem.id}`)}
+          img={productItem.img[0]}         
           id={productItem.id}
         />
       )

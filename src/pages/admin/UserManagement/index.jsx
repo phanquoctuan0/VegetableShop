@@ -14,19 +14,18 @@ function AdminUserPage({
   deleteUser,
 }) {
   useEffect(() => {
-    getUserList();
+    getUserList({});
   }, []);
-
+  
   const { Search } = Input;
-  const onSearch = value => console.log(value);
-  const { Column } = Table;
-
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
-
+  
   const [valueRadio, setValueRadio] = useState(1);
   const [isIdEdit, setIsIdEdit] = useState(null);
-
+  
+  console.log("🚀 ~ file: index.jsx ~ line 16 ~ userList", userList)
   const onChange = e => {
     console.log(e.target.value);
     setValueRadio(e.target.value);
@@ -161,7 +160,7 @@ function AdminUserPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={onSearch}
+          onSearch={(value)=>{getUserList({searchKey : value})}}
         />
         <div>
           <Button type="primary"

@@ -6,12 +6,14 @@ import history from '../../utils/history';
 
 function* getUserListSaga(action) {
   try {
+    const { searchKey } = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/users',
       params: {
         _sort : "id",
-        _order: "desc"
+        _order: "desc",
+        ...searchKey && { q: searchKey }
       }
     });
     yield put({

@@ -76,6 +76,7 @@ function OrderManagementPage({
 
   const tableData = orderList.data.map((item) => {
     return {
+      key: item.id,
       id: item.id,
       fullName: item.orderInforAddress.fullName,
       status: item.status,
@@ -159,7 +160,7 @@ function OrderManagementPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={onSearch}
+          onSearch={(value)=>{getOrderList({searchKey : value})}}
         />
         <div>
           <Select defaultValue = "Chọn loại đơn hàng" style={{ width: 200 }} onSelect={onSelect}>
@@ -185,7 +186,7 @@ function OrderManagementPage({
                   <List.Item>
                     <Row justify="space-between" style={{ width: '100%' }}>
                       <div>{item.name}</div>
-                      <div>{(item.price * item.count).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</div>
+                      <div>Giá: {(item.price * item.count).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</div>
                     </Row>
                   </List.Item>
                 )}

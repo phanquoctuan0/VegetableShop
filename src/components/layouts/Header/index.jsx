@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import history from '../../../utils/history';
 import logo from '../../../images/logo.png'
 
-import { Menu } from 'antd';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Menu, Dropdown } from 'antd';
 
-
+import {
+  addSearchProductAction
+} from '../../../redux/actions';
 
 import {
   Nav,
@@ -23,30 +25,57 @@ import {
   HeaderContainer,
   AmountContainer,
   TotalAmount,
+  Avatar,
   GlobalStyles
 } from './HeaderElements';
 
-function Header({ userInfo, cartList }) {
+function Header({ userInfo, cartList, addSearchProduct }) {
 
-  useEffect(() => {
+  const [searchValue, setSearchValue] = useState();
 
-  }, [])
   function handleLogout() {
     localStorage.removeItem("userInfo");
     window.location.reload();
   }
-  const { SubMenu } = Menu;
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <LinkItem to='/profile'>
+          Thông tin cá nhân
+        </LinkItem>
+      </Menu.Item>
+      <Menu.Item>
+        <LinkItem onClick={() => { handleLogout() }} to='/' >
+          Đăng xuất
+        </LinkItem>
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <>
       {/* <GlobalStyles /> */}
       <HeaderContainer>
         <Nav>
           <NavLinkImg to='/'>
-            <img src={logo} alt='logo' style={{ height: '80px' }} />
+            <img
+              src={logo}
+              alt='logo'
+              style={{ height: '60px' }}
+              onClick={() => { history.push('/') }}
+            />
           </NavLinkImg>
           <NavSearch>
-            <SearchInput placeholder='Tìm sản phẩm' />
-            <SearchBtn>
+            <SearchInput
+              placeholder='Tìm sản phẩm'
+              onChange={(e) => { setSearchValue(e.target.value) }}
+            />
+            <SearchBtn
+              onClick={() => {
+                addSearchProduct({ searchValue });
+                history.push('/productlist');
+              }}
+
+            >
               <SearchIcon />
             </SearchBtn>
           </NavSearch>
@@ -55,7 +84,7 @@ function Header({ userInfo, cartList }) {
             <NavLink to='/' >
               Trang chủ
           </NavLink>
-            <NavLink to='/products' >
+            <NavLink to='/productlist' >
               Sản phẩm
           </NavLink>
             <NavLink to='/about' >
@@ -64,42 +93,11 @@ function Header({ userInfo, cartList }) {
 
             {userInfo.data.id
               ? (
-                <div>
-                  <NavLink to='/profile' style=
-                    {
-                      {
-                        display: 'flex',
-                        flexDirection: 'column'
-                      }
-                    }>
-                    <Menu style={
-                      {
-                        width: 100,
-                        backgroundColor: '#008848'
-                      }
-                    } mode="horizontal">
-                      <SubMenu
-                        style=
-                        {
-                          {
-                            color: '#fff',
-                            fontSize: '120%',
-                          }
-                        } title={`${userInfo.data.name}`}>
-                        <Menu.Item>
-                          <LinkItem to='/profile'>
-                            Thông tin cá nhân
-                        </LinkItem>
-                        </Menu.Item>
-                        <Menu.Item>
-                          <LinkItem onClick={() => { handleLogout() }} to='/' >
-                            Đăng xuất
-                        </LinkItem>
-                        </Menu.Item>
-                      </SubMenu>
-                    </Menu>
-                  </NavLink>
-                </div>
+                <NavLink to='/profile'>
+                  <Dropdown overlay={menu} placement="bottomLeft" arrow>
+                    <Avatar />
+                  </Dropdown>
+                </NavLink>
               )
               :
               <NavLink to='/login'>
@@ -124,12 +122,16 @@ function Header({ userInfo, cartList }) {
 const mapStateToProps = (state) => {
   const { userInfo } = state.userReducer;
   const { cartList } = state.cartReducer;
-
   return {
     userInfo,
     cartList
   }
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addSearchProduct: (params) => dispatch(addSearchProductAction(params)),
+  };
+}
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

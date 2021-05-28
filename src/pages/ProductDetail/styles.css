@@ -61,7 +61,7 @@
 .user-comment{
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 20%;
 }
 
 .user-comment-avatar{
@@ -72,6 +72,8 @@
   height: 60px;
   border-radius: 50%;
   background-color: rgb(153, 153, 153);
+  font-size: 150%;
+  color: #fff;
 }
 
 .user-comment-content{
@@ -80,7 +82,9 @@
 }
 
 .content-coment{
-  
+  font-size: 14px;
+  line-height: 20px;
+  font-size: 110%;
 }
 
 .ant-rate-text{
