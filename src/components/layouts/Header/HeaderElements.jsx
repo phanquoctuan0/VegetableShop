@@ -1,4 +1,4 @@
-import { FaBars, FaCartPlus, FaSearch } from 'react-icons/fa';
+import { FaBars, FaCartPlus, FaSearch, FaUserCircle } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -98,6 +98,10 @@ export const SearchBtn = styled.div`
 export const SearchIcon = styled(FaSearch)`
 `
 
+export const Avatar = styled(FaUserCircle)`
+  font-size:200%;
+  color: #fff;
+`
 
 export const Bars = styled(FaBars)`
   display: none;

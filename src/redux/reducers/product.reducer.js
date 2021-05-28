@@ -17,6 +17,9 @@ const initialState = {
     load: false,
     error: '',
   },
+  searchValue: {
+    data: []
+  }
 };
 
 export default function productReducer(state = initialState, action) {
@@ -341,7 +344,6 @@ export default function productReducer(state = initialState, action) {
         },
       };
     }
-
     case 'ADD_PRODUCT_LIST_FAIL': {
       const { error } = action.payload;
       return {
@@ -351,6 +353,14 @@ export default function productReducer(state = initialState, action) {
           error: error,
           load: false
         },
+      };
+    }
+    case 'ADD_SEARCH_PRODUCT': {
+      return {
+        ...state,
+        searchValue: [
+          action.payload,
+        ],
       };
     }
   }

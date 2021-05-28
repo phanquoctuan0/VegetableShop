@@ -1,4 +1,5 @@
 import '../styles.css'
+import { Popconfirm } from 'antd';
 
 function CartItem(props) {
   const {
@@ -9,17 +10,19 @@ function CartItem(props) {
     productId,
     handleIncrease,
     handleDecrease,
-    handleDeteteItem
+    handleDeteteItem,
+    unit
   } = props;
 
   return (
     <div className="cart-item">
       <img src={img} />
       <div>
-        <h4>{title}</h4>
+        <h4>{title} ({unit})</h4>
         <h5 className="item-price">{price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h5>
-        <button className="remove-btn"
-          onClick={() => {
+        <Popconfirm
+          title={`Bạn có chắc muốn xóa ${title} khỏi giỏ hàng`}
+          onConfirm={() => {
             handleDeteteItem(
               productId,
               {
@@ -29,9 +32,13 @@ function CartItem(props) {
                 count: count
               })
           }}
+          okText="Xóa"
+          cancelText="Hủy"
         >
-          Xóa
+          <button className="remove-btn">
+            Xóa
         </button>
+        </Popconfirm>
       </div>
       <div>
         <button className="amount-btn"
@@ -53,7 +60,7 @@ function CartItem(props) {
         <p className="amount">{count}</p>
         <button
           className="amount-btn"
-          disabled = {count === 1 ? true : false}
+          disabled={count === 1 ? true : false}
           onClick={() => {
             handleDecrease(
               productId,

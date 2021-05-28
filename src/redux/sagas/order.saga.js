@@ -38,14 +38,15 @@ function* addToOrderSaga(action) {
 
 function* getOrderListSaga(action) {
   try {
-    const {status} = action.payload;
+    const {status,searchKey} = action.payload;
     const result = yield axios({
       method: 'GET',
       url: `http://localhost:3001/carts`,
       params: {
         ...status && { status },
         _sort : "id",
-        _order: "desc"
+        _order: "desc",
+        ...searchKey && { q: searchKey },
       }
     });
     yield put({

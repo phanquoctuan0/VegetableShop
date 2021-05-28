@@ -28,7 +28,7 @@ function CategoryManagementPage({
 
 
   useEffect(() => {
-    getCategoryList();
+    getCategoryList({});
   }, []);
 
   function handleDeleteCategory(id) {
@@ -135,7 +135,7 @@ function CategoryManagementPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={onSearch}
+          onSearch={(value)=>{getCategoryList({searchKey : value})}}
         />
         <div>
           <Button type="primary"

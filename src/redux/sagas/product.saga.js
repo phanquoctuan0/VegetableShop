@@ -3,7 +3,8 @@ import axios from 'axios';
 
 function* getProductListSaga(action) {
   try {
-    const { more, page, limit, categoryId } = action.payload;
+    const { more, page, limit, categoryId,searchKey,searchValue } = action.payload;
+    console.log("🚀 ~ file: product.saga.js ~ line 7 ~ function*getProductListSaga ~ searchValue", searchValue)
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/products',
@@ -13,8 +14,9 @@ function* getProductListSaga(action) {
         ...categoryId && { categoryId },
         _expand: 'category',
         _sort : "id",
-        _order: "desc"
-        // ...searchKey && { q: searchKey },
+        _order: "desc",
+        ...searchValue && { q: searchValue },
+        ...searchKey && { q: searchKey },
         // _sort: 'price',
         // _order: 'desc',
       }
@@ -60,9 +62,13 @@ function* getProductDetailSaga(action) {
 
 function* getCategoryListSaga(action) {
   try {
+    const {searchKey} = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/categories',
+      params : {
+        ...searchKey && { q: searchKey },
+      }
     });
     yield put({
       type: "GET_CATEGORY_LIST_SUCCESS",
@@ -175,7 +181,8 @@ function* editProductSaga(action) {
         img: product.img,
         categoryId: product.categoryId,
         description: product.description,
-        price: product.price
+        price: product.price,
+        unit:product.unit
       }
     });
     yield put({
@@ -237,7 +244,8 @@ function* addProductSaga(action) {
         img: newProduct.img,
         categoryId: newProduct.categoryId,
         description: newProduct.description,
-        price: newProduct.price
+        price: newProduct.price,
+        unit: newProduct.unit
       }
     });
     yield put({ type: "GET_PRODUCT_LIST_REQUEST" });

@@ -38,24 +38,32 @@ function OrderPage({ cartList, addToOrder }) {
   }
 
   function handleSubmit() {
-    moment.locale('vi');
-    const orderInforAddress = {
-      fullName: orderInfo.fullName,
-      phone: orderInfo.phone,
-      address: `${orderInfo.city}-${orderInfo.address}`,
-      totalPrice: total,
-      date: moment().format('MMMM Do YYYY'),
-      time: moment().format('LT'),
-      cartList: cartList.data,      
-    }
+    if (orderInfo.fullName.length !== 0 &&
+      orderInfo.phone.length !== 0 &&
+      orderInfo.city.length !== 0 &&
+      orderInfo.address.length !== 0
+    ) {
+      moment.locale('vi');
+      const orderInforAddress = {
+        fullName: orderInfo.fullName,
+        phone: orderInfo.phone,
+        address: `${orderInfo.city}-${orderInfo.address}`,
+        totalPrice: total,
+        date: moment().format("L"),
+        time: moment().format('LT'),
+        cartList: cartList.data,
+      }
 
-    addToOrder({
-      orderInforAddress: orderInforAddress,
-      status: 'waiting',
-      userId: userInfoLocal.id,
-    })
-    openNotification();
-    history.push('/')
+      addToOrder({
+        orderInforAddress: orderInforAddress,
+        status: 'waiting',
+        userId: userInfoLocal.id,
+      })
+      openNotification();
+      history.push('/')
+    } else {
+      alert('Bạn phải nhập đầy đủ thông tin để nhận hàng!')
+    }
   }
 
   let total = 0;
@@ -107,7 +115,6 @@ function OrderPage({ cartList, addToOrder }) {
       <div className="formConfirm">
         <h3>Đơn hàng</h3>
         {renderItemOrder()}
-
         <div className="finalCheckout">
           <div className="emptyPrice">
             <div>Tạm tính</div>

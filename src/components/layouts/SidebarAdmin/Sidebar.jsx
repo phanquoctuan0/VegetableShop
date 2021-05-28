@@ -10,7 +10,7 @@ import {
   LogoutOutlined,
   UsergroupAddOutlined
 } from '@ant-design/icons';
-import logo from '../../../images/logo.png'
+import logoAdmin from '../../../images/logoAdmin.png'
 
 const { Sider } = Layout;
 function Sidebar() {
@@ -36,7 +36,7 @@ function Sidebar() {
       >
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className="logo">
-            <img src={logo} alt="" />
+            <img src={logoAdmin} alt="logo" style = {{height: '90px', paddingTop : '8px'}}/>
           </div>
         </div>
         <Menu theme="" mode="inline" defaultSelectedKeys={['1']}>
