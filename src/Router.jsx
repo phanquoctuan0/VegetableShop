@@ -15,6 +15,7 @@ import CartPage from './pages/Cart'
 import ProductDetailPage from './pages/ProductDetail'
 import OrderPage from './pages/OrderPage';
 import HomePage from './pages/HomePage';
+import SearchPage from './pages/SearchPage';
 
 import AdminHomePage from './pages/admin/Home'
 import AdminProductListPage from './pages/admin/ProductListManagement';
@@ -28,6 +29,7 @@ function BrowserRouter() {
       <Switch>
         {/* <DefaultLayout exact path="/" component={HomePage} /> */}
         <DefaultLayout exact path="/" component={ProductListPage} />
+        <DefaultLayout exact path="/search" component={SearchPage} />
         <DefaultLayout exact path="/login" component={LoginPage} />
         <DefaultLayout exact path="/register" component={RegisterPage} />
         <DefaultLayout exact path="/about" component={AboutPage} />

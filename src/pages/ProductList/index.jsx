@@ -12,7 +12,8 @@ function ProductListPage({
   getCategoryList,
   getProductList,
   categoryList,
-  productList, }) {
+  productList,
+}) {
 
   const [categorySelected, setCategorySelected] = useState(null);
   const [page, setPage] = useState(1)
@@ -72,8 +73,9 @@ function ProductListPage({
         <ItemProduct
           title={productItem.name}
           price={productItem.price}
-          img={productItem.img[0]}         
+          img={productItem.img[0]}
           id={productItem.id}
+          unit={productItem.unit}
         />
       )
     })
@@ -101,7 +103,7 @@ function ProductListPage({
         </div>
         {renderCategory()}
       </Row>
-      <Row gutter={[16,16]}>
+      <Row gutter={[16, 16]}>
         {renderProductList()}
       </Row>
       <div style={{
@@ -121,10 +123,11 @@ function ProductListPage({
 }
 
 const mapStateToProps = (state) => {
-  const { categoryList, productList } = state.productReducer;
+  const { categoryList, productList, searchValue } = state.productReducer;
   return {
     categoryList,
     productList,
+    searchValue
   }
 };
 
