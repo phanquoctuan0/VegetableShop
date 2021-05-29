@@ -41,3 +41,10 @@ export function updateProfileAction(params) {
   }
 }
 
+export function updatePasswordAction(params) {
+  return {
+    type: 'UPDATE_PASSWORD_REQUEST',
+    payload: params,
+  }
+}
+

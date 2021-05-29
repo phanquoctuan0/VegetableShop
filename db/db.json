@@ -3,9 +3,9 @@
     {
       "id": 2,
       "email": "tra@gmail.com",
-      "password": "1234",
-      "name": "Tra 1234",
-      "phone": "0125621",
+      "password": "abc",
+      "name": "Trà",
+      "phone": "12345",
       "role": "banned"
     },
     {

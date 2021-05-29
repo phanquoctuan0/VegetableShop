@@ -178,6 +178,37 @@ function* updateProfileSaga(action) {
     });
   }
 }
+
+function* updatePasswordSaga(action) {
+  try {
+    const { pass } = action.payload;
+    const result = yield axios({
+      method: 'PATCH',
+      url: `http://localhost:3001/users/${pass.id}`,
+      data: {
+        id: pass.id,
+        email: pass.email,
+        password: pass.password,
+        name: pass.name,
+        phone: pass.phone,
+      }
+    });
+    yield localStorage.setItem('userInfo', JSON.stringify(result.data));
+    yield put({
+      type: "UPDATE_PROFILE_SUCCESS",
+      payload: {
+        data: result.data
+      }
+    });
+  } catch (e) {
+    yield put({
+      type: "UPDATE_PROFILE_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
 export default function* userSaga() {
   yield takeEvery('LOGIN_REQUEST', loginSaga);
   yield takeEvery('GET_USER_INFO_REQUEST', getUserInfoSaga);
@@ -185,5 +216,6 @@ export default function* userSaga() {
   yield takeEvery('GET_USER_LIST_REQUEST', getUserListSaga);
   yield takeEvery('DELETE_USER_REQUEST', deleteUserSaga);
   yield takeEvery('UPDATE_PROFILE_REQUEST', updateProfileSaga);
+  yield takeEvery('UPDATE_PASSWORD_REQUEST', updatePasswordSaga);
 
 }

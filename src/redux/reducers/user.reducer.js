@@ -216,6 +216,39 @@ export default function userReducer(state = initialState, action) {
       };
     }
 
+    case 'UPDATE_PASSWORD_REQUEST': {
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: true
+        },
+      };
+    }
+    case 'UPDATE_PASSWORD_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          data,
+          load: false
+        },
+      };
+    }
+
+    case 'UPDATE_PASSWORD_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          error: error,
+          load: false
+        },
+      };
+    }
+
     default: {
       return state;
     }
