@@ -1,5 +1,4 @@
 export function getProductListAction(params) {
-  console.log("🚀 ~ file: product.action.js ~ line 2 ~ getProductListAction ~ params", params)
   return {
     type: 'GET_PRODUCT_LIST_REQUEST',
     payload: params,

@@ -7,7 +7,38 @@
       "phone": "6263231239",
       "role": "admin",
       "id": 3,
-      "carts": []
+      "carts": [
+        {
+          "productId": 23,
+          "count": 1,
+          "name": "Nấm mối đen",
+          "price": 100000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
+          ],
+          "unit": "200g"
+        },
+        {
+          "productId": 22,
+          "count": 1,
+          "name": "Nấm mỡ trắng",
+          "price": 77000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
+          ],
+          "unit": "350g"
+        },
+        {
+          "productId": 18,
+          "count": 1,
+          "name": "Bơ 034 hữu cơ",
+          "price": 199000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
+          ],
+          "unit": "1kg"
+        }
+      ]
     },
     {
       "email": "phanquoctuan00@gmail.com",

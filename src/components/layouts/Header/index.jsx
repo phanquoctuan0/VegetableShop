@@ -68,13 +68,16 @@ function Header({ userInfo, cartList, addSearchProduct }) {
             <SearchInput
               placeholder='Tìm sản phẩm'
               onChange={(e) => { setSearchValue(e.target.value) }}
+              value={searchValue}
             />
             <SearchBtn
               onClick={() => {
-                addSearchProduct({ searchValue });
-                history.push('/productlist');
+                if (searchValue.length !== 0) {
+                  addSearchProduct({ searchValue });
+                  history.push('/search');
+                  setSearchValue('')
+                }
               }}
-
             >
               <SearchIcon />
             </SearchBtn>
