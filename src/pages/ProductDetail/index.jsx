@@ -111,7 +111,6 @@ function ProductDetailPage({
       alert('Bạn phải nhập đầy đủ đánh giá')
     }
   }
-
   function handleAddToCart() {
     if (!userInfoLocal) {
       history.push('/login')

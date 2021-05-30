@@ -9,9 +9,10 @@ const initialState = {
     load: false,
     error: '',
   },
+  productSelected: {},
 };
 
-export default function productReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_REQUEST': {
       return {
@@ -90,7 +91,7 @@ export default function productReducer(state = initialState, action) {
     case 'REGISTER_SUCCESS': {
       const { data } = action.payload;
       const newUserList = state.userList.data;
-      newUserList.splice(newUserList.length,0,data);
+      newUserList.splice(newUserList.length, 0, data);
       return {
         ...state,
         userInfo: {
@@ -154,13 +155,13 @@ export default function productReducer(state = initialState, action) {
       };
     }
     case 'DELETE_USER_SUCCESS': {
-      const {id, data } = action.payload;      
+      const { id, data } = action.payload;
       const newUser = state.userList.data;
-      const indexOf = newUser.findIndex((item)=>{
+      const indexOf = newUser.findIndex((item) => {
         return item.id == id;
       })
-      
-      newUser.splice(indexOf,1,data);
+
+      newUser.splice(indexOf, 1, data);
       return {
         ...state,
         userList: {
@@ -182,9 +183,75 @@ export default function productReducer(state = initialState, action) {
         },
       };
     }
-    
+    case 'UPDATE_PROFILE_REQUEST': {
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: true
+        },
+      };
+    }
+    case 'UPDATE_PROFILE_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          data,
+          load: false
+        },
+      };
+    }
+
+    case 'UPDATE_PROFILE_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          error: error,
+          load: false
+        },
+      };
+    }
+
+    case 'UPDATE_PASSWORD_REQUEST': {
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          load: true
+        },
+      };
+    }
+    case 'UPDATE_PASSWORD_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          data,
+          load: false
+        },
+      };
+    }
+
+    case 'UPDATE_PASSWORD_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          error: error,
+          load: false
+        },
+      };
+    }
+
     default: {
       return state;
     }
   }
 }
+

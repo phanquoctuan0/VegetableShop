@@ -32,3 +32,19 @@ export function deleteUserAction(params) {
     payload: params,
   }
 }
+
+export function updateProfileAction(params) {
+  console.log("🚀 ~ file: user.action.js ~ line 37 ~ updateProfileAction ~ params", params)
+  return {
+    type: 'UPDATE_PROFILE_REQUEST',
+    payload: params,
+  }
+}
+
+export function updatePasswordAction(params) {
+  return {
+    type: 'UPDATE_PASSWORD_REQUEST',
+    payload: params,
+  }
+}
+

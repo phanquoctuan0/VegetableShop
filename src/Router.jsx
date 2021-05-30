@@ -20,6 +20,8 @@ import SearchPage from './pages/SearchPage';
 import AdminHomePage from './pages/admin/Home'
 import AdminProductListPage from './pages/admin/ProductListManagement';
 import AdminUserPage from './pages/admin/UserManagement';
+
+import ProfilePage from './pages/Profile';
 import AdminCategoryPage from './pages/admin/CategoryManagement';
 import OrderCategoryPage from './pages/admin/OrderManagementPage';
 
@@ -34,6 +36,9 @@ function BrowserRouter() {
         <DefaultLayout exact path="/register" component={RegisterPage} />
         <DefaultLayout exact path="/about" component={AboutPage} />
         <DefaultLayout exact path="/cart" component={CartPage} />
+          
+        <DefaultLayout exact path = "/profile" component = {ProfilePage}/>
+          
         <DefaultLayout exaxt path="/product/:id" component={ProductDetailPage} />
         <DefaultLayout exaxt path="/order" component={OrderPage} />
 
