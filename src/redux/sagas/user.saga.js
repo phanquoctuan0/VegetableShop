@@ -6,9 +6,15 @@ import history from '../../utils/history';
 
 function* getUserListSaga(action) {
   try {
+    const { searchKey } = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/users',
+      params: {
+        _sort : "id",
+        _order: "desc",
+        ...searchKey && { q: searchKey }
+      }
     });
     yield put({
       type: "GET_USER_LIST_SUCCESS",
@@ -114,7 +120,6 @@ function* registerSaga(action) {
 }
 
 function* deleteUserSaga(action) {
-  console.log("🚀 ~ file: user.saga.js ~ line 112 ~ function*deleteUserSaga ~ action", action)
   try {
     const { id, user } = action.payload;
     console.log(user);
@@ -129,6 +134,7 @@ function* deleteUserSaga(action) {
         role: user.role
       }
     });
+    yield put({ type: "GET_USER_LIST_REQUEST"});
     yield put({
       type: "DELETE_USER_SUCCESS",
       payload: {
@@ -217,5 +223,4 @@ export default function* userSaga() {
   yield takeEvery('DELETE_USER_REQUEST', deleteUserSaga);
   yield takeEvery('UPDATE_PROFILE_REQUEST', updateProfileSaga);
   yield takeEvery('UPDATE_PASSWORD_REQUEST', updatePasswordSaga);
-
 }

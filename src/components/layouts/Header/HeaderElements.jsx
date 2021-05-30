@@ -1,14 +1,17 @@
-import { FaBars, FaCartPlus, FaSearch } from 'react-icons/fa';
+import { FaBars, FaCartPlus, FaSearch, FaUserCircle } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// export default createGlobalStyle`
-//   * {
-//       @import url('../../font.css');
-//       font-family: Vazir !important;
-//         // CSS you want global. 
-//     }  
-// `
+import { createGlobalStyle } from "styled-components";
+export const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+  * {
+  font-family: 'Sora', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+`
 
 export const Nav = styled.nav`
   background: #008848;
@@ -95,6 +98,10 @@ export const SearchBtn = styled.div`
 export const SearchIcon = styled(FaSearch)`
 `
 
+export const Avatar = styled(FaUserCircle)`
+  font-size:200%;
+  color: #fff;
+`
 
 export const Bars = styled(FaBars)`
   display: none;

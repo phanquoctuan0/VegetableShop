@@ -1,5 +1,5 @@
 import { Route, Redirect } from 'react-router-dom';
-import Header from '../Header';
+import HeaderAdmin from '../HeaderAdmin';
 import SidebarAdmin from '../SidebarAdmin/Sidebar'
 
 function PrivateLayout(props) {
@@ -19,10 +19,11 @@ function PrivateLayout(props) {
       render={(routeProps) => {
         return (
           <>
-            {/* <Header {...routeProps} /> */}
-            <div style={{ display: 'flex', maxWidth : '1370px',margin : 'auto' }}>
+            {/* <HeaderAdmin {...routeProps} /> */}
+            <div style={{ display: 'flex', maxWidth: '1370px', margin: 'auto' }}>
               <SidebarAdmin {...routeProps} />
-              <div style = {{width: 'calc(100% - 300px)', marginLeft : '26px', marginTop : '14px'}}>
+              <div style={{ width: 'calc(100% - 300px)', marginLeft: '26px', marginTop: '14px' }}>
+                {/* <HeaderAdmin {...routeProps} /> */}
                 <Component {...other} {...routeProps} />
               </div>
             </div>

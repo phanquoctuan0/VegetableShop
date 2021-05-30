@@ -40,9 +40,36 @@ export const deleteCategoryListAction = (params) => {
 }
 
 export const addCategoryListAction = (params) => {
-console.log("🚀 ~ file: product.action.js ~ line 43 ~ addCategoryListAction ~ params", params)
   return {
     type: 'ADD_CATEGORY_LIST_REQUEST',
+    payload: params,
+  }
+}
+
+export function editProductListAction(params) {
+  return {
+    type: 'EDIT_PRODUCT_LIST_REQUEST',
+    payload: params,
+  }
+}
+
+export const deleteProductListAction = (params) => {
+  return {
+    type: 'DELETE_PRODUCT_LIST_REQUEST',
+    payload: params,
+  }
+}
+
+export const addProductListAction = (params) => {
+  return {
+    type: 'ADD_PRODUCT_LIST_REQUEST',
+    payload: params,
+  }
+}
+
+export const addSearchProductAction = (params) => {
+  return {
+    type: 'ADD_SEARCH_PRODUCT',
     payload: params,
   }
 }

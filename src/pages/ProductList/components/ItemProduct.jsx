@@ -1,13 +1,13 @@
-import {Col} from 'antd';
+import { Col } from 'antd';
 import '../styles.css'
 
 import history from '../../../utils/history';
 
 function ItemProduct(props) {
-  const {title,price,img,id , description} = props;
+  const { title, price, img, id, description, unit } = props;
   return (
-    <Col span={6} style = {{display: 'flex' , justifyContent: 'center',alignItems:'center'}}>
-      <div className="box" style={{ marginTop: 16,marginBottom: 16 }}>
+    <Col span={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="box" >
         <div className="slide-img">
           <img src={img}></img>
           <div className="overlay">
@@ -15,11 +15,14 @@ function ItemProduct(props) {
           </div>
         </div>
         <div className="detail-box">
-          <div className="type">
+          <div className="type-name">
             <a onClick={() => history.push(`/product/${id}`)}>{title}</a>
             <span>Rate</span>
           </div>
-          <a onClick={() => history.push(`/product/${id}`)} className="price">{price}</a>
+          <a onClick={() => history.push(`/product/${id}`)}
+            className="price">
+            {price.toLocaleString('it-IT')}đ /{unit}
+          </a>
         </div>
       </div>
     </Col>

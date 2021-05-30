@@ -26,11 +26,11 @@ a{
   padding: 10px 20px;
   box-sizing: border-box;
 }
-.type{
+.type-name{
   display: flex;
   flex-direction: column;
 }
-.type a{
+.type-name a{
   color: RGBA(0,0,0,0.6);
   margin: 5px 0px;
   font-weight: 700;
@@ -55,7 +55,7 @@ a{
   transform: translate(-50%,-50%);
   width: 100%;
   height: 100%;
-  background-color: rgba(92,95,236,0.6);
+  background-color: rgba(48, 97, 10, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,6 +89,7 @@ a{
   }
 }
 .btn-see-more{
+  margin: 18px;
   border-radius: 4px;
   background: #fff;
   padding: 6px 56px;

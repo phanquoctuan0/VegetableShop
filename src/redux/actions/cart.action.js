@@ -5,9 +5,9 @@ export function addToCartAction(params) {
   }
 }
 
-export function getCartListAction(params) {
+export function deleteItemCartAction(params) {
   return {
-    type: 'GET_CART_LIST_REQUEST',
+    type: 'DELETE_ITEM_CART_REQUEST',
     payload: params,
   }
 }

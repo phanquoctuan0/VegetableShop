@@ -4,20 +4,21 @@ import { Row } from 'antd';
 
 import history from '../../utils/history';
 
-import { getCategoryListAction } from '../../redux/actions';
-import { getProductListAction } from '../../redux/actions';
+import { getCategoryListAction, getProductListAction } from '../../redux/actions';
+
 import ItemProduct from './components/ItemProduct'
 
 function ProductListPage({
   getCategoryList,
   getProductList,
   categoryList,
-  productList, }) {
+  productList,
+}) {
 
   const [categorySelected, setCategorySelected] = useState(null);
   const [page, setPage] = useState(1)
   useEffect(() => {
-    getCategoryList();
+    getCategoryList({});
     getProductList({
       page: 1,
       limit: 8,
@@ -45,7 +46,7 @@ function ProductListPage({
 
   function renderCategory() {
     return categoryList.data.map((item) => {
-      if (item.active !== 'off') {
+      if (item.status === 'on') {
         return (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h3
@@ -73,13 +74,13 @@ function ProductListPage({
           title={productItem.name}
           price={productItem.price}
           img={productItem.img[0]}
-          // onClick={() => history.push(`/product/${productItem.id}`)}
           id={productItem.id}
+          unit={productItem.unit}
         />
       )
     })
   }
-  console.log('lengthArr', productList.data.length)
+
   return (
     <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
@@ -102,7 +103,7 @@ function ProductListPage({
         </div>
         {renderCategory()}
       </Row>
-      <Row gutter={8}>
+      <Row gutter={[16, 16]}>
         {renderProductList()}
       </Row>
       <div style={{
@@ -122,10 +123,11 @@ function ProductListPage({
 }
 
 const mapStateToProps = (state) => {
-  const { categoryList, productList } = state.productReducer;
+  const { categoryList, productList, searchValue } = state.productReducer;
   return {
     categoryList,
     productList,
+    searchValue
   }
 };
 
