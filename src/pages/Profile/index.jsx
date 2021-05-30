@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Row,
   Space,
@@ -7,11 +7,9 @@ import {
   Input,
   Tabs,
 } from 'antd';
-import history from '../../utils/history';
 
 import { connect } from 'react-redux';
-import { CheckCircleTwoTone } from '@ant-design/icons';
-import ItemProduct from '../ProductList/components/ItemProduct';
+
 import {
   getUserInfoAction,
   updatePasswordAction,
