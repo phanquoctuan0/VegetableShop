@@ -23,7 +23,7 @@ function AdminProductPage({
   addProductList
 }) {
   useEffect(() => {
-    getCategoryList();
+    getCategoryList({});
     getProductList({
       page: 1,
       limit: 99,

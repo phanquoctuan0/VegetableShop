@@ -19,17 +19,17 @@ function CategoryManagementPage({
   deleteCategoryList,
   addCategoryList
 }) {
+  console.log("🚀 ~ file: index.jsx ~ line 22 ~ categoryList", categoryList)
 
+  useEffect(() => {
+    getCategoryList({});
+  }, []);
   const { Search } = Input;
-  const onSearch = value => console.log(value);
 
   const [isModalVisible2, setIsModalVisible2] = useState(false);
   const [valueInput, setValueInput] = useState('');
 
 
-  useEffect(() => {
-    getCategoryList({});
-  }, []);
 
   function handleDeleteCategory(id) {
     deleteCategoryList({ id: id })
@@ -135,7 +135,7 @@ function CategoryManagementPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={(value)=>{getCategoryList({searchKey : value})}}
+          onSearch={(value) => { getCategoryList({ searchKey: value }) }}
         />
         <div>
           <Button type="primary"

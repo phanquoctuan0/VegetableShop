@@ -33,6 +33,15 @@ function Header({ userInfo, cartList, addSearchProduct }) {
 
   const [searchValue, setSearchValue] = useState();
 
+  const handleKeyDown = (event) => {
+  console.log("🚀 ~ file: index.jsx ~ line 37 ~ handleKeyDown ~ event", event)
+    if (event.key === 'Enter') {
+      addSearchProduct({ searchValue });
+      history.push('/search');
+      setSearchValue('')
+    }
+  }
+
   function handleLogout() {
     localStorage.removeItem("userInfo");
     window.location.reload();
@@ -41,7 +50,7 @@ function Header({ userInfo, cartList, addSearchProduct }) {
     <Menu>
       <Menu.Item>
         <LinkItem to='/profile'>
-          Thông tin cá nhân
+          Tài khoản của {userInfo.data.name}
         </LinkItem>
       </Menu.Item>
       <Menu.Item>
@@ -69,6 +78,7 @@ function Header({ userInfo, cartList, addSearchProduct }) {
               placeholder='Tìm sản phẩm'
               onChange={(e) => { setSearchValue(e.target.value) }}
               value={searchValue}
+              onKeyDown={handleKeyDown}
             />
             <SearchBtn
               onClick={() => {

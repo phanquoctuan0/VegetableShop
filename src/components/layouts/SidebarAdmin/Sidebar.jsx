@@ -55,7 +55,7 @@ function Sidebar() {
           <Menu.Item key="5" icon={<TableOutlined />} onClick={() => { history.push('/admin/category') }}>
             Quản lý danh mục
         </Menu.Item>
-          <Menu.Item key="6" icon={<UserOutlined />} onClick={() => { history.push('/admin/category') }}>
+          <Menu.Item key="6" icon={<UserOutlined />} onClick={() => { history.push('/admin/profile') }}>
             Tài khoản ( {userInfo.name} )
         </Menu.Item>
           <Menu.Item key="7" icon={<LogoutOutlined />} onClick={() => { handleLogout() }}>

@@ -14,7 +14,6 @@ function CartPage({
   deleteItemCart
 }) {
 
-
   const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
 
 

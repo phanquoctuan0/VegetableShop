@@ -43,7 +43,6 @@ function* getProductDetailSaga(action) {
       url: `http://localhost:3001/products/${id}`,
       params: {
         _expand: 'category',
-        q: '123'
       }
     });
     yield put({
@@ -59,13 +58,13 @@ function* getProductDetailSaga(action) {
 
 function* getCategoryListSaga(action) {
   try {
-    const {searchKey} = action.payload;
+    // const {searchKey} = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/categories',
-      params : {
-        ...searchKey && { q: searchKey },
-      }
+      // params : {
+      //   ...searchKey && { q: searchKey },
+      // }
     });
     yield put({
       type: "GET_CATEGORY_LIST_SUCCESS",
@@ -94,7 +93,7 @@ function* editCategorySaga(action) {
         status: category.status
       }
     });
-    yield put({ type: "GET_CATEGORY_LIST_REQUEST" });
+    yield put({ type: "GET_CATEGORY_LIST_REQUEST"});
     yield put({
       type: "EDIT_CATEGORY_LIST_SUCCESS",
       payload: {
@@ -167,7 +166,6 @@ function* addCategorySaga(action) {
 function* editProductSaga(action) {
   try {
     const { product } = action.payload;
-    console.log("🚀 ~ file: product.saga.js ~ line 164 ~ function*editProductSaga ~ product", product)
 
     const result = yield axios({
       method: 'PATCH',

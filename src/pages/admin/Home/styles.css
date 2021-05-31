@@ -1,8 +1,14 @@
 
-.container-graph{
-
+.home-admin{
   display: flex;
-  justify-content: space-between; 
+  margin-top: 24px;
+}
+
+.line-graph{
+  width: 70%;
+}
+.container-graph{
+  padding-top: 30px;
 }
 
 .graph{
@@ -11,10 +17,14 @@
   padding: 16px 8px;
 }
 
-.content-total{
+.report-total{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(100% - 400px);
+}
+.content-total{
+  margin: 54px 12px;
+  width: calc(100% / 3);
+}
 
+html{
+  scroll-behavior: smooth;
 }

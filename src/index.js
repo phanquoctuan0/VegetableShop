@@ -11,6 +11,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 
+
 const sagaMiddleware = createSagaMiddleware();
 const myStore = createStore(myReducer, applyMiddleware(sagaMiddleware));
 
