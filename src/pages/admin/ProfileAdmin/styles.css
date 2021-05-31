@@ -1,5 +1,22 @@
-.form-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-submit-change{
+  border-radius: 4px;
+  background: rgb(255, 66, 78);
+  padding: 6px 56px;
+  color:white;
+  outline: none;
+  border: 1px solid rgb(255, 66, 78);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 110%;
+}
+
+.btn-submit-change:hover{
+  transition: all 0.2s ease-in-out;
+  background: rgb(201, 29, 40);
+  color: #fff;
+}
+
+.text-bold {
+  font-weight: 500;
 }

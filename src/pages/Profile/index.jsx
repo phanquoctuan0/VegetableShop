@@ -26,6 +26,7 @@ function ProfilePage({
   updatePassword,
 }) {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  console.log("🚀 ~ file: index.jsx ~ line 29 ~ userInfo", userInfo)
 
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
@@ -72,7 +73,6 @@ function ProfilePage({
                 birthDay: userInfo.birthDay ? moment(userInfo.birthDay, dateFormatList) : null
               }}
               onFinish={(values) => {
-                console.log('values', values)
                 const user = {
                   id: userInfo.id,
                   email: values.email,
@@ -104,7 +104,7 @@ function ProfilePage({
               </Form.Item>
               <Form.Item
                 name="phone"
-                label="SĐT"
+                label="Số điện thoại"
                 rules={[
                   {
                     required: true,
@@ -112,11 +112,12 @@ function ProfilePage({
                   },
                 ]}
               >
-                <Input placeholder="SĐT" />
+                <Input className="text-bold">
+                </Input>
               </Form.Item>
               <Form.Item
                 name="email"
-                abel="Email"
+                label="Email"
                 rules={[
                   { required: true, message: 'Không được để trống!' },
                 ]}
@@ -154,12 +155,12 @@ function ProfilePage({
               </Form.Item>
               <Row justify="end">
                 <Space>
-                  <Button
+                  <button
                     htmlType="submit"
-                    style={{ backgroundColor: "#d42c2c", color: "white" }}
+                    className='btn-submit-change'
                   >
                     Thay đổi
-                  </Button>
+                  </button>
                 </Space>
               </Row>
             </Form>
@@ -173,14 +174,25 @@ function ProfilePage({
               layout="vertical"
               name="productForm"
               onFinish={(values) => {
-                const pass = {
-                  id: userInfo.id,
-                  password: values.new_pw,
+                if (values.password !== userInfo.password) {
+                  alert('Bạn nhập mật khẩu cũ sai')
+                } else if (values.new_pw !== values.renew_pw) {
+                  alert('Mật khẩu không trùng nhau')
+                } else {
+                  const pass = {
+                    id: userInfo.id,
+                    password: values.new_pw,
+                    email: userInfo.email,
+                    name: userInfo.name,
+                    phone: userInfo.phone,
+                    gender: userInfo.gender || '',
+                    birthDay: birthdayString || ''
+                  }
+                  updatePassword({
+                    pass: pass
+                  })
+                  showNotiChange()
                 }
-                updatePassword({
-                  pass: pass
-                })
-                showNotiChange()
               }}
             >
               <Form.Item
@@ -204,22 +216,18 @@ function ProfilePage({
               >
                 <Input.Password />
               </Form.Item>
-
-              <Row justify="center">
+              <Row justify="end">
                 <Space>
-                  <Button
+                  <button
                     htmlType="submit"
-                    style={{ backgroundColor: "#d42c2c", color: "white" }}
-                  >Thay đổi</Button>
+                    className='btn-submit-change'
+                  >Thay đổi</button>
                 </Space>
               </Row>
             </Form>
           </div>
         </TabPane>
-
       </Tabs>
-
-
     </>
   );
 }
