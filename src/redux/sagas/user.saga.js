@@ -166,6 +166,8 @@ function* updateProfileSaga(action) {
         password: user.password,
         name: user.name,
         phone: user.phone,
+        gender: user.gender || '',
+        birthDay: user.birthDay || ''
       }
     });
     yield localStorage.setItem('userInfo', JSON.stringify(result.data));
