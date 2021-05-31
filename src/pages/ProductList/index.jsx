@@ -86,7 +86,7 @@ function ProductListPage({
       <Row style={{
         display: 'flex',
         justifyContent: 'flex-end',
-        padding: '0px 10px'
+        // padding: '0px 10px'
       }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h3

@@ -24,13 +24,13 @@ import AdminUserPage from './pages/admin/UserManagement';
 import ProfilePage from './pages/Profile';
 import AdminCategoryPage from './pages/admin/CategoryManagement';
 import OrderCategoryPage from './pages/admin/OrderManagementPage';
-
+import ProfileAdminPage from './pages/admin/ProfileAdmin';
 function BrowserRouter() {
   return (
     <Router history={history}>
       <Switch>
-        {/* <DefaultLayout exact path="/" component={HomePage} /> */}
-        <DefaultLayout exact path="/" component={ProductListPage} />
+        <DefaultLayout exact path="/" component={HomePage} />
+        <DefaultLayout exact path="/productlist" component={ProductListPage} />
         <DefaultLayout exact path="/search" component={SearchPage} />
         <DefaultLayout exact path="/login" component={LoginPage} />
         <DefaultLayout exact path="/register" component={RegisterPage} />
@@ -47,6 +47,7 @@ function BrowserRouter() {
         <PrivateLayout exact path="/admin/user" component={AdminUserPage} />
         <PrivateLayout exact path="/admin/category" component={AdminCategoryPage} />
         <PrivateLayout exact path="/admin/order" component={OrderCategoryPage} />
+        <PrivateLayout exact path="/admin/profile" component={ProfileAdminPage} />
 
       </Switch>
     </Router>

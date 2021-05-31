@@ -1,5 +1,5 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Line } from 'react-chartjs-2';
 import { Card } from 'antd';
 
 import { useEffect } from 'react';
@@ -19,7 +19,6 @@ function Home({
     });
   }, []);
 
-  console.log("🚀 ~ file: index.jsx ~ line 12 ~ orderList", orderList)
 
   let waitingCount = 0, confirmedCount = 0, cancelledCount = 0;
   let totalMoney = 0;
@@ -35,6 +34,22 @@ function Home({
       cancelledCount = cancelledCount + 1
     }
   })
+
+  const stateLine = {
+    labels: ['January', 'February', 'March',
+      'April', 'May'],
+    datasets: [
+      {
+        label: 'Doanh thu',
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: [65, 70, 80, 81, 90]
+      }
+    ]
+  }
 
   const state = {
     labels: ['Thành công', 'Đang chờ xác nhận', 'Hủy bỏ'],
@@ -56,9 +71,25 @@ function Home({
     ]
   }
   return (
-    <div className='home'>
-      <div className='container-graph'>
-        <div style={{ width: '400px' }}>
+    <div>
+      <div className='home-admin'>
+        <div className='line-graph'>
+          <Line
+            data={stateLine}
+            options={{
+              title: {
+                display: true,
+                text: 'Average Rainfall per month',
+                fontSize: 20
+              },
+              legend: {
+                display: true,
+                position: 'right'
+              }
+            }}
+          />
+        </div>
+        <div className='container-graph'>
           <Doughnut
             data={state}
             className='graph'
@@ -75,8 +106,20 @@ function Home({
             }}
           />
         </div>
+      </div>
+      <div className = 'report-total'>
         <div className='content-total'>
           <Card title="Doanh số bán hàng " >
+            <h3>{totalMoney.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+          </Card>
+        </div>
+        <div className='content-total'>
+          <Card title="Tổng lược bán " >
+            <h3>{totalMoney.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+          </Card>
+        </div>
+        <div className='content-total'>
+          <Card title="Thành viên mới" >
             <h3>{totalMoney.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
           </Card>
         </div>

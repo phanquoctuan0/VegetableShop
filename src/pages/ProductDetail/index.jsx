@@ -101,7 +101,8 @@ function ProductDetailPage({
         date: moment().format("L"),
         time: moment().format('LT'),
         rate: rate,
-        comment: comment
+        comment: comment,
+        avatar: renderAvatarUser()
       }
       setRate(0);
       addToComment({
@@ -192,7 +193,7 @@ function ProductDetailPage({
       return (
         <div className='comment-container'>
           <div className="user-comment">
-            <div className="user-comment-avatar">{renderAvatarUser()}</div>
+            <div className="user-comment-avatar">{commentItem.avatar}</div>
             <div className="user-comment-content">{commentItem.name}</div>
           </div>
           <div className='content-coment'>

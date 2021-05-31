@@ -13,7 +13,7 @@ function SearchPage({
 
   useEffect(() => {
     getProductList({
-      searchValue: searchValue[0].searchValue
+      searchValue: searchValue[0].searchValue ? searchValue[0].searchValue : ''
     });
   }, [searchValue[0].searchValue]);
 

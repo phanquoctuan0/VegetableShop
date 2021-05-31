@@ -3,15 +3,15 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { createGlobalStyle } from "styled-components";
-export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
-  * {
-  font-family: 'Sora', sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-`
+// export const GlobalStyles = createGlobalStyle`
+//   @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+//   * {
+//   font-family: 'Sora', sans-serif;
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+// `
 
 export const Nav = styled.nav`
   background: #008848;
@@ -39,6 +39,8 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
+  font-size: 110%;
+  font-weight: 400;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;

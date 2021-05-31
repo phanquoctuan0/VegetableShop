@@ -5,40 +5,9 @@
       "password": "4321",
       "name": "Tuan Phan",
       "phone": "6263231239",
-      "role": "admin",
+      "role": "banned",
       "id": 3,
-      "carts": [
-        {
-          "productId": 23,
-          "count": 1,
-          "name": "Nấm mối đen",
-          "price": 100000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
-          ],
-          "unit": "200g"
-        },
-        {
-          "productId": 22,
-          "count": 1,
-          "name": "Nấm mỡ trắng",
-          "price": 77000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
-          ],
-          "unit": "350g"
-        },
-        {
-          "productId": 18,
-          "count": 1,
-          "name": "Bơ 034 hữu cơ",
-          "price": 199000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-          ],
-          "unit": "1kg"
-        }
-      ]
+      "carts": []
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -47,28 +16,7 @@
       "phone": "0967794663",
       "role": "admin",
       "id": 4,
-      "carts": [
-        {
-          "productId": 19,
-          "count": 1,
-          "name": "Bưởi năm roi",
-          "price": 75000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/10/8246-908371620619748-1620619748--400x400.jpg"
-          ],
-          "unit": "1kg"
-        },
-        {
-          "productId": 18,
-          "count": 1,
-          "name": "Bơ 034 hữu cơ",
-          "price": 199000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-          ],
-          "unit": "1kg"
-        }
-      ]
+      "carts": []
     },
     {
       "email": "tuanpq@gmail.com",
@@ -77,35 +25,7 @@
       "phone": "0967794663",
       "role": "admin",
       "id": 5,
-      "carts": [
-        {
-          "productId": 13,
-          "count": 5,
-          "name": "Rau cải bẹ",
-          "price": 30000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3861-603601568181922-1568181922--400x400.jpg"
-          ]
-        },
-        {
-          "productId": 9,
-          "count": 5,
-          "name": "Táo Juliet",
-          "price": 199000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
-          ]
-        },
-        {
-          "productId": 3,
-          "count": 6,
-          "name": "Xà lách ria",
-          "price": 24000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/June/28/3501-869251561720786-1561720786--400x400.png"
-          ]
-        }
-      ]
+      "carts": []
     },
     {
       "email": "tuanpq@gmail.com",
@@ -375,6 +295,17 @@
       "price": 100000,
       "unit": "200g",
       "id": 23
+    },
+    {
+      "name": "Táo Dazzle",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/25/8291-325161621911371-1621911371--400x400.png"
+      ],
+      "categoryId": 3,
+      "description": "Táo Dazzle hữu cơ New Zealand là loại táo ăn liền với độ ngọt, giòn bất ngờ. Lớp vỏ ngoài căng bóng, có màu đỏ tươi cho thấy lượng anthocyanin trong táo Dazzle cao hơn so với các loại táo xanh khác. (Anthocyanin là một loại flavonoid, một họ các chất chống oxy hóa mạnh mẽ chống lại tác động của lão hóa và stress oxy hóa. Anthocyanin còn đóng một vai trò quan trọng trong việc phòng và hỗ trợ điều trị các bệnh về mắt, ngăn ngừa ung thư, bệnh tim phổi, bệnh xơ cứng động mạch, chống viêm..)",
+      "price": 189000,
+      "unit": "1kg",
+      "id": 24
     }
   ],
   "categories": [
@@ -566,7 +497,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 5
     },
@@ -614,168 +545,87 @@
       "status": "confirmed",
       "userId": 3,
       "id": 6
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 276000,
+        "date": "05/30/2021",
+        "time": "10:23 AM",
+        "cartList": [
+          {
+            "productId": 18,
+            "count": 1,
+            "name": "Bơ 034 hữu cơ",
+            "price": 199000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
+            ],
+            "unit": "1kg"
+          },
+          {
+            "productId": 22,
+            "count": 1,
+            "name": "Nấm mỡ trắng",
+            "price": 77000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
+            ],
+            "unit": "350g"
+          }
+        ]
+      },
+      "status": "confirmed",
+      "userId": 5,
+      "id": 7
     }
   ],
   "comments": [
     {
-      "userId": 3,
-      "productId": "18",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "2:55 PM",
+      "userId": 5,
+      "productId": "21",
+      "name": "Tuan",
+      "date": "05/29/2021",
+      "time": "10:17 PM",
       "rate": 4,
-      "comment": "Chẹp chẹp",
+      "comment": "ngon",
+      "avatar": "T",
       "id": 1
     },
     {
       "userId": 3,
-      "productId": "12",
+      "productId": "21",
       "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "2:59 PM",
+      "date": "05/29/2021",
+      "time": "10:18 PM",
       "rate": 5,
-      "comment": "Chuối cúng 1th k hư",
+      "comment": "iioke",
+      "avatar": "TP",
       "id": 2
-    },
-    {
-      "userId": 3,
-      "productId": "17",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "3:00 PM",
-      "rate": 3,
-      "comment": "oke",
-      "id": 3
-    },
-    {
-      "userId": 3,
-      "productId": "19",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "3:03 PM",
-      "rate": 3,
-      "comment": "oke",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "productId": "19",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "3:09 PM",
-      "rate": 4,
-      "comment": "123",
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "productId": "22",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "6:50 PM",
-      "rate": 4,
-      "comment": "okela",
-      "id": 6
     },
     {
       "userId": 3,
       "productId": "4",
       "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "6:52 PM",
-      "rate": 5,
-      "comment": "Tươi",
-      "id": 7
-    },
-    {
-      "userId": 3,
-      "productId": "1",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "6:57 PM",
+      "date": "05/29/2021",
+      "time": "11:46 PM",
       "rate": 4,
-      "comment": "oke\n",
-      "id": 8
+      "comment": "oke",
+      "avatar": "TP",
+      "id": 3
     },
     {
-      "userId": 3,
-      "productId": "20",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "7:02 PM",
-      "rate": 4,
-      "comment": "123123",
-      "id": 9
-    },
-    {
-      "userId": 3,
-      "productId": "20",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "7:08 PM",
-      "rate": 4,
-      "comment": "12312312",
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "productId": "21",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:17 PM",
-      "rate": 4,
-      "comment": "123123",
-      "id": 11
-    },
-    {
-      "userId": 3,
-      "productId": "22",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:51 PM",
-      "rate": 4,
-      "comment": "12321321",
-      "id": 12
-    },
-    {
-      "userId": 3,
-      "productId": "22",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:52 PM",
-      "rate": 4,
-      "comment": "123213",
-      "id": 13
-    },
-    {
-      "userId": 3,
-      "productId": "22",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:54 PM",
-      "rate": 4,
-      "comment": "13123",
-      "id": 14
-    },
-    {
-      "userId": 3,
-      "productId": "22",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:54 PM",
+      "userId": 5,
+      "productId": "4",
+      "name": "Tuan",
+      "date": "05/29/2021",
+      "time": "11:48 PM",
       "rate": 3,
-      "comment": "12123",
-      "id": 15
-    },
-    {
-      "userId": 3,
-      "productId": "21",
-      "name": "Tuan Phan",
-      "date": "05/28/2021",
-      "time": "8:57 PM",
-      "rate": 3,
-      "comment": "123123",
-      "id": 16
+      "comment": "ngon",
+      "avatar": "T",
+      "id": 4
     }
   ]
 }
