@@ -26,8 +26,7 @@ function ProfilePage({
   updatePassword,
 }) {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("🚀 ~ file: index.jsx ~ line 29 ~ userInfo", userInfo)
-
+  
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
 
@@ -181,12 +180,7 @@ function ProfilePage({
                 } else {
                   const pass = {
                     id: userInfo.id,
-                    password: values.new_pw,
-                    email: userInfo.email,
-                    name: userInfo.name,
-                    phone: userInfo.phone,
-                    gender: userInfo.gender || '',
-                    birthDay: birthdayString || ''
+                    password: values.new_pw,           
                   }
                   updatePassword({
                     pass: pass

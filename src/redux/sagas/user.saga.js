@@ -194,13 +194,7 @@ function* updatePasswordSaga(action) {
       method: 'PATCH',
       url: `http://localhost:3001/users/${pass.id}`,
       data: {
-        id: pass.id,
-        email: pass.email,
         password: pass.password,
-        name: pass.name,
-        phone: pass.phone,
-        gender: pass.gender || '',
-        birthDay: pass.birthDay || ''
       }
     });
     yield localStorage.setItem('userInfo', JSON.stringify(result.data));

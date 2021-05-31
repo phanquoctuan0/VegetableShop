@@ -19,11 +19,10 @@ function CategoryManagementPage({
   deleteCategoryList,
   addCategoryList
 }) {
-  console.log("🚀 ~ file: index.jsx ~ line 22 ~ categoryList", categoryList)
-
   useEffect(() => {
     getCategoryList({});
   }, []);
+
   const { Search } = Input;
 
   const [isModalVisible2, setIsModalVisible2] = useState(false);
@@ -79,7 +78,7 @@ function CategoryManagementPage({
       dataIndex: 'status',
       key: 'status',
       render: (_, record) => {
-        if (record.status == 'on') {
+        if (record.status === 'on') {
           return <div>Đang bán</div>
         } else {
           return <div>Tạm ngưng bán</div>
@@ -113,6 +112,9 @@ function CategoryManagementPage({
     },
   ];
 
+  const tableData = categoryList.data.map((item)=>{
+    return {...item, key : item.id}
+  })
   return (
     <div className='category'>
       <Modal title="Thêm danh mục sản phẩm"
@@ -135,7 +137,7 @@ function CategoryManagementPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={(value) => { getCategoryList({ searchKey: value }) }}
+          onSearch={(value) => { getCategoryList({searchKey : value})}}
         />
         <div>
           <Button type="primary"
@@ -147,7 +149,7 @@ function CategoryManagementPage({
         </div>
       </div>
       <Table
-        dataSource={categoryList.data}
+        dataSource={tableData}
         loading={categoryList.load}
         columns={tableColumns}
         size='middle'

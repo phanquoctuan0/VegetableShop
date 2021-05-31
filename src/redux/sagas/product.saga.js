@@ -58,13 +58,13 @@ function* getProductDetailSaga(action) {
 
 function* getCategoryListSaga(action) {
   try {
-    // const {searchKey} = action.payload;
+    const {searchKey} = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/categories',
-      // params : {
-      //   ...searchKey && { q: searchKey },
-      // }
+      params : {
+        ...searchKey && { q: searchKey },
+      }
     });
     yield put({
       type: "GET_CATEGORY_LIST_SUCCESS",

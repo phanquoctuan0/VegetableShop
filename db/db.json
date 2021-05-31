@@ -2,14 +2,35 @@
   "users": [
     {
       "email": "tuan@gmail.com",
-      "password": "4321",
-      "name": "Tuan Phan",
+      "password": "1234",
+      "name": "Tuan Ne",
       "phone": "6263231239",
       "role": "admin",
       "id": 3,
-      "carts": [],
+      "carts": [
+        {
+          "productId": 23,
+          "count": 2,
+          "name": "Nấm mối đen",
+          "price": 100000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
+          ],
+          "unit": "200g"
+        },
+        {
+          "productId": 19,
+          "count": 1,
+          "name": "Bưởi năm roi",
+          "price": 75000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/10/8246-908371620619748-1620619748--400x400.jpg"
+          ],
+          "unit": "1kg"
+        }
+      ],
       "gender": "Male",
-      "birthDay": "19/05/2021"
+      "birthDay": ""
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -310,7 +331,7 @@
     },
     {
       "name": "Nấm",
-      "status": "on",
+      "status": "off",
       "id": 5
     }
   ],
