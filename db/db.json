@@ -13,14 +13,14 @@
     },
     {
       "email": "phanquoctuan00@gmail.com",
-      "password": "12345",
-      "name": "Phan",
+      "password": "123",
+      "name": "Phann",
       "phone": "0967794663",
       "role": "admin",
       "id": 4,
       "carts": [],
       "gender": "Male",
-      "birthDay": "18/05/2021"
+      "birthDay": ""
     },
     {
       "email": "tuanpq2@gmail.com",

@@ -199,6 +199,8 @@ function* updatePasswordSaga(action) {
         password: pass.password,
         name: pass.name,
         phone: pass.phone,
+        gender: pass.gender || '',
+        birthDay: pass.birthDay || ''
       }
     });
     yield localStorage.setItem('userInfo', JSON.stringify(result.data));
