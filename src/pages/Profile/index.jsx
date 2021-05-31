@@ -1,3 +1,5 @@
+import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 import {
   Row,
@@ -8,23 +10,35 @@ import {
   Tabs,
   Radio,
   DatePicker,
-  notification
+  notification,
+  Table,
+  List
 } from 'antd';
 import 'moment/locale/vi';
 import moment from 'moment';
 
-import { connect } from 'react-redux';
 
 import {
   getUserInfoAction,
   updatePasswordAction,
-  updateProfileAction
+  updateProfileAction,
+  getOrderListAction,
+  reviewOrderListAction
 } from '../../redux/actions';
 
 function ProfilePage({
   updateProfile,
   updatePassword,
+  orderList,
+  getOrderList,
+  reviewOrderList
 }) {
+  useEffect(() => {
+    getOrderList({
+      status: null
+    });
+  }, []);
+
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   
   const [userForm] = Form.useForm();
@@ -54,6 +68,66 @@ function ProfilePage({
       message: 'Thay đổi mật khẩu thành công!',
     });
   }
+
+  const tableData = orderList.data.map((item) => {
+    // if (item.id == userInfo.id)
+    //   console.log("🚀 ~ file: index.jsx ~ line 52 ~ tableData ~ userInfo.id", userInfo.id)
+    // console.log("🚀 ~ file: index.jsx ~ line 52 ~ tableData ~ item.id", item.id)
+    // console.log("🚀 ~ file: index.jsx ~ line 44 ~ tableData ~ orderList", orderList)
+    return {
+      key: item.id,
+      id: item.id,
+      fullName: item.orderInforAddress.fullName,
+      status: item.status,
+      address: item.orderInforAddress.address,
+      cartList: item.orderInforAddress.cartList,
+      time: `${item.orderInforAddress.time} - ${item.orderInforAddress.date}`,
+      totalPrice: item.orderInforAddress.totalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
+    }
+  })
+
+  const tableColumns = [
+    {
+      title: 'Tên người nhận',
+      dataIndex: 'fullName',
+      key: 'fullName',
+    },
+    {
+      title: 'Địa chỉ',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Thời gian',
+      dataIndex: 'time',
+      key: 'time',
+    },
+    {
+      title: 'Tổng tiền',
+      dataIndex: 'totalPrice',
+      key: 'totalPrice',
+    },
+    {
+      title: 'Trạng thái',
+      dataIndex: 'action',
+      key: 'action',
+      render: (_, record) => {
+        if (record.status == 'waiting') {
+          return (
+            <div>Đang chờ xác nhận</div>
+          )
+        } else if (record.status == 'confirmed') {
+          return (
+            <div>Đã xác nhận</div>
+          )
+        } else {
+          return (
+            <div>Đã hủy</div>
+          )
+        }
+      }
+    },
+  ];
   return (
     <>
       <Tabs defaultActiveKey="1" onChange={callback}>
@@ -221,6 +295,35 @@ function ProfilePage({
             </Form>
           </div>
         </TabPane>
+        <TabPane tab="Lịch sử mua hàng" key="3">
+          <div style={{ width: 1100, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
+            <h2>Lịch sử mua hàng</h2>
+            <Table
+              loading={orderList.load}
+              size="middle"
+              columns={tableColumns}
+              dataSource={tableData}
+              expandable={{
+                expandedRowRender: (record) => {
+                  return (
+                    <List
+                      size="small"
+                      dataSource={record.cartList}
+                      renderItem={(item) => (
+                        <List.Item>
+                          <Row justify="space-between" style={{ width: '100%' }}>
+                            <div>{item.name}</div>
+                            <div>Giá: {(item.price * item.count).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</div>
+                          </Row>
+                        </List.Item>
+                      )}
+                    />
+                  )
+                }
+              }}
+            />
+          </div>
+        </TabPane>
       </Tabs>
     </>
   );
@@ -228,8 +331,10 @@ function ProfilePage({
 
 const mapStateToProps = (state) => {
   const { userInfo } = state.userReducer;
+  const { orderList } = state.orderReducer;
   return {
     userInfo,
+    orderList,
   }
 };
 
@@ -238,6 +343,8 @@ const mapDispatchToProps = (dispatch) => {
     getUserInfo: (params) => dispatch(getUserInfoAction(params)),
     updateProfile: (params) => dispatch(updateProfileAction(params)),
     updatePassword: (params) => dispatch(updatePasswordAction(params)),
+    getOrderList: (params) => dispatch(getOrderListAction(params)),
+    reviewOrderList: (params) => dispatch(reviewOrderListAction(params)),
   };
 }
 
