@@ -2,7 +2,6 @@
 import {
   Row,
   Space,
-  Button,
   Form,
   Input,
   Tabs,
@@ -26,8 +25,7 @@ function ProfileAdminPage({
   updatePassword,
 }) {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("🚀 ~ file: index.jsx ~ line 29 ~ userInfo", userInfo)
-
+  
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
 
