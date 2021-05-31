@@ -47,7 +47,7 @@ function OrderPage({ cartList, addToOrder }) {
       const orderInforAddress = {
         fullName: orderInfo.fullName,
         phone: orderInfo.phone,
-        address: `${orderInfo.city}-${orderInfo.address}`,
+        address: `${orderInfo.city} - ${orderInfo.address}`,
         totalPrice: total,
         date: moment().format("L"),
         time: moment().format('LT'),

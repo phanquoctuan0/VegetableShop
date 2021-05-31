@@ -5,43 +5,22 @@
       "password": "4321",
       "name": "Tuan Phan",
       "phone": "6263231239",
-      "role": "banned",
+      "role": "admin",
       "id": 3,
-      "carts": []
+      "carts": [],
+      "gender": "Male",
+      "birthDay": "19/05/2021"
     },
     {
       "email": "phanquoctuan00@gmail.com",
-      "password": "123",
+      "password": "12345",
       "name": "Phan",
       "phone": "0967794663",
       "role": "admin",
       "id": 4,
-      "carts": []
-    },
-    {
-      "email": "tuanpq@gmail.com",
-      "password": "123",
-      "name": "Tuan",
-      "phone": "0967794663",
-      "role": "admin",
-      "id": 5,
-      "carts": []
-    },
-    {
-      "email": "tuanpq@gmail.com",
-      "password": "123",
-      "name": "Tuan Phan",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 6
-    },
-    {
-      "email": "tuanpq@gmail.com",
-      "password": "123",
-      "name": "Tuan Phan",
-      "phone": "0967794663",
-      "role": "user",
-      "id": 7
+      "carts": [],
+      "gender": "Male",
+      "birthDay": "18/05/2021"
     },
     {
       "email": "tuanpq2@gmail.com",
@@ -335,225 +314,15 @@
       "id": 5
     }
   ],
-  "orders": [],
   "carts": [
     {
       "orderInforAddress": {
         "fullName": "Phan Quốc Tuấn",
         "phone": "0967794663",
         "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 37500,
-        "date": "May 27th 2021",
-        "time": "11:08 PM",
-        "cartList": [
-          {
-            "productId": 14,
-            "count": 1,
-            "name": "Cải thảo",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-            ],
-            "unit": "400g"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 1
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 225500,
-        "date": "May 27th 2021",
-        "time": "11:41 PM",
-        "cartList": [
-          {
-            "productId": 17,
-            "count": 2,
-            "name": "Rau dền",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
-            ],
-            "unit": "400g"
-          },
-          {
-            "productId": 14,
-            "count": 1,
-            "name": "Cải thảo",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-            ],
-            "unit": "400g"
-          },
-          {
-            "productId": 10,
-            "count": 1,
-            "name": "Đu đủ",
-            "price": 35000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/September/23/6653-320051600828641-1600828641--400x400.png"
-            ],
-            "unit": "1kg"
-          },
-          {
-            "productId": 16,
-            "count": 1,
-            "name": "Măng tây xanh",
-            "price": 78000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
-            ],
-            "unit": "500g"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 2
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "123123",
-        "address": "Quận Thanh Khê-1312123",
-        "totalPrice": 190000,
-        "date": "May 27th 2021",
-        "time": "11:58 PM",
-        "cartList": [
-          {
-            "productId": 21,
-            "count": 1,
-            "name": "Nước ép cherry",
-            "price": 190000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/20/7096-607831605847739-1605847739--400x400.png"
-            ],
-            "unit": ""
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 3
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 216000,
-        "date": "05/28/2021",
-        "time": "12:20 AM",
-        "cartList": [
-          {
-            "productId": 20,
-            "count": 1,
-            "name": "Dưa hấu",
-            "price": 216000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/8/7751-962831612756494-1612756494--400x400.png"
-            ],
-            "unit": "3kg"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 901500,
-        "date": "05/28/2021",
-        "time": "3:18 PM",
-        "cartList": [
-          {
-            "productId": 20,
-            "count": 4,
-            "name": "Dưa hấu",
-            "price": 216000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/8/7751-962831612756494-1612756494--400x400.png"
-            ]
-          },
-          {
-            "productId": 17,
-            "count": 1,
-            "name": "Rau dền",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/April/14/5441-924091586850366-1586850366--400x400.png"
-            ],
-            "unit": "400g"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 225000,
-        "date": "05/28/2021",
-        "time": "4:28 PM",
-        "cartList": [
-          {
-            "productId": 4,
-            "count": 2,
-            "name": "Cần tây",
-            "price": 78000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/January/27/7649-725711611722265-1611722265--400x400.png"
-            ],
-            "unit": "400g"
-          },
-          {
-            "productId": 14,
-            "count": 1,
-            "name": "Cải thảo",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-            ],
-            "unit": "400g"
-          },
-          {
-            "productId": 6,
-            "count": 1,
-            "name": "Su hàoo",
-            "price": 31500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/2/7181-486751606883424-1606883424--400x400.png"
-            ],
-            "unit": "500g"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 276000,
-        "date": "05/30/2021",
-        "time": "10:23 AM",
+        "totalPrice": 199000,
+        "date": "05/31/2021",
+        "time": "2:33 PM",
         "cartList": [
           {
             "productId": 18,
@@ -564,22 +333,37 @@
               "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
             ],
             "unit": "1kg"
-          },
-          {
-            "productId": 22,
-            "count": 1,
-            "name": "Nấm mỡ trắng",
-            "price": 77000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
-            ],
-            "unit": "350g"
           }
         ]
       },
-      "status": "confirmed",
+      "status": "waiting",
       "userId": 5,
-      "id": 7
+      "id": 1
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
+        "totalPrice": 380000,
+        "date": "05/31/2021",
+        "time": "2:33 PM",
+        "cartList": [
+          {
+            "productId": 21,
+            "count": 2,
+            "name": "Nước ép cherry",
+            "price": 190000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/20/7096-607831605847739-1605847739--400x400.png"
+            ],
+            "unit": "1L"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 2
     }
   ],
   "comments": [

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import {
   Row,
   Space,
@@ -6,7 +6,12 @@ import {
   Form,
   Input,
   Tabs,
+  Radio,
+  DatePicker,
+  notification
 } from 'antd';
+import 'moment/locale/vi';
+import moment from 'moment';
 
 import { connect } from 'react-redux';
 
@@ -20,9 +25,7 @@ function ProfilePage({
   updateProfile,
   updatePassword,
 }) {
-  const [amount, setAmount] = useState(1);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("🚀 ~ file: index.jsx ~ line 39 ~ userInfo", userInfo);
 
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
@@ -33,6 +36,24 @@ function ProfilePage({
     console.log(key);
   }
 
+  let birthdayString = '';
+  const dateFormatList = 'DD/MM/YYYY';
+
+  function onChange(date, dateString) {
+    birthdayString = dateString.trim();
+  }
+
+  function showNotification() {
+    return notification.success({
+      message: 'Chỉnh sửa hồ sơ thành công!',
+    });
+  }
+
+  function showNotiChange() {
+    return notification.success({
+      message: 'Thay đổi mật khẩu thành công!',
+    });
+  }
   return (
     <>
       <Tabs defaultActiveKey="1" onChange={callback}>
@@ -47,35 +68,98 @@ function ProfilePage({
                 email: userInfo.email,
                 name: userInfo.name,
                 phone: userInfo.phone,
+                gender: userInfo.gender || '',
+                birthDay: userInfo.birthDay ? moment(userInfo.birthDay, dateFormatList) : null
               }}
               onFinish={(values) => {
+                console.log('values', values)
                 const user = {
                   id: userInfo.id,
                   email: values.email,
                   name: values.name,
                   phone: values.phone,
+                  gender: values.gender,
+                  birthDay: birthdayString
                 }
                 updateProfile({
                   user: user
                 })
+                showNotification()
               }}
             >
-              <Form.Item name="email" label="Email">
-                <Input placeholder="Email" />
-              </Form.Item>
-              <Form.Item name="name" label="Họ tên">
-                <Input placeholder="Họ tên">
+
+              <Form.Item
+                name="name"
+                label="Họ tên"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Tên không được để trống!',
+                  },
+                  { min: 3, message: 'Phải lớn hơn 3 ký tự' }
+                ]}
+              >
+                <Input className="text-bold">
                 </Input>
               </Form.Item>
-              <Form.Item name="phone" label="SĐT">
+              <Form.Item
+                name="phone"
+                label="SĐT"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Số điện thoại không được để trống!',
+                  },
+                ]}
+              >
                 <Input placeholder="SĐT" />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                abel="Email"
+                rules={[
+                  { required: true, message: 'Không được để trống!' },
+                ]}
+                hasFeedback
+              >
+                <Input className="text-bold" />
+              </Form.Item>
+              <Form.Item
+                name="gender"
+                label="Giới tính"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng chọn giới tính!',
+                  },
+                ]}
+              >
+                <Radio.Group>
+                  <Radio value="Male">{<span className="text-bold">Nam</span>}</Radio>
+                  <Radio value="Female">{<span className="text-bold">Nữ</span>}</Radio>
+                  <Radio value="Other">{<span className="text-bold">Khác</span>}</Radio>
+                </Radio.Group>
+              </Form.Item>
+              <Form.Item
+                name="birthDay"
+                label="Ngày sinh"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng chọn ngày sinh!',
+                  },
+                ]}
+              >
+                <DatePicker format={dateFormatList} style={{ width: '100%' }} onChange={onChange} placeholder="Nhập ngày, tháng, năm sinh" />
               </Form.Item>
               <Row justify="end">
                 <Space>
                   <Button
                     htmlType="submit"
                     style={{ backgroundColor: "#d42c2c", color: "white" }}
-                  >Lưu</Button>
+                  >
+                    Thay đổi
+                  </Button>
                 </Space>
               </Row>
             </Form>
@@ -96,6 +180,7 @@ function ProfilePage({
                 updatePassword({
                   pass: pass
                 })
+                showNotiChange()
               }}
             >
               <Form.Item
@@ -120,23 +205,18 @@ function ProfilePage({
                 <Input.Password />
               </Form.Item>
 
-              <Row justify="end">
+              <Row justify="center">
                 <Space>
                   <Button
                     htmlType="submit"
                     style={{ backgroundColor: "#d42c2c", color: "white" }}
-                  >Lưu</Button>
+                  >Thay đổi</Button>
                 </Space>
               </Row>
             </Form>
           </div>
         </TabPane>
 
-        <TabPane tab="Lịch sử mua hàng" key="3">
-          <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
-            <h2>Lịch sử mua hàng</h2>
-          </div>
-        </TabPane>
       </Tabs>
 
 
