@@ -32,7 +32,7 @@ function AdminProductPage({
 
 
   const { Search } = Input;
-  const onSearch = value => console.log(value);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
 

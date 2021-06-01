@@ -211,14 +211,6 @@ function ProductDetailPage({
             <div className='commet-time'>
               Nhận xét vào {commentItem.time} - {commentItem.date}
             </div>
-            {/* <div>
-              <button>
-                <LikeOutlined/>
-              </button>
-              <span>
-                Gửi trả lời
-              </span>
-            </div> */}
           </div>
         </div>
       )
@@ -266,7 +258,11 @@ function ProductDetailPage({
                   <button className="btn-add-cart"
                     onClick={() => handleAddToCart()}>
                     Cho vào giỏ hàng
-                </button>
+                  </button>
+                  <button className="btn-buy-now"
+                    onClick={() => {handleAddToCart(); history.push('/order')}}>
+                    Mua ngay
+                  </button>
                 </div>
               </div>
             </div>

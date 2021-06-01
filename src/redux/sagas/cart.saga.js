@@ -4,6 +4,7 @@ import axios from "axios";
 function* addToCartSaga(action) {
   try {
     const { userId, carts } = action.payload;
+    console.log("🚀 ~ file: cart.saga.js ~ line 7 ~ function*addToCartSaga ~ carts", carts)
     const result = yield axios({
       method: "PATCH",
       url: `http://localhost:3001/users/${userId}`,
