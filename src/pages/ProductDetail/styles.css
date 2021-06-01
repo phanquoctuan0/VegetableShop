@@ -99,3 +99,22 @@
   color: rgb(120, 120, 120);
   margin-top: 8px;
 }
+
+.btn-buy-now{
+  border-radius: 4px;
+  background: rgb(103, 170, 16);
+  padding: 6px 36px;
+  margin-left: 16px;
+  color:white;
+  outline: none;
+  border: 1px solid rgb(103, 170, 16);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn-buy-now:hover{
+  transition: all 0.2s ease-in-out;
+  background: rgb(77, 128, 10);
+  color: #fff;
+}

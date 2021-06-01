@@ -1,3 +1,5 @@
+import history from '../../../utils/history';
+import { useEffect } from 'react';
 
 import {
   Row,
@@ -25,11 +27,15 @@ function ProfileAdminPage({
   updatePassword,
 }) {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  
+
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
 
   const { TabPane } = Tabs;
+
+  useEffect(() => {
+    repassForm.resetFields();
+  }, [repassForm]);
 
   function callback(key) {
     console.log(key);
@@ -77,7 +83,7 @@ function ProfileAdminPage({
                   name: values.name,
                   phone: values.phone,
                   gender: values.gender,
-                  birthDay: birthdayString
+                  birthDay: birthdayString || userInfo.birthDay
                 }
                 updateProfile({
                   user: user
@@ -180,11 +186,6 @@ function ProfileAdminPage({
                   const pass = {
                     id: userInfo.id,
                     password: values.new_pw,
-                    email: userInfo.email,
-                    name: userInfo.name,
-                    phone: userInfo.phone,
-                    gender: userInfo.gender || '',
-                    birthDay: birthdayString || ''
                   }
                   updatePassword({
                     pass: pass

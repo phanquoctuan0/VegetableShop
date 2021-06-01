@@ -13,6 +13,7 @@ function CartPage({
   addToCart,
   deleteItemCart
 }) {
+  console.log("🚀 ~ file: index.jsx ~ line 16 ~ cartList", cartList)
 
   const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -29,6 +30,7 @@ function CartPage({
   }
 
   function handleIncrease(productId, productDetail) {
+    console.log("🚀 ~ file: index.jsx ~ line 33 ~ handleIncrease ~ productDetail", productDetail)
     const indexOfProduct = cartList.data.findIndex((item) => item.productId === parseInt(productId));
     const newCartList = cartList.data;
     newCartList.splice(indexOfProduct, 1, {
@@ -36,7 +38,8 @@ function CartPage({
       count: productDetail.count + 1,
       name: productDetail.name,
       price: productDetail.price,
-      img: [productDetail.img]
+      img: [productDetail.img],
+      unit: productDetail.unit
     })
     addToCart({
       userId: userInfoLocal.id,
@@ -52,7 +55,8 @@ function CartPage({
       count: productDetail.count - 1,
       name: productDetail.name,
       price: productDetail.price,
-      img: [productDetail.img]
+      img: [productDetail.img],
+      unit: productDetail.unit
     })
     addToCart({
       userId: userInfoLocal.id,

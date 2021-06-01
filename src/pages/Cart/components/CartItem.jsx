@@ -29,7 +29,8 @@ function CartItem(props) {
                 name: title,
                 price: price,
                 img: img,
-                count: count
+                count: count,
+                unit: unit
               })
           }}
           okText="Xóa"
@@ -49,7 +50,8 @@ function CartItem(props) {
                 name: title,
                 price: price,
                 img: img,
-                count: count
+                count: count,
+                unit: unit
               })
           }}
         >
@@ -68,7 +70,8 @@ function CartItem(props) {
                 name: title,
                 price: price,
                 img: img,
-                count: count
+                count: count,
+                unit: unit
               })
           }}
         >
