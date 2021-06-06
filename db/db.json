@@ -3,13 +3,13 @@
     {
       "email": "tuan@gmail.com",
       "password": "1234",
-      "name": "Tuan",
+      "name": "TuanPhan",
       "phone": "6263231239",
       "role": "admin",
       "id": 3,
       "carts": [],
       "gender": "Male",
-      "birthDay": "27/05/2021"
+      "birthDay": "23/06/2021"
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -276,7 +276,7 @@
       "id": 23
     },
     {
-      "name": "Táo Dazzle",
+      "name": "Táo Dazzleee",
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/25/8291-325161621911371-1621911371--400x400.png"
       ],
@@ -310,36 +310,11 @@
     },
     {
       "name": "Nấm",
-      "status": "off",
+      "status": "on",
       "id": 5
     }
   ],
   "carts": [
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê-266/50 Hoàng Diệu",
-        "totalPrice": 199000,
-        "date": "05/31/2021",
-        "time": "2:33 PM",
-        "cartList": [
-          {
-            "productId": 18,
-            "count": 1,
-            "name": "Bơ 034 hữu cơ",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-            ],
-            "unit": "1kg"
-          }
-        ]
-      },
-      "status": "waiting",
-      "userId": 5,
-      "id": 1
-    },
     {
       "orderInforAddress": {
         "fullName": "Phan Quốc Tuấn",
@@ -407,112 +382,11 @@
         ]
       },
       "status": "confirmed",
-      "userId": 3,
-      "id": 3
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
-        "totalPrice": 475000,
-        "date": "31/05/2021",
-        "time": "22:39",
-        "cartList": [
-          {
-            "productId": 22,
-            "count": 1,
-            "name": "Nấm mỡ trắng",
-            "price": 77000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
-            ],
-            "unit": "350g"
-          },
-          {
-            "productId": 9,
-            "count": 1,
-            "name": "Táo Juliet",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/December/22/7355-583691608614310-1608614310--400x400.png"
-            ],
-            "unit": "1kg"
-          },
-          {
-            "productId": 18,
-            "count": 1,
-            "name": "Bơ 034 hữu cơ",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-            ],
-            "unit": "1kg"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
-        "totalPrice": 1110500,
-        "date": "31/05/2021",
-        "time": "22:51",
-        "cartList": [
-          {
-            "productId": 23,
-            "count": 6,
-            "name": "Nấm mối đen",
-            "price": 100000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
-            ],
-            "unit": "200g"
-          },
-          {
-            "productId": 14,
-            "count": 3,
-            "name": "Cải thảo",
-            "price": 37500,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/January/8/4779-669541578447725-1578447725--400x400.png"
-            ],
-            "unit": "400g"
-          },
-          {
-            "productId": 18,
-            "count": 2,
-            "name": "Bơ 034 hữu cơ",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-            ],
-            "unit": "1kg"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 3,
+      "userId": 5,
       "id": 5
     }
   ],
   "comments": [
-    {
-      "userId": 5,
-      "productId": "21",
-      "name": "Tuan",
-      "date": "05/29/2021",
-      "time": "10:17 PM",
-      "rate": 4,
-      "comment": "ngon",
-      "avatar": "T",
-      "id": 1
-    },
     {
       "userId": 3,
       "productId": "21",
@@ -534,17 +408,6 @@
       "comment": "oke",
       "avatar": "TP",
       "id": 3
-    },
-    {
-      "userId": 5,
-      "productId": "4",
-      "name": "Tuan",
-      "date": "05/29/2021",
-      "time": "11:48 PM",
-      "rate": 3,
-      "comment": "ngon",
-      "avatar": "T",
-      "id": 4
     },
     {
       "userId": 3,
@@ -578,6 +441,39 @@
       "comment": "Tệ",
       "avatar": "T",
       "id": 7
+    },
+    {
+      "userId": 3,
+      "productId": "19",
+      "name": "Tuan",
+      "date": "01/06/2021",
+      "time": "20:17",
+      "rate": 4,
+      "comment": "oke",
+      "avatar": "T",
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "productId": "10",
+      "name": "Tuan",
+      "date": "02/06/2021",
+      "time": "15:24",
+      "rate": 3,
+      "comment": "Cũng tạm",
+      "avatar": "T",
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "productId": "18",
+      "name": "Tuan",
+      "date": "02/06/2021",
+      "time": "15:35",
+      "rate": 5,
+      "comment": "g",
+      "avatar": "T",
+      "id": 10
     }
   ]
 }

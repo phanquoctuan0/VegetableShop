@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import {
   Row,
   Space,
-  Button,
   Form,
   Input,
   Tabs,
@@ -19,28 +18,23 @@ import moment from 'moment';
 
 
 import {
-  getUserInfoAction,
   updatePasswordAction,
   updateProfileAction,
-  getOrderListAction,
-  reviewOrderListAction
+  getOrderItemAction
 } from '../../redux/actions';
 
 function ProfilePage({
   updateProfile,
   updatePassword,
-  orderList,
-  getOrderList,
-  reviewOrderList
+  getOrderItem,
+  orderItem
 }) {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   useEffect(() => {
-    getOrderList({
-      status: null
-    });
+    getOrderItem({userId: userInfo.id})
   }, []);
 
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  
+
   const [userForm] = Form.useForm();
   const [repassForm] = Form.useForm();
 
@@ -69,11 +63,7 @@ function ProfilePage({
     });
   }
 
-  const tableData = orderList.data.map((item) => {
-    // if (item.id == userInfo.id)
-    //   console.log("🚀 ~ file: index.jsx ~ line 52 ~ tableData ~ userInfo.id", userInfo.id)
-    // console.log("🚀 ~ file: index.jsx ~ line 52 ~ tableData ~ item.id", item.id)
-    // console.log("🚀 ~ file: index.jsx ~ line 44 ~ tableData ~ orderList", orderList)
+  const tableData = orderItem.data.map((item) => {
     return {
       key: item.id,
       id: item.id,
@@ -254,7 +244,7 @@ function ProfilePage({
                 } else {
                   const pass = {
                     id: userInfo.id,
-                    password: values.new_pw,           
+                    password: values.new_pw,
                   }
                   updatePassword({
                     pass: pass
@@ -299,7 +289,7 @@ function ProfilePage({
           <div style={{ width: 1100, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
             <h2>Lịch sử mua hàng</h2>
             <Table
-              loading={orderList.load}
+              loading={orderItem.load}
               size="middle"
               columns={tableColumns}
               dataSource={tableData}
@@ -330,21 +320,17 @@ function ProfilePage({
 }
 
 const mapStateToProps = (state) => {
-  const { userInfo } = state.userReducer;
-  const { orderList } = state.orderReducer;
+  const {orderItem } = state.orderReducer;
   return {
-    userInfo,
-    orderList,
+    orderItem
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserInfo: (params) => dispatch(getUserInfoAction(params)),
     updateProfile: (params) => dispatch(updateProfileAction(params)),
     updatePassword: (params) => dispatch(updatePasswordAction(params)),
-    getOrderList: (params) => dispatch(getOrderListAction(params)),
-    reviewOrderList: (params) => dispatch(reviewOrderListAction(params)),
+    getOrderItem: (params) => dispatch(getOrderItemAction(params)),
   };
 }
 

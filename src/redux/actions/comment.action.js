@@ -11,3 +11,10 @@ export function getCommentListAction(params) {
     payload: params,
   }
 }
+
+export function getAllCommentAction(params) {
+  return {
+    type: 'GET_ALL_COMMENT_REQUEST',
+    payload: params,
+  }
+}

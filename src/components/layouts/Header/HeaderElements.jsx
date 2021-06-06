@@ -103,6 +103,7 @@ export const SearchIcon = styled(FaSearch)`
 export const Avatar = styled(FaUserCircle)`
   font-size:200%;
   color: #fff;
+  margin-right: 5px;
 `
 
 export const Bars = styled(FaBars)`

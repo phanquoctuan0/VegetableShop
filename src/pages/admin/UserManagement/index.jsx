@@ -100,7 +100,7 @@ function AdminUserPage({
           <EditOutlined
             onClick={() => { setIsModalVisible(true); setIsIdEdit(record.id) }}
             style={{
-              color: 'blue',
+              color: '#1890ff',
               cursor: 'pointer',
               fontSize: '180%'
             }}
@@ -111,7 +111,7 @@ function AdminUserPage({
           >
             <UserDeleteOutlined
               style={{
-                color: 'red',
+                color: '#ff4d4f',
                 cursor: 'pointer',
                 fontSize: '180%'
               }}

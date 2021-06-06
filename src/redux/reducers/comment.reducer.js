@@ -4,6 +4,11 @@ const initialState = {
     load: false,
     error: '',
   },
+  allCommentList:{
+    data:[],
+    load: false,
+    error:''
+  }
 };
 
 export default function commentReducer(state = initialState, action) {
@@ -65,6 +70,37 @@ export default function commentReducer(state = initialState, action) {
         ...state,
         commentList: {
           ...state.commentList,
+          load: false,
+          error: error,
+        },
+      }
+    }
+    case 'GET_ALL_COMMENT_REQUEST': {
+      return {
+        ...state,
+        allCommentList: {
+          ...state.allCommentList,
+          load: true,
+        },
+      }
+    }
+    case 'GET_ALL_COMMENT_SUCCESS': {
+      const { data } = action.payload;
+      return {
+        ...state,
+        allCommentList: {
+          ...state.allCommentList,
+          data: data,
+          load: false,
+        },
+      }
+    }
+    case 'GET_ALL_COMMENT_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        allCommentList: {
+          ...state.allCommentList,
           load: false,
           error: error,
         },

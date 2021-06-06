@@ -15,7 +15,8 @@ import {
   getCategoryListAction,
   getProductListAction,
   addToCommentAction,
-  getCommentListAction
+  getCommentListAction,
+  getAllCommentAction
 } from '../../redux/actions';
 
 
@@ -30,7 +31,9 @@ function ProductDetailPage({
   getProductList,
   addToComment,
   getCommentList,
-  commentList
+  commentList,
+  getAllComment,
+  allCommentList
 }) {
 
   const { TextArea } = Input;
@@ -62,7 +65,8 @@ function ProductDetailPage({
     });
     getCommentList({
       productId: productId
-    })
+    });
+    getAllComment();
   }, [productId])
 
 
@@ -156,8 +160,16 @@ function ProductDetailPage({
     if (productList.load) return <p>Loading...</p>;
     return productList.data.map((productItem) => {
       if (productDetail.data.categoryId === productItem.categoryId &&
-        productItem.id != productId
+        productItem.id != productId && productItem.category.status === 'on'
       ) {
+        let totalRate = 0;
+        let count = 0;
+        allCommentList.data.forEach((item) => {
+          if (productItem.id == item.productId) {
+            totalRate = totalRate + item.rate
+            count += 1;
+          }
+        })
         return (
           <ItemProduct
             title={productItem.name}
@@ -165,6 +177,8 @@ function ProductDetailPage({
             img={productItem.img[0]}
             id={productItem.id}
             unit={productItem.unit}
+            rate={count !== 0 ? Math.ceil(totalRate / count) : 0}
+            count={count}
           />
         )
       }
@@ -336,13 +350,14 @@ const mapStateToProps = (state) => {
   const { productDetail } = state.productReducer;
   const { cartList } = state.cartReducer;
   const { categoryList, productList } = state.productReducer;
-  const { commentList } = state.commentReducer;
+  const { commentList, allCommentList } = state.commentReducer;
   return {
     productDetail,
     cartList,
     categoryList,
     productList,
-    commentList
+    commentList,
+    allCommentList
   }
 };
 
@@ -354,6 +369,7 @@ const mapDispatchToProps = (dispatch) => {
     getCategoryList: (params) => dispatch(getCategoryListAction(params)),
     getCommentList: (params) => dispatch(getCommentListAction(params)),
     addToComment: (params) => dispatch(addToCommentAction(params)),
+    getAllComment: (params) => dispatch(getAllCommentAction(params)),
   };
 }
 

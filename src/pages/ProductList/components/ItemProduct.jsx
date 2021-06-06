@@ -1,10 +1,10 @@
-import { Col } from 'antd';
+import { Col, Rate } from 'antd';
 import '../styles.css'
 
 import history from '../../../utils/history';
 
 function ItemProduct(props) {
-  const { title, price, img, id, description, unit } = props;
+  const { title, price, img, id, description, unit, rate, count } = props;
   return (
     <Col span={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div className="box" >
@@ -17,7 +17,14 @@ function ItemProduct(props) {
         <div className="detail-box">
           <div className="type-name">
             <a onClick={() => history.push(`/product/${id}`)}>{title}</a>
-            <span>Rate</span>
+            <span style = {{fontSize: '12px',fontWeight:'500', color: 'rgb(120, 120, 120)'}}>
+              <Rate
+                style={{ fontSize: '13px' }}
+                value={rate}
+                disabled
+              />
+              ({count})
+            </span>
           </div>
           <a onClick={() => history.push(`/product/${id}`)}
             className="price">

@@ -100,7 +100,7 @@ function CategoryManagementPage({
           >
             <DeleteOutlined
               style={{
-                color: 'red',
+                color: '#ff4d4f',
                 cursor: 'pointer',
                 fontSize: '180%'
               }}
