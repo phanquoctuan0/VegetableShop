@@ -19,3 +19,11 @@ export function reviewOrderListAction(params) {
     payload: params,
   }
 }
+
+export function getOrderItemAction(params) {
+  console.log("🚀 ~ file: order.action.js ~ line 24 ~ getOrderItemAction ~ params", params)
+  return {
+    type: 'GET_ORDER_ITEM_REQUEST',
+    payload: params,
+  }
+}

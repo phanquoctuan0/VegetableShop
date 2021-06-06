@@ -1,4 +1,3 @@
-import history from '../../../utils/history';
 import { useEffect } from 'react';
 
 import {

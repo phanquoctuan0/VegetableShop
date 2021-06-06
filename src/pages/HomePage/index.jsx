@@ -5,26 +5,31 @@ import { connect } from 'react-redux';
 import history from '../../utils/history';
 
 import ItemProduct from '../ProductList/components/ItemProduct';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import './styles.css'
 
-import { getCategoryListAction, getProductListAction } from '../../redux/actions';
+import {
+  getCategoryListAction,
+  getProductListAction,
+  getAllCommentAction
+} from '../../redux/actions';
 
 function HomePage({
   getCategoryList,
   getProductList,
   categoryList,
   productList,
+  getAllComment,
+  allCommentList
 }) {
-  console.log("🚀 ~ file: index.jsx ~ line 20 ~ productList", productList)
-
   useEffect(() => {
     getCategoryList({});
     getProductList({
       page: 1,
       limit: 16,
     });
+    getAllComment();
   }, []);
 
   const { Meta } = Card;
@@ -36,16 +41,28 @@ function HomePage({
 
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
-    return productList.data.map((productItem, productIndex) => {
-      return (
-        <ItemProduct
-          title={productItem.name}
-          price={productItem.price}
-          img={productItem.img[0]}
-          id={productItem.id}
-          unit={productItem.unit}
-        />
-      )
+    return productList.data.map((productItem) => {
+      if (productItem.category.status === 'on') {
+        let totalRate = 0;
+        let count = 0;
+        allCommentList.data.forEach((item) => {
+          if (productItem.id == item.productId) {
+            totalRate = totalRate + item.rate
+            count += 1;
+          }
+        })
+        return (
+          <ItemProduct
+            title={productItem.name}
+            price={productItem.price}
+            img={productItem.img[0]}
+            id={productItem.id}
+            unit={productItem.unit}
+            rate={count !== 0 ? Math.ceil(totalRate / count) : 0}
+            count={count}
+          />
+        )
+      }
     })
   }
 
@@ -59,7 +76,7 @@ function HomePage({
   return (
     <>
       <div className="carousel-container">
-        <Carousel  autoplay>
+        <Carousel autoplay>
           <div>
             <div
               onClick={() => {
@@ -159,11 +176,17 @@ function HomePage({
 
 
 const mapStateToProps = (state) => {
-  const { categoryList, productList, searchValue } = state.productReducer;
-  return {
+  const {
     categoryList,
     productList,
     searchValue
+  } = state.productReducer;
+  const { allCommentList } = state.commentReducer;
+  return {
+    categoryList,
+    productList,
+    searchValue,
+    allCommentList
   }
 };
 
@@ -171,6 +194,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProductList: (params) => dispatch(getProductListAction(params)),
     getCategoryList: (params) => dispatch(getCategoryListAction(params)),
+    getAllComment: (params) => dispatch(getAllCommentAction(params)),
   };
 }
 

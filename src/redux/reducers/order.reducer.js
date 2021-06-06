@@ -4,6 +4,11 @@ const initialState = {
     load: false,
     error: '',
   },
+  orderItem: {
+    data: [],
+    load: false,
+    error: '',
+  },
 };
 
 export default function orderReducer(state = initialState, action) {
@@ -105,6 +110,39 @@ export default function orderReducer(state = initialState, action) {
           load: false
         },
       };
+    }
+
+    case 'GET_ORDER_ITEM_REQUEST': {
+      return {
+        ...state,
+        orderItem: {
+          ...state.orderItem,
+          load: true,
+        },
+      }
+    }
+    case 'GET_ORDER_ITEM_SUCCESS': {
+      const { data } = action.payload;
+      console.log("🚀 ~ file: order.reducer.js ~ line 126 ~ orderReducer ~ data", data)
+      return {
+        ...state,
+        orderItem: {
+          ...state.orderItem,
+          data: data,
+          load: false,
+        },
+      }
+    }
+    case 'GET_ORDER_ITEM_FAIL': {
+      const { error } = action.payload;
+      return {
+        ...state,
+        orderItem: {
+          ...state.orderItem,
+          load: false,
+          error: error,
+        },
+      }
     }
     default: {
       return state;

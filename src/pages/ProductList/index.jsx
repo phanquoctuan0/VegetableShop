@@ -4,7 +4,11 @@ import { Row } from 'antd';
 
 import history from '../../utils/history';
 
-import { getCategoryListAction, getProductListAction } from '../../redux/actions';
+import {
+  getCategoryListAction,
+  getProductListAction,
+  getAllCommentAction
+} from '../../redux/actions';
 
 import ItemProduct from './components/ItemProduct'
 
@@ -13,6 +17,8 @@ function ProductListPage({
   getProductList,
   categoryList,
   productList,
+  getAllComment,
+  allCommentList
 }) {
 
   const [categorySelected, setCategorySelected] = useState(null);
@@ -23,6 +29,7 @@ function ProductListPage({
       page: 1,
       limit: 8,
     });
+    getAllComment();
   }, []);
 
   function handleFilterCategory(id) {
@@ -68,16 +75,28 @@ function ProductListPage({
 
   function renderProductList() {
     if (productList.load) return <p>Loading...</p>;
-    return productList.data.map((productItem, productIndex) => {
-      return (
-        <ItemProduct
-          title={productItem.name}
-          price={productItem.price}
-          img={productItem.img[0]}
-          id={productItem.id}
-          unit={productItem.unit}
-        />
-      )
+    return productList.data.map((productItem) => {
+      if (productItem.category.status === 'on') {
+        let totalRate = 0;
+        let count = 0;
+        allCommentList.data.forEach((item) => {
+          if (productItem.id == item.productId) {
+            totalRate = totalRate + item.rate
+            count += 1;
+          }
+        })
+        return (
+          <ItemProduct
+            title={productItem.name}
+            price={productItem.price}
+            img={productItem.img[0]}
+            id={productItem.id}
+            unit={productItem.unit}
+            rate={count !== 0 ? Math.ceil(totalRate / count) : 0}
+            count={count}
+          />
+        )
+      }
     })
   }
 
@@ -124,10 +143,12 @@ function ProductListPage({
 
 const mapStateToProps = (state) => {
   const { categoryList, productList, searchValue } = state.productReducer;
+  const { allCommentList } = state.commentReducer;
   return {
     categoryList,
     productList,
-    searchValue
+    searchValue,
+    allCommentList
   }
 };
 
@@ -135,6 +156,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProductList: (params) => dispatch(getProductListAction(params)),
     getCategoryList: (params) => dispatch(getCategoryListAction(params)),
+    getAllComment: (params) => dispatch(getAllCommentAction(params)),
   };
 }
 

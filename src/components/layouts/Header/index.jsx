@@ -34,7 +34,7 @@ function Header({ userInfo, cartList, addSearchProduct }) {
   const [searchValue, setSearchValue] = useState();
 
   const handleKeyDown = (event) => {
-  console.log("🚀 ~ file: index.jsx ~ line 37 ~ handleKeyDown ~ event", event)
+    console.log("🚀 ~ file: index.jsx ~ line 37 ~ handleKeyDown ~ event", event)
     if (event.key === 'Enter') {
       addSearchProduct({ searchValue });
       history.push('/search');
@@ -50,7 +50,7 @@ function Header({ userInfo, cartList, addSearchProduct }) {
     <Menu>
       <Menu.Item>
         <LinkItem to='/profile'>
-          Tài khoản của {userInfo.data.name}
+          Thông tin cá nhân
         </LinkItem>
       </Menu.Item>
       <Menu.Item>
@@ -103,20 +103,6 @@ function Header({ userInfo, cartList, addSearchProduct }) {
             <NavLink to='/about' >
               Giới thiệu
           </NavLink>
-
-            {userInfo.data.id
-              ? (
-                <NavLink to='/profile'>
-                  <Dropdown overlay={menu} placement="bottomLeft" arrow>
-                    <Avatar />
-                  </Dropdown>
-                </NavLink>
-              )
-              :
-              <NavLink to='/login'>
-                Đăng nhập
-          </NavLink>
-            }
             <NavLink to='/cart' style={{ position: 'relative' }}>
               <Cart />
               <AmountContainer>
@@ -125,6 +111,21 @@ function Header({ userInfo, cartList, addSearchProduct }) {
                 </TotalAmount>
               </AmountContainer>
             </NavLink>
+            {userInfo.data.id
+              ? (
+                <NavLink to='/profile'>
+                  <Dropdown overlay={menu} placement="bottomLeft" arrow>
+                    <Avatar />
+                  </Dropdown>
+                  {userInfo.data.name}
+                </NavLink>
+              )
+              :
+              <NavLink to='/login'>
+                Đăng nhập
+          </NavLink>
+            }
+
           </NavMenu>
         </Nav>
       </HeaderContainer>

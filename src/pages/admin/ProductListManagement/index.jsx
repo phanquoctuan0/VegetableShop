@@ -1,5 +1,5 @@
-import { Table, Modal, Input, Button, Popconfirm, Select, Form, InputNumber } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { Table, Modal, Input, Button, Popconfirm, Select, Form, InputNumber, Upload } from 'antd';
+import { DeleteOutlined, EditOutlined, UploadOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -22,12 +22,10 @@ function AdminProductPage({
   deleteProductList,
   addProductList
 }) {
+
   useEffect(() => {
     getCategoryList({});
-    getProductList({
-      page: 1,
-      limit: 99,
-    });
+    getProductList({});
   }, []);
 
 
@@ -52,14 +50,21 @@ function AdminProductPage({
   function callModal(id) {
     productList.data.forEach((item) => {
       if (id === item.id) {
+        const formImages = id
+          ? item.img.map((img, index) => ({
+            uid: index,
+            name: `image-${index + 1}.jpg`,
+            type: 'image/jpeg',
+            thumbUrl: img,
+          }))
+          : []
         setProductSelectd({
           name: item.name,
           categoryId: item.categoryId,
           price: item.price,
           id: id,
-          img: item.img,
+          img: formImages,
           description: item.description,
-          categoryName: item.category.name,
           unit: item.unit
         })
       }
@@ -69,6 +74,53 @@ function AdminProductPage({
     setIdProductSelect(id);
   }
 
+  function handleUpdateProduct() {
+    const values = productForm.getFieldValue();
+    const newImages = values.img.map((file) => file.thumbUrl);
+    let categoryName = ''
+    categoryList.data.forEach((item) => {
+      if (item.id === values.categoryId) {
+        categoryName = item.name
+      }
+    })
+    const product = {
+      id: idProductSelect,
+      name: values.name,
+      price: values.price,
+      categoryId: values.categoryId,
+      img: newImages,
+      description: productSelected.description,
+      categoryName: categoryName,
+      unit: values.unit
+    }
+    editProductList({
+      product: product
+    })
+  }
+
+  function handleAddProduct() {
+    const values = addProductForm.getFieldValue();
+    const newImages = values.img.map((file) => file.thumbUrl);
+    let categoryName = undefined
+    categoryList.data.forEach((item) => {
+      if (item.id == values.categoryId) {
+        categoryName = item.name;
+      }
+    })
+    const newProduct = {
+      name: values.name,
+      price: values.price,
+      categoryId: values.categoryId,
+      img: newImages,
+      description: values.description,
+      categoryName: categoryName,
+      unit: values.unit,
+    }
+    addProductList({
+      newProduct: newProduct
+    })
+
+  }
   function renderCategoryOptions() {
     return categoryList.data.map((categoryItem, categoryIndex) => {
       return (
@@ -86,7 +138,8 @@ function AdminProductPage({
       price: item.price.toLocaleString('it-IT'),
       id: item.id,
       img: item.img,
-      unit: item.unit
+      unit: item.unit,
+      key: item.id
     }
   })
 
@@ -102,7 +155,7 @@ function AdminProductPage({
       key: 'img',
       render: (_, record) => {
         return (
-          <img src={record.img} style={{ height: '32px' }} />
+          <img src={record.img[0]} style={{ height: '32px' }} />
         )
       }
     },
@@ -126,7 +179,7 @@ function AdminProductPage({
             <EditOutlined
               onClick={() => callModal(record.id)}
               style={{
-                color: 'blue',
+                color: '#1890ff',
                 cursor: 'pointer',
                 fontSize: '180%'
               }}
@@ -139,7 +192,7 @@ function AdminProductPage({
             >
               <DeleteOutlined
                 style={{
-                  color: 'red',
+                  color: '#ff4d4f',
                   cursor: 'pointer',
                   fontSize: '180%'
                 }}
@@ -157,28 +210,13 @@ function AdminProductPage({
     <div className='products'>
       <Modal title="Chỉnh sửa sản phẩm"
         visible={isModalVisible}
-        onOk={() => { setIsModalVisible(false) }}
+        onOk={() => { handleUpdateProduct(); setIsModalVisible(false) }}
         onCancel={() => { setIsModalVisible(false) }}
       >
         <Form
           form={productForm}
           layout="vertical"
           name="productForm"
-          onFinish={(values) => {
-            const product = {
-              id: idProductSelect,
-              name: values.name,
-              price: values.price,
-              categoryId: values.categoryId,
-              img: productSelected.img,
-              description: productSelected.description,
-              categoryName: productSelected.categoryName,
-              unit: values.unit
-            }
-            editProductList({
-              product: product
-            })
-          }}
           initialValues={productSelected}
         >
           <Form.Item name="name" label="Tên sản phẩm">
@@ -199,42 +237,46 @@ function AdminProductPage({
           <Form.Item name="unit" label="Cân nặng">
             <Input placeholder="Cân nặng sản phẩm" />
           </Form.Item>
-          <div style={{ textAlign: 'right' }}>
-            <Button htmlType='submit'>Thay đổi</Button>
-          </div>
+          <Form.Item
+            valuePropName="fileList"
+            label="Hình ảnh"
+            name="img"
+            getValueFromEvent={(e) => {
+              if (Array.isArray(e)) return e;
+              return e && e.fileList
+            }}
+            validateFirst
+            rules={[
+              { required: true, message: 'Vui lòng tải ảnh lên!' },
+              () => ({
+                validator(_, value) {
+                  if (!['image/png', 'image/jpeg'].includes(value[0].type)) {
+                    return Promise.reject('File không đúng định dạng');
+                  }
+                  return Promise.resolve();
+                }
+              })
+            ]}
+          >
+            <Upload
+              listType="picture"
+              beforeUpload={() => false}
+            >
+              <Button icon={<UploadOutlined />}>Click to upload</Button>
+            </Upload>
+          </Form.Item>
         </Form>
       </Modal>
 
       <Modal title="Thêm sản phẩm"
         visible={isModalVisible2}
-        onOk={() => { setIsModalVisible2(false) }}
+        onOk={() => { handleAddProduct(); setIsModalVisible2(false) }}
         onCancel={() => { setIsModalVisible2(false) }}
       >
         <Form
           form={addProductForm}
           layout="vertical"
           name="addProductForm"
-          onFinish={(values) => {
-            let categoryName = undefined
-            categoryList.data.forEach((item) => {
-              if (item.id == values.categoryId) {
-                categoryName = item.name;
-              }
-            })
-            const newProduct = {
-              name: values.name,
-              price: values.price,
-              categoryId: values.categoryId,
-              img: [values.img],
-              description: values.description,
-              categoryName: categoryName,
-              unit: values.unit
-            }
-            addProductList({
-              newProduct: newProduct
-            })
-          }
-          }
         >
           <Form.Item name="name" label="Tên sản phẩm">
             <Input placeholder="Tên sản phẩm" />
@@ -251,18 +293,41 @@ function AdminProductPage({
               style={{ width: '100%' }}
             />
           </Form.Item>
-          <Form.Item name="img" label="Link hình ảnh">
-            <Input placeholder="Link hình ảnh" />
-          </Form.Item>
-          <Form.Item name="description" label="Mô tả">
-            <Input placeholder="Mô tả" />
-          </Form.Item>
           <Form.Item name="unit" label="Cân nặng">
             <Input placeholder="Cân nặng sản phẩm" />
           </Form.Item>
-          <div style={{ textAlign: 'right' }}>
-            <Button htmlType='submit'>Thêm sản phẩm</Button>
-          </div>
+          <Form.Item
+            valuePropName="fileList"
+            label="Hình ảnh"
+            name="img"
+            getValueFromEvent={(e) => {
+              if (Array.isArray(e)) return e;
+              return e && e.fileList
+            }}
+            validateFirst
+            rules={[
+              { required: true, message: 'Vui lòng tải ảnh lên!' },
+              () => ({
+                validator(_, value) {
+                  if (!['image/png', 'image/jpeg'].includes(value[0].type)) {
+                    return Promise.reject('File không đúng định dạng');
+                  }
+                  return Promise.resolve();
+                }
+              })
+            ]}
+          >
+            <Upload
+              listType="picture"
+              beforeUpload={() => false}
+            >
+              <Button icon={<UploadOutlined />}>Click to upload</Button>
+            </Upload>
+          </Form.Item>
+
+          <Form.Item name="description" label="Mô tả">
+            <Input placeholder="Mô tả" />
+          </Form.Item>
         </Form>
       </Modal>
 
@@ -280,7 +345,7 @@ function AdminProductPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={(value)=>{getProductList({searchKey : value})}}
+          onSearch={(value) => { getProductList({ searchKey: value }) }}
         />
         <div>
           <Button type="primary"

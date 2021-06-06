@@ -54,7 +54,34 @@ function* getCommentListSaga(action) {
   }
 }
 
+function* getAllCommentSaga(action) {
+  try {
+    const result = yield axios({
+      method: 'GET',
+      url: `http://localhost:3001/comments`,
+      params: {
+        _sort: "id",
+        _order: "desc"
+      }
+    });
+    yield put({
+      type: "GET_ALL_COMMENT_SUCCESS",
+      payload: {
+        data: result.data,
+      },
+    });
+  } catch (e) {
+    yield put({
+      type: "GET_ALL_COMMENT_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
+
 export default function* commentSaga() {
   yield takeEvery("ADD_TO_COMMENT_REQUEST", addToCommentSaga);
   yield takeEvery('GET_COMMENT_LIST_REQUEST', getCommentListSaga);
+  yield takeEvery('GET_ALL_COMMENT_REQUEST', getAllCommentSaga);
 }

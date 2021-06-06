@@ -93,8 +93,39 @@ function* reviewOrderListSaga(action) {
     });
   }
 }
+
+function* getOrderItemSaga(action) {
+  try {
+    const {userId} = action.payload;
+    console.log("🚀 ~ file: order.saga.js ~ line 100 ~ function*getOrderItemSaga ~ userId", userId)
+    const result = yield axios({
+      method: 'GET',
+      url: `http://localhost:3001/carts?userId=${userId}`,
+      params: {
+        _sort : "id",
+        _order: "desc",
+      }
+    });
+    console.log("🚀 ~ file: order.saga.js ~ line 109 ~ function*getOrderItemSaga ~ result", result)
+    yield put({
+      type: "GET_ORDER_ITEM_SUCCESS",
+      payload: {
+        data: result.data,
+      },
+    });
+  } catch (e) {
+    yield put({
+      type: "GET_ORDER_ITEM_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
 export default function* orderSaga() {
   yield takeEvery("ADD_TO_ORDER_REQUEST", addToOrderSaga);
   yield takeEvery('GET_ORDER_LIST_REQUEST', getOrderListSaga);
   yield takeEvery('REVIEW_ORDER_LIST_REQUEST', reviewOrderListSaga);
+  yield takeEvery('GET_ORDER_ITEM_REQUEST', getOrderItemSaga);
+
 }
