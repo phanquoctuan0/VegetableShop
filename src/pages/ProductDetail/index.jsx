@@ -282,7 +282,7 @@ function ProductDetailPage({
       </Row>
       {
         userInfo ?
-          <div className='comment-rate'>
+          <div className='comment-rate' style={{ marginLeft: 130}}>
             <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
             <div>
               Viết đánh giá

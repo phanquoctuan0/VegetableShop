@@ -55,8 +55,8 @@ function RegisterPage( {register} ) {
   );
 
   return (
-    <div style={{ width: 600, margin: '16px auto' }}>
-      <Card size="small">
+    <div style={{ width: 700, margin: "15px auto", padding: 15, backgroundColor: "#edeae6" }}>
+      <h2 style={{ padding: "10px 230px" }}>ĐĂNG KÝ TÀI KHOẢN</h2>
         <Form
           {...formItemLayout}
           form={form}
@@ -73,11 +73,11 @@ function RegisterPage( {register} ) {
             rules={[
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: 'E-mail không đúng định dạng!',
               },
               {
                 required: true,
-                message: 'Please input your E-mail!',
+                message: 'Vui lòng nhập E-mail!',
               },
             ]}
           >
@@ -86,11 +86,11 @@ function RegisterPage( {register} ) {
 
           <Form.Item
             name="password"
-            label="Password"
+            label="Mật khẩu"
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
+                message: 'Vui lòng nhập mật khẩu!',
               },
             ]}
             hasFeedback
@@ -100,13 +100,13 @@ function RegisterPage( {register} ) {
 
           <Form.Item
             name="confirm"
-            label="Confirm Password"
+            label="Nhập lại mật khẩu"
             dependencies={['password']}
             hasFeedback
             rules={[
               {
                 required: true,
-                message: 'Please confirm your password!',
+                message: 'Nhập lại mật khẩu của bạn',
               },
               ({ getFieldValue }) => ({
                 validator(_, value) {
@@ -114,7 +114,7 @@ function RegisterPage( {register} ) {
                     return Promise.resolve();
                   }
 
-                  return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                  return Promise.reject(new Error('Mật khẩu của bạn không trùng khớp!'));
                 },
               }),
             ]}
@@ -124,12 +124,12 @@ function RegisterPage( {register} ) {
 
           <Form.Item
             name="name"
-            label="Nickname"
+            label="Họ tên"
             tooltip="What do you want others to call you?"
             rules={[
               {
                 required: true,
-                message: 'Please input your nickname!',
+                message: 'Vui lòng nhập họ tên',
                 whitespace: true,
               },
             ]}
@@ -139,11 +139,11 @@ function RegisterPage( {register} ) {
 
           <Form.Item
             name="phone"
-            label="Phone Number"
+            label="SĐT"
             rules={[
               {
                 required: true,
-                message: 'Please input your phone number!',
+                message: 'Vui lòng nhập số điện thoại',
               },
             ]}
           >
@@ -161,22 +161,21 @@ function RegisterPage( {register} ) {
             rules={[
               {
                 validator: (_, value) =>
-                  value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+                  value ? Promise.resolve() : Promise.reject(new Error('Chấp nhận điều khoản')),
               },
             ]}
             {...tailFormItemLayout}
           >
             <Checkbox>
-              I have read the <a href="">agreement</a>
+              Tôi đã đọc <a href="">điều khoản</a>
             </Checkbox>
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
-              Register
+              Đăng ký
         </Button>
           </Form.Item>
         </Form>
-      </Card>
     </div>
   );
 };

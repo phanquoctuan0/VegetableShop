@@ -13,44 +13,44 @@ function LoginPage({ login }) {
   };
 
   return (
-    <div style={{ width: 500, margin: '16px auto',height: '70vh' }}>
-      <Card size="small">
-        {/* <h2>LOGIN</h2> */}
-        <Form
-          {...layout}
-          name="basic"
-          initialValues={{ remember: true }}
-          onFinish={(values) => login(values)}
+    <div style={{ width: 700, margin: "15px auto", padding: 15, backgroundColor: "#edeae6" }}>
+      <h2 style={{ padding: "10px 230px" }}>ĐĂNG NHẬP</h2>
+      {/* <Card size="small"> */}
+      <Form
+        {...layout}
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={(values) => login(values)}
+      >
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: 'Vui lòng nhập email' }]}
         >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[{ required: true, message: 'Please input your email!' }]}
-          >
-            <Input />
-          </Form.Item>
+          <Input />
+        </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
+        <Form.Item
+          label="Mật khẩu"
+          name="password"
+          rules={[{ required: true, message: 'Vui lòng nhập mật khẩu' }]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+          <Checkbox>Nhớ mât khẩu</Checkbox>
+        </Form.Item>
 
-          <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Đăng nhập
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit">
+            Đăng nhập
            </Button>
-            <Button type="primary" htmlType="submit" style={{marginLeft:20}}><a href="http://localhost:3000/register">Đăng ký</a>
-           </Button>
-          </Form.Item>
-        </Form>
-      </Card>
+          <Button type="primary" htmlType="submit" style={{ marginLeft: 20 }}><a href="http://localhost:3000/register">Đăng ký</a>
+          </Button>
+        </Form.Item>
+      </Form>
+      {/* </Card> */}
     </div>
   );
 }
