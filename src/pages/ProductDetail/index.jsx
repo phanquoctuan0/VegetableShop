@@ -233,7 +233,7 @@ function ProductDetailPage({
 
   return (
     <>
-      <Row gutter={6}>
+      <Row gutter={6} style={{maxWidth: '1170px'}}>
         <Col span={12}>
           <div style={{ marginTop: 16, marginBottom: 16 }}>
             <div style={{ width: 420, marginLeft: 130 }}>
@@ -244,7 +244,7 @@ function ProductDetailPage({
           </div>
         </Col>
         <Col span={12}>
-          <div style={{ marginTop: 32, marginBottom: 16 }}>
+          <div style={{ marginTop: 32, marginBottom: 16 }} >
             <div style={{ width: 420, height: 420, marginLeft: 130, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
               <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
                 <div>
@@ -283,7 +283,7 @@ function ProductDetailPage({
           </div>
         </Col>
 
-        <Descriptions title="MÔ TẢ:" style={{ marginLeft: 130, marginRight: 130, textAlign: 'justify' }}>
+        <Descriptions title="MÔ TẢ:" style={{ width: 'auto', marginLeft: 130, marginRight: 130, textAlign: 'justify' }}>
           <Descriptions.Item style={{ width: 500, marginLeft: 130, fontWeight: 700, }}>
             {productDetail.data.description}</Descriptions.Item>
         </Descriptions>

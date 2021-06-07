@@ -120,7 +120,7 @@ function ProfilePage({
   ];
   return (
     <>
-      <Tabs defaultActiveKey="1" onChange={callback}>
+      <Tabs defaultActiveKey="1" onChange={callback} style={{ marginLeft: 10}}>
         <TabPane tab="Thông tin tài khoản" key="1">
           <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
             <h2>Thông tin tài khoản</h2>
