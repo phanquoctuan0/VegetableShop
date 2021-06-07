@@ -283,7 +283,7 @@ function ProductDetailPage({
           </div>
         </Col>
 
-        <Descriptions title="MÔ TẢ:" style={{ width: 'auto', marginLeft: 130, marginRight: 130, textAlign: 'justify' }}>
+        <Descriptions title="MÔ TẢ:" style={{ marginLeft: 130, textAlign: 'justify' }}>
           <Descriptions.Item style={{ width: 500, marginLeft: 130, fontWeight: 700, }}>
             {productDetail.data.description}</Descriptions.Item>
         </Descriptions>
