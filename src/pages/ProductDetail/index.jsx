@@ -234,7 +234,7 @@ function ProductDetailPage({
   return (
     <>
       <Row gutter={6}>
-        <Col span={12} style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Col span={12}>
           <div style={{ marginTop: 16, marginBottom: 16 }}>
             <div style={{ width: 420, marginLeft: 130 }}>
               <div className="slide-img">
@@ -243,7 +243,7 @@ function ProductDetailPage({
             </div>
           </div>
         </Col>
-        <Col span={12} style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Col span={12}>
           <div style={{ marginTop: 32, marginBottom: 16 }}>
             <div style={{ width: 420, height: 420, marginLeft: 130, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
               <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
@@ -296,7 +296,7 @@ function ProductDetailPage({
       </Row>
       {
         userInfo ?
-          <div className='comment-rate' style={{ marginLeft: 130}}>
+          <div className='comment-rate' style={{width: 'auto', marginLeft: 130}}>
             <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
             <div>
               Viết đánh giá
