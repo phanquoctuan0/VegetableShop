@@ -112,7 +112,7 @@ function CartPage({
           className="btn order-btn"
           onClick = {()=>{history.push('/order')}}
         >
-          Tiến hành đặng hàng
+          Tiến hành đặt hàng
         </button>
       </footer>
     </div>
