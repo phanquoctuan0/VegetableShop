@@ -265,6 +265,9 @@ function AdminProductPage({
               <Button icon={<UploadOutlined />}>Click to upload</Button>
             </Upload>
           </Form.Item>
+          <Form.Item name="description" label="Mô tả">
+            <Input placeholder="Mô tả" />
+          </Form.Item>
         </Form>
       </Modal>
 
