@@ -176,6 +176,7 @@ function OrderManagementPage({
         size="middle"
         columns={tableColumns}
         dataSource={tableData}
+        pagination = {{defaultPageSize: 9}}
         expandable={{
           expandedRowRender: (record) => {
             return (

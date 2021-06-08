@@ -37,7 +37,7 @@ function AdminProductPage({
 
   const [productSelected, setProductSelectd] = useState({})
   const [idProductSelect, setIdProductSelect] = useState();
-
+  const { TextArea } = Input;
   useEffect(() => {
     productForm.resetFields();
   }, [productSelected]);
@@ -119,7 +119,7 @@ function AdminProductPage({
     addProductList({
       newProduct: newProduct
     })
-
+    addProductForm.resetFields();
   }
   function renderCategoryOptions() {
     return categoryList.data.map((categoryItem, categoryIndex) => {
@@ -219,22 +219,38 @@ function AdminProductPage({
           name="productForm"
           initialValues={productSelected}
         >
-          <Form.Item name="name" label="Tên sản phẩm">
+          <Form.Item
+            name="name"
+            label="Tên sản phẩm"
+            rules={[{ required: true, message: 'Tên sản phẩm không được rỗng!' }]}
+          >
             <Input placeholder="Tên sản phẩm" />
           </Form.Item>
-          <Form.Item name="categoryId" label="Loại sản phẩm">
+          <Form.Item
+            name="categoryId"
+            label="Loại sản phẩm"
+            rules={[{ required: true, message: 'Chọn loại sản phẩm!' }]}
+          >
             <Select placeholder="Loại sản phẩm">
               {renderCategoryOptions()}
             </Select>
           </Form.Item>
-          <Form.Item name="price" label="Giá">
+          <Form.Item
+            name="price"
+            label="Giá"
+            rules={[{ required: true, message: 'Giá không được rỗng!' }]}
+          >
             <InputNumber
               formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               placeholder="Giá"
               style={{ width: '50%' }}
             />
           </Form.Item>
-          <Form.Item name="unit" label="Cân nặng">
+          <Form.Item
+            name="unit"
+            label="Cân nặng"
+            rules={[{ required: true, message: 'Cân nặng không được rỗng!' }]}
+          >
             <Input placeholder="Cân nặng sản phẩm" />
           </Form.Item>
           <Form.Item
@@ -266,7 +282,7 @@ function AdminProductPage({
             </Upload>
           </Form.Item>
           <Form.Item name="description" label="Mô tả">
-            <Input placeholder="Mô tả" />
+            <TextArea rows={4} placeholder="Mô tả" />
           </Form.Item>
         </Form>
       </Modal>
@@ -281,22 +297,38 @@ function AdminProductPage({
           layout="vertical"
           name="addProductForm"
         >
-          <Form.Item name="name" label="Tên sản phẩm">
+          <Form.Item
+            name="name"
+            label="Tên sản phẩm"
+            rules={[{ required: true, message: 'Tên sản phẩm không được rỗng!' }]}
+          >
             <Input placeholder="Tên sản phẩm" />
           </Form.Item>
-          <Form.Item name="categoryId" label="Loại sản phẩm">
+          <Form.Item
+            name="categoryId"
+            label="Loại sản phẩm"
+            rules={[{ required: true, message: 'Chọn loại sản phẩm!' }]}
+          >
             <Select placeholder="Loại sản phẩm">
               {renderCategoryOptions()}
             </Select>
           </Form.Item>
-          <Form.Item name="price" label="Giá">
+          <Form.Item
+            name="price"
+            label="Giá"
+            rules={[{ required: true, message: 'Giá không được rỗng!' }]}
+          >
             <InputNumber
               formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               placeholder="Giá"
               style={{ width: '100%' }}
             />
           </Form.Item>
-          <Form.Item name="unit" label="Cân nặng">
+          <Form.Item
+            name="unit"
+            label="Cân nặng"
+            rules={[{ required: true, message: 'Cân nặng không được rỗng!' }]}
+          >
             <Input placeholder="Cân nặng sản phẩm" />
           </Form.Item>
           <Form.Item
@@ -329,7 +361,7 @@ function AdminProductPage({
           </Form.Item>
 
           <Form.Item name="description" label="Mô tả">
-            <Input placeholder="Mô tả" />
+            <TextArea rows={4} placeholder="Mô tả" />
           </Form.Item>
         </Form>
       </Modal>
@@ -364,6 +396,7 @@ function AdminProductPage({
         size="middle"
         columns={tableColumns}
         dataSource={tableData}
+        pagination={{ defaultPageSize: 9 }}
       />
     </div>
   );

@@ -1,7 +1,8 @@
-import { Table, Modal, Switch, Input, Button, Popconfirm } from 'antd';
+import { Table, Modal, Switch, Input, Button, Popconfirm,notification  } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 import {
   addCategoryListAction,
@@ -28,21 +29,31 @@ function CategoryManagementPage({
   const [isModalVisible2, setIsModalVisible2] = useState(false);
   const [valueInput, setValueInput] = useState('');
 
-
+  const openNotification = () => {
+    notification.open({
+      message: 'Danh mục không được rỗng',
+      icon: <InfoCircleOutlined  style={{ color: '#a8071a' }} />,
+    });
+  };
 
   function handleDeleteCategory(id) {
     deleteCategoryList({ id: id })
   }
 
   function handleAddCategory() {
-    const newCategory = {
-      name: valueInput,
-      status: 'off'
+    if (valueInput) {
+      const newCategory = {
+        name: valueInput,
+        status: 'off'
+      }
+      addCategoryList({
+        category: newCategory
+      })
+      setIsModalVisible2(false)
+    }else{
+      // setIsModalVisible2(false)
+      openNotification()
     }
-    addCategoryList({
-      category: newCategory
-    })
-    setIsModalVisible2(false)
   }
 
   function handleEditCategory(id, status) {
@@ -112,8 +123,8 @@ function CategoryManagementPage({
     },
   ];
 
-  const tableData = categoryList.data.map((item)=>{
-    return {...item, key : item.id}
+  const tableData = categoryList.data.map((item) => {
+    return { ...item, key: item.id }
   })
   return (
     <div className='category'>
@@ -137,7 +148,7 @@ function CategoryManagementPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={(value) => { getCategoryList({searchKey : value})}}
+          onSearch={(value) => { getCategoryList({ searchKey: value }) }}
         />
         <div>
           <Button type="primary"
@@ -153,6 +164,7 @@ function CategoryManagementPage({
         loading={categoryList.load}
         columns={tableColumns}
         size='middle'
+        pagination={{ defaultPageSize: 9 }}
       />
     </div>
   )

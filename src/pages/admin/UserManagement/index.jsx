@@ -1,5 +1,5 @@
-import { Table, Modal, Space, Radio, Input, Button, Popconfirm, Form } from 'antd';
-import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
+import { Table, Modal, Space, Radio, Input, Button, Popconfirm, Form,notification } from 'antd';
+import { EditOutlined, UserDeleteOutlined,InfoCircleOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -26,6 +26,21 @@ function AdminUserPage({
   const [initValue, setInitValue] = useState(null)
   const [isIdEdit, setIsIdEdit] = useState(null);
 
+  const userInfoLocal = JSON.parse(localStorage.getItem("userInfo"));
+
+  const openNotificationUpdate = () => {
+    notification.open({
+      message: 'Bạn không thể thay đổi tài khoản của chính mình!',
+      icon: <InfoCircleOutlined  style={{ color: '#a8071a' }} />,
+    });
+  };
+
+  const openNotificationDelete = () => {
+    notification.open({
+      message: 'Bạn không thể khóa tài khoản của chính mình!',
+      icon: <InfoCircleOutlined  style={{ color: '#a8071a' }} />,
+    });
+  };
   useEffect(() => {
     userItemForm.resetFields();
   }, [isIdEdit]);
@@ -44,44 +59,52 @@ function AdminUserPage({
   }
 
   function handleEditUser(id) {
-    const values = userItemForm.getFieldValue();
-    userList.data.forEach((item) => {
-      if (id === item.id) {
-        const user = {
-          id: item.id,
-          email: item.email,
-          password: item.password,
-          name: item.name,
-          phone: item.phone,
-          role: values.role
+    if (id === userInfoLocal.id) {
+      setIsModalVisible(false)
+      openNotificationUpdate()
+    } else {
+      const values = userItemForm.getFieldValue();
+      userList.data.forEach((item) => {
+        if (id === item.id) {
+          const user = {
+            id: item.id,
+            email: item.email,
+            password: item.password,
+            name: item.name,
+            phone: item.phone,
+            role: values.role
+          }
+          deleteUser({
+            id: id,
+            user: user
+          })
+          setIsModalVisible(false)
         }
-        deleteUser({
-          id: id,
-          user: user
-        })
-        setIsModalVisible(false)
-      }
-    })
-
+      })
+    }
   }
 
   function handleDeleteUser(id) {
-    userList.data.forEach((item) => {
-      if (id === item.id) {
-        const user = {
-          id: item.id,
-          email: item.email,
-          password: item.password,
-          name: item.name,
-          phone: item.phone,
-          role: 'banned'
+    if (id === userInfoLocal.id) {
+      openNotificationDelete()
+    } else {
+      userList.data.forEach((item) => {
+        if (id === item.id) {
+          const user = {
+            id: item.id,
+            email: item.email,
+            password: item.password,
+            name: item.name,
+            phone: item.phone,
+            role: 'banned'
+          }
+          deleteUser({
+            id: id,
+            user: user
+          })
         }
-        deleteUser({
-          id: id,
-          user: user
-        })
-      }
-    })
+      })
+    }
   }
 
   const tableData = userList.data.map((item) => {
@@ -206,6 +229,7 @@ function AdminUserPage({
         loading={userList.load}
         columns={tableColumns}
         size='middle'
+        pagination={{ defaultPageSize: 9 }}
       />
     </div>
   );

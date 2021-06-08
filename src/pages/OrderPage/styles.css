@@ -21,6 +21,12 @@
   width: 50%;
 }
 
+.formOrder form{
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
 .formItem{
   width: 100%;
   font-size: 13px;
@@ -36,7 +42,6 @@
 .formItem input{
   height: 42px;
   width: 67%;
-  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   height: 34px;
