@@ -56,8 +56,9 @@
       "email": "tra@gmail.com",
       "password": "1234",
       "name": "Tra Duong",
-      "phone": "3476317487",
+      "phone": "0394961171",
       "role": "user",
+      "carts": [],
       "id": 9
     }
   ],
