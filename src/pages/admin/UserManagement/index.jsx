@@ -1,4 +1,4 @@
-import { Table, Modal, Space, Radio, Input, Button, Popconfirm } from 'antd';
+import { Table, Modal, Space, Radio, Input, Button, Popconfirm, Form } from 'antd';
 import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
@@ -16,22 +16,35 @@ function AdminUserPage({
   useEffect(() => {
     getUserList({});
   }, []);
-  
+
+
   const { Search } = Input;
-  
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
-  
-  const [valueRadio, setValueRadio] = useState(1);
+
+  const [initValue, setInitValue] = useState(null)
   const [isIdEdit, setIsIdEdit] = useState(null);
-  
-  console.log("🚀 ~ file: index.jsx ~ line 16 ~ userList", userList)
-  const onChange = e => {
-    console.log(e.target.value);
-    setValueRadio(e.target.value);
-  };
+
+  useEffect(() => {
+    userItemForm.resetFields();
+  }, [isIdEdit]);
+
+  const [userItemForm] = Form.useForm();
+
+
+  function callModal(id) {
+    userList.data.forEach((item) => {
+      if (id === item.id) {
+        setInitValue({ role: item.role })
+      }
+    })
+    setIsModalVisible(true);
+    setIsIdEdit(id)
+  }
 
   function handleEditUser(id) {
+    const values = userItemForm.getFieldValue();
     userList.data.forEach((item) => {
       if (id === item.id) {
         const user = {
@@ -40,7 +53,7 @@ function AdminUserPage({
           password: item.password,
           name: item.name,
           phone: item.phone,
-          role: valueRadio
+          role: values.role
         }
         deleteUser({
           id: id,
@@ -49,6 +62,7 @@ function AdminUserPage({
         setIsModalVisible(false)
       }
     })
+
   }
 
   function handleDeleteUser(id) {
@@ -69,6 +83,13 @@ function AdminUserPage({
       }
     })
   }
+
+  const tableData = userList.data.map((item) => {
+    return {
+      ...item,
+      key: item.id
+    }
+  })
 
   const tableColumns = [
     {
@@ -95,10 +116,10 @@ function AdminUserPage({
       title: 'Hành động',
       dataIndex: 'action',
       key: 'action',
-      render: (_,record) => (
+      render: (_, record) => (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <EditOutlined
-            onClick={() => { setIsModalVisible(true); setIsIdEdit(record.id) }}
+            onClick={() => { callModal(record.id) }}
             style={{
               color: '#1890ff',
               cursor: 'pointer',
@@ -134,13 +155,22 @@ function AdminUserPage({
         okText='Xác nhận'
         cancelText='Hủy'
       >
-        <Radio.Group onChange={onChange} value={valueRadio}>
-          <Space direction="vertical">
-            <Radio value={'user'}>User</Radio>
-            <Radio value={'admin'}>Admin</Radio>
-            <Radio value={'banned'}>Ban</Radio>
-          </Space>
-        </Radio.Group>
+        <Form
+          form={userItemForm}
+          layout="vertical"
+          name="userItemForm"
+          initialValues={initValue}
+        >
+          <Form.Item name='role'>
+            <Radio.Group >
+              <Space direction="vertical">
+                <Radio value={'user'}>User</Radio>
+                <Radio value={'admin'}>Admin</Radio>
+                <Radio value={'banned'}>Ban</Radio>
+              </Space>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
       </Modal>
       <Modal title="Thêm tài khoản"
         width="800px"
@@ -160,7 +190,7 @@ function AdminUserPage({
           enterButton="Tìm kiếm"
           size="large"
           style={{ width: 400 }}
-          onSearch={(value)=>{getUserList({searchKey : value})}}
+          onSearch={(value) => { getUserList({ searchKey: value }) }}
         />
         <div>
           <Button type="primary"
@@ -172,7 +202,7 @@ function AdminUserPage({
         </div>
       </div>
       <Table
-        dataSource={userList.data}
+        dataSource={tableData}
         loading={userList.load}
         columns={tableColumns}
         size='middle'

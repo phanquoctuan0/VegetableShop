@@ -7,7 +7,18 @@
       "phone": "6263231239",
       "role": "admin",
       "id": 3,
-      "carts": [],
+      "carts": [
+        {
+          "productId": 24,
+          "count": 1,
+          "name": "Táo Dazzleee",
+          "price": 189000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/25/8291-325161621911371-1621911371--400x400.png"
+          ],
+          "unit": "1kg"
+        }
+      ],
       "gender": "Male",
       "birthDay": "23/06/2021"
     },
@@ -27,7 +38,7 @@
       "password": "123",
       "name": "Tuan Phan",
       "phone": "0967794663",
-      "role": "user",
+      "role": "admin",
       "carts": [],
       "id": 8
     }
@@ -340,51 +351,6 @@
       "status": "confirmed",
       "userId": 3,
       "id": 2
-    },
-    {
-      "orderInforAddress": {
-        "fullName": "Phan Quốc Tuấn",
-        "phone": "0967794663",
-        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
-        "totalPrice": 872000,
-        "date": "31/05/2021",
-        "time": "20:08",
-        "cartList": [
-          {
-            "productId": 23,
-            "count": 2,
-            "name": "Nấm mối đen",
-            "price": 100000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
-            ],
-            "unit": "200g"
-          },
-          {
-            "productId": 19,
-            "count": 1,
-            "name": "Bưởi năm roi",
-            "price": 75000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/10/8246-908371620619748-1620619748--400x400.jpg"
-            ],
-            "unit": "1kg"
-          },
-          {
-            "productId": 18,
-            "count": 3,
-            "name": "Bơ 034 hữu cơ",
-            "price": 199000,
-            "img": [
-              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/15/8260-785791621051419-1621051419--400x400.png"
-            ],
-            "unit": "1kg"
-          }
-        ]
-      },
-      "status": "confirmed",
-      "userId": 5,
-      "id": 5
     }
   ],
   "comments": [
