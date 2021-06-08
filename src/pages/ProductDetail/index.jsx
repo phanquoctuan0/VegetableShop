@@ -288,7 +288,7 @@ function ProductDetailPage({
             {productDetail.data.description}</Descriptions.Item>
         </Descriptions>
 
-        <Descriptions title="SẢN PHẨM TƯƠNG TỰ:" style={{ marginLeft: 130, marginRight: 130 }}>
+        <Descriptions title="SẢN PHẨM TƯƠNG TỰ:" style={{ marginLeft: 130 }}>
           <Row gutter={8}>
             {renderProductList()}
           </Row>
