@@ -5,7 +5,7 @@ import moment from 'moment';
 import { addToOrderAction } from '../../redux/actions';
 import history from '../../utils/history';
 
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { notification } from 'antd';
 import './styles.css';
 
@@ -20,11 +20,19 @@ function OrderPage({ cartList, addToOrder }) {
     address: "",
   });
 
-  const openNotification = () => {
+  const openNotificationSuccess = () => {
     notification.open({
       description:
         'Chúc mừng bạn đã đặt hàng thành công !',
       icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+    });
+  };
+
+  const openNotificationErr = () => {
+    notification.open({
+      description:
+        'Bạn phải nhập đầy đủ thông tin!',
+      icon: <InfoCircleOutlined style={{ color: '#a8071a' }} />,
     });
   };
 
@@ -59,10 +67,10 @@ function OrderPage({ cartList, addToOrder }) {
         status: 'waiting',
         userId: userInfoLocal.id,
       })
-      openNotification();
+      openNotificationSuccess();
       history.push('/')
     } else {
-      alert('Bạn phải nhập đầy đủ thông tin để nhận hàng!')
+      openNotificationErr()
     }
   }
 

@@ -26,7 +26,6 @@ import {
   AmountContainer,
   TotalAmount,
   Avatar,
-  GlobalStyles
 } from './HeaderElements';
 
 function Header({ userInfo, cartList, addSearchProduct }) {
@@ -34,7 +33,6 @@ function Header({ userInfo, cartList, addSearchProduct }) {
   const [searchValue, setSearchValue] = useState();
 
   const handleKeyDown = (event) => {
-    console.log("🚀 ~ file: index.jsx ~ line 37 ~ handleKeyDown ~ event", event)
     if (event.key === 'Enter') {
       addSearchProduct({ searchValue });
       history.push('/search');
@@ -62,7 +60,6 @@ function Header({ userInfo, cartList, addSearchProduct }) {
   );
   return (
     <>
-      {/* <GlobalStyles /> */}
       <HeaderContainer>
         <Nav>
           <NavLinkImg to='/'>

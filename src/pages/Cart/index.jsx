@@ -19,7 +19,7 @@ function CartPage({
 
 
   function handleDeteteItem(productId) {
-  
+
     const indexOfProduct = cartList.data.findIndex((item) => item.productId === parseInt(productId));
     const newCartList = cartList.data;
     newCartList.splice(indexOfProduct, 1);
@@ -105,12 +105,13 @@ function CartPage({
         <hr />
         <div className="cart-total">
           <h4>
-            Tổng tiền <span style={{ fontSize: '22px', color: 'rgb(254, 56, 52' }}>{showTotalOrder()}</span>
+            <span></span>
+            <span>Tổng tiền: <span style={{ fontSize: '22px', color: 'rgb(254, 56, 52' }}>{showTotalOrder()}</span></span>
           </h4>
         </div>
         <button
           className="btn order-btn"
-          onClick = {()=>{history.push('/order')}}
+          onClick={() => { history.push('/order') }}
         >
           Tiến hành đặt hàng
         </button>
