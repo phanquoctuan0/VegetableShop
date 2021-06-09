@@ -13,7 +13,6 @@ import {
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
   NavSearch,
   Cart,
@@ -26,6 +25,11 @@ import {
   AmountContainer,
   TotalAmount,
   Avatar,
+  Img,
+  NavLinkCart,
+  MenuMobile,
+  HomeIcon,
+  ProductIcon
 } from './HeaderElements';
 
 function Header({ userInfo, cartList, addSearchProduct }) {
@@ -63,10 +67,8 @@ function Header({ userInfo, cartList, addSearchProduct }) {
       <HeaderContainer>
         <Nav>
           <NavLinkImg to='/'>
-            <img
+            <Img
               src={logo}
-              alt='logo'
-              style={{ height: '60px' }}
               onClick={() => { history.push('/') }}
             />
           </NavLinkImg>
@@ -89,17 +91,16 @@ function Header({ userInfo, cartList, addSearchProduct }) {
               <SearchIcon />
             </SearchBtn>
           </NavSearch>
-          <Bars />
           <NavMenu>
             <NavLink to='/' >
               Trang chủ
-          </NavLink>
+            </NavLink>
             <NavLink to='/productlist' >
               Sản phẩm
-          </NavLink>
+            </NavLink>
             <NavLink to='/about' >
               Giới thiệu
-          </NavLink>
+            </NavLink>
             <NavLink to='/cart' style={{ position: 'relative' }}>
               <Cart />
               <AmountContainer>
@@ -122,9 +123,28 @@ function Header({ userInfo, cartList, addSearchProduct }) {
                 Đăng nhập
           </NavLink>
             }
-
           </NavMenu>
+          <NavLinkCart to='/cart' style={{ position: 'relative' }}>
+              <Cart />
+              <AmountContainer>
+                <TotalAmount>
+                  {cartList.data.length}
+                </TotalAmount>
+              </AmountContainer>
+          </NavLinkCart>
+          <div></div>
         </Nav>
+        <MenuMobile>
+          <NavLink to = '/'>
+            <HomeIcon />
+          </NavLink>
+          <NavLink to='/productlist'>
+            <ProductIcon/>
+          </NavLink>
+          <NavLink to='/profile'>
+            <Avatar/>
+          </NavLink>
+        </MenuMobile>
       </HeaderContainer>
     </>
   );

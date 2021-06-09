@@ -67,7 +67,7 @@ function HomePage({
   }
 
   const contentStyle = {
-    height: '420px',
+    // height: '420px',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -76,9 +76,10 @@ function HomePage({
   return (
     <>
       <div className="carousel-container">
-        <Carousel autoplay>
+        <Carousel autoplay >
           <div>
             <div
+              className = 'img-carousel'
               onClick={() => {
                 history.push('/about')
               }}
@@ -91,6 +92,7 @@ function HomePage({
           </div>
           <div>
             <div
+              className = 'img-carousel'
               onClick={() => {
                 history.push('/about')
               }}
@@ -103,6 +105,7 @@ function HomePage({
           </div>
           <div>
             <div
+              className = 'img-carousel'
               onClick={() => {
                 history.push('/about')
               }}
@@ -115,6 +118,7 @@ function HomePage({
           </div>
           <div>
             <div
+              className = 'img-carousel'
               onClick={() => {
                 history.push('/about')
               }}
@@ -136,7 +140,7 @@ function HomePage({
           </Row>
           <h3 style={{ fontSize: '26px', paddingTop: '12px' }}>Một số thông tin hữu ích</h3>
           <Row gutter={[16, 16]}>
-            <Col span={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col xl={8} md = {8} sm={12} xs = {24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Card
                 hoverable
                 cover={<img alt="example" src="https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/27/8309-820051622132210-1622132210.jpg" />}
@@ -146,7 +150,7 @@ function HomePage({
                 />
               </Card>
             </Col>
-            <Col span={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col xl={8} md = {8} sm={12} xs = {24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Card
                 hoverable
                 cover={<img alt="example" src="https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/26/8299-683871622024114-1622024114.jpg" />}
@@ -156,7 +160,7 @@ function HomePage({
                 />
               </Card>
             </Col>
-            <Col span={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col xl={8} md = {8} sm={12} xs = {24}style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Card
                 hoverable
                 cover={<img alt="example" src="https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/24/8281-721261621838490-1621838490.jpg" />}

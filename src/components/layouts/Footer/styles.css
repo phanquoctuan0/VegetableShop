@@ -72,3 +72,9 @@ ul{
   color: #24262b;
   background-color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .footer{
+    display: none;
+  }
+}

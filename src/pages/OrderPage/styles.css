@@ -141,3 +141,21 @@
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
+@media screen and (max-width: 768px) {
+  .orderPage{
+    padding-bottom: 34px;
+    flex-direction: column;
+  }
+  .formOrder{
+    width: 100%;
+  }
+  .formConfirm{
+    width: 100%;
+  }
+  .orderPage{
+    padding-bottom: 54px;
+  }
+  .btnCheckout button{
+    width: 100%;
+  }
+}

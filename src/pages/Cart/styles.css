@@ -114,3 +114,15 @@
   font-size: 120%;
   color: rgba(36, 36, 36);
 }
+
+@media screen and (max-width: 768px) {
+  .cart{
+    padding-bottom: 64px;
+  }
+  .total-price-item{
+    display: none;
+  }
+  .order-btn{
+    width: 80%;
+  }
+}
