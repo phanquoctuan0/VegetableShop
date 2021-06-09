@@ -231,21 +231,42 @@ function ProductDetailPage({
     })
   }
 
+  const Image = productDetail.data.img || [];
+  const [img, setImg] = useState(0);
+
+  const handleSelectImg = (index) => {
+    setImg(index);
+  }
+
   return (
     <>
-      <Row gutter={6} style={{maxWidth: '1170px'}}>
-        <Col span={12}>
-          <div style={{ marginTop: 16, marginBottom: 16 }}>
-            <div style={{ width: 420, marginLeft: 130 }}>
-              <div className="slide-img">
-                <img src={productDetail.data.img}></img>
-              </div>
+    <div>
+      <Row gutter={6} style={{ maxWidth: '1170px', margin: 'auto' }}>
+        <Col span={12} >
+          <div style={{ marginTop: 32,  marginBottom: 16, paddingLeft: 80 }}>
+            <div style={{ width: 420 }}>
+              <img src={Image[img]}
+                style={{transformOrigin: '((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%''}}
+              />
+              {Image.map((item, index) => {
+                return (
+                  <img src={item}
+                    key={index}
+                    onClick={() => {
+                      handleSelectImg(index);
+                    }}
+                    width='120px'
+                    height='auto'
+                    style={{ margin: 10 }}
+                  />
+                )
+              })}
             </div>
           </div>
         </Col>
         <Col span={12}>
-          <div style={{ marginTop: 32, marginBottom: 16 }} >
-            <div style={{ width: 420, height: 420, marginLeft: 130, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
+          <div style={{ marginTop: 32, marginBottom: 16, paddingLeft: 80 }} >
+            <div style={{ width: 420, height: 420, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
               <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
                 <div>
                   {productDetail.data.name}
@@ -274,7 +295,7 @@ function ProductDetailPage({
                     Cho vào giỏ hàng
                   </button>
                   <button className="btn-buy-now"
-                    onClick={() => {handleAddToCart(); history.push('/order')}}>
+                    onClick={() => { handleAddToCart(); history.push('/order') }}>
                     Mua ngay
                   </button>
                 </div>
@@ -283,12 +304,12 @@ function ProductDetailPage({
           </div>
         </Col>
 
-        <Descriptions title="MÔ TẢ:" style={{ marginLeft: 130, textAlign: 'justify' }}>
-          <Descriptions.Item style={{ width: 500, marginLeft: 130, fontWeight: 700, }}>
+        <Descriptions title="MÔ TẢ:" style={{ textAlign: 'justify' }}>
+          <Descriptions.Item style={{ width: 500, fontWeight: 700, }}>
             {productDetail.data.description}</Descriptions.Item>
         </Descriptions>
 
-        <Descriptions title="SẢN PHẨM TƯƠNG TỰ:" style={{ marginLeft: 130 }}>
+        <Descriptions title="SẢN PHẨM TƯƠNG TỰ:">
           <Row gutter={8}>
             {renderProductList()}
           </Row>
@@ -296,7 +317,7 @@ function ProductDetailPage({
       </Row>
       {
         userInfo ?
-          <div className='comment-rate' style={{width: 'auto', marginLeft: 130}}>
+          <div className='comment-rate' style={{ width: 'auto', margin: '20px 70px'}}>
             <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
             <div>
               Viết đánh giá
@@ -342,6 +363,7 @@ function ProductDetailPage({
           :
           <h3>Đăng nhập để xem nhận xét và đánh giá</h3>
       }
+      </div>
     </>
   );
 }

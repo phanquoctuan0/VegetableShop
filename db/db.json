@@ -4,7 +4,7 @@
       "email": "tuan@gmail.com",
       "password": "1234",
       "name": "TuanPhan",
-      "phone": "6263231239",
+      "phone": "6263231238",
       "role": "admin",
       "id": 3,
       "carts": [
@@ -20,7 +20,7 @@
         }
       ],
       "gender": "Male",
-      "birthDay": "23/06/2021"
+      "birthDay": ""
     },
     {
       "email": "phanquoctuan00@gmail.com",
@@ -41,6 +41,15 @@
       "role": "admin",
       "carts": [],
       "id": 8
+    },
+    {
+      "email": "tra@gmail.com",
+      "password": "1234",
+      "name": "Tra Duong",
+      "phone": "0394961171",
+      "role": "user",
+      "carts": [],
+      "id": 9
     }
   ],
   "products": [
@@ -128,7 +137,9 @@
       "price": 78000,
       "unit": "500g",
       "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png",
+        "https://lh3.googleusercontent.com/proxy/L5ZYryEgkRXJcIe6AYp53DcgErMxt-tWin_-rzaKXH6B_Z84iPwHMCwu4OuL3YnG1d9dMut3LBS-kwZ3y5bob_Rfc_Il7LEgzlxg_jxtHHNPw_E8-Y47U0WCp8ja8w0",
+        "http://bizweb.dktcdn.net/thumb/grande/100/371/178/products/0222877mang-tay-xanh-loai1-jpeg.jpg?v=1586938042440"
       ],
       "description": "Cây măng tây xanh chứa nhiều chất xơ, đạm, glucid, các vitammin K, C, A, pyridoxine (B6), riboflavin (B2), thiamin (B1), acid folid, các chất khoáng cần thiết cho cơ thể con người như: kali, magnê, canxi, sắt, kẽm… có tác dụng cải thiện sức khỏe ngăn ngừa bệnh tật. Măng tây xanh rất được nhiều người ưa chuộng bởi độ giòn ngọt ngon của măng, măng có thể được chế biến thành nhiều món ăn cực kỳ hấp dẫn bắt mắt dinh dưỡng cao như xào, hấp, luộc, súp,.."
     },
@@ -173,7 +184,9 @@
       "price": 31500,
       "unit": "400g",
       "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png"
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/October/26/4275-518291572055922-1572055922--400x400.png",
+        "https://media.suckhoedoisong.vn/thumb_600x400/Images/duylinh/2020/08/23/ca-rot-thuc-pham-bo-duong-va-lam-thuoc1598128608.jpg",
+        "https://bizweb.dktcdn.net/thumb/1024x1024/100/401/350/products/9.jpg?v=1599732405143"
       ],
       "description": "Cà rốt giàu chất chống oxy hóa, chất xơ, beta carotene, các vitamin và khoáng chất. Nghiên cứu đã cho thấy tác dụng của cà rốt có thể giúp bạn cải thiện thị lực, tăng cường sức khỏe của da và giảm nguy cơ mắc một số bệnh ung thư đấy."
     },
@@ -279,7 +292,9 @@
     {
       "name": "Nấm mối đen",
       "img": [
-        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png",
+        "https://himana.vn/wp-content/uploads/2019/06/nam-moi-den-2.png",
+        "https://lh3.googleusercontent.com/proxy/k4rzUggRJ4qVEkRK3yYq_9frIgRifMk3F2Qr5qaZRyhafUSw_7Md2kK6wgHl7ufcpkZXcG6q_wwbUG5yOYdi5lEImlFIioWkjD28aM1QP1CAuzv9grISn77hf3WMcNg"
       ],
       "categoryId": 5,
       "description": "Nấm mối đen được canh tác tại trang trại ở Lâm Đồng, đạt tiêu chuẩn an toàn vệ sinh thực phẩm. Với hàm lượng dưỡng chất phong phú như protein, enzym tự nhiên, vitamin nhóm B và các khoáng chất (canxi, sắt,…) cần thiết cho cơ thể, việc ăn nấm giúp cơ thể tăng cường đề kháng, ngăn ngừa ung thư, ức chế u và giảm tiểu đường…",
@@ -709,39 +724,6 @@
       "comment": "g",
       "avatar": "T",
       "id": 10
-    },
-    {
-      "userId": 3,
-      "productId": "18",
-      "name": "TuanPhan",
-      "date": "08/06/2021",
-      "time": "23:07",
-      "rate": 5,
-      "comment": "oke",
-      "avatar": "T",
-      "id": 11
-    },
-    {
-      "userId": 3,
-      "productId": "8",
-      "name": "TuanPhan",
-      "date": "09/06/2021",
-      "time": "15:13",
-      "rate": 4,
-      "comment": "tốt",
-      "avatar": "T",
-      "id": 12
-    },
-    {
-      "userId": 3,
-      "productId": "17",
-      "name": "TuanPhan",
-      "date": "09/06/2021",
-      "time": "15:29",
-      "rate": 4,
-      "comment": "Rau tươi xanh\n",
-      "avatar": "T",
-      "id": 13
     }
   ]
 }
