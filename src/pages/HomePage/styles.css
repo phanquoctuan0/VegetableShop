@@ -14,3 +14,17 @@
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.4 );
 }
+.img-carousel{
+  height: 420px;
+}
+@media screen and (max-width: 768px) {
+  .btn-top{
+    display: none;
+  }
+  .carousel-container{
+    padding-bottom: 44px;
+  }
+  .img-carousel{
+    height: 150px;
+  }
+}

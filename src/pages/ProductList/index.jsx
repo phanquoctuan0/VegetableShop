@@ -102,7 +102,8 @@ function ProductListPage({
   }
 
   return (
-    <div style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
+    <div className='product-container'
+      style={{ maxWidth: '1170px', margin: '16px auto 16px', minHeight: '90vh' }}>
       <Row style={{
         display: 'flex',
         justifyContent: 'flex-end',

@@ -82,8 +82,8 @@ function CartItem(props) {
               Xóa
             </button>
           </Popconfirm>
-          <p >
-            Thành tiền:
+          <p className = 'total-price-item'>
+            Tổng tiền: 
             <span className='total-item'>
               {(price * count).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}
             </span>

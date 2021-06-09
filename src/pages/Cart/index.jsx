@@ -105,8 +105,7 @@ function CartPage({
         <hr />
         <div className="cart-total">
           <h4>
-            <span></span>
-            <span>Tổng tiền: <span style={{ fontSize: '22px', color: 'rgb(254, 56, 52' }}>{showTotalOrder()}</span></span>
+            Thành tiền: <span style={{ fontSize: '22px', color: 'rgb(254, 56, 52' }}>{showTotalOrder()}</span>
           </h4>
         </div>
         <button

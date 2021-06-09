@@ -6,10 +6,10 @@ import history from '../../../utils/history';
 function ItemProduct(props) {
   const { title, price, img, id, description, unit, rate, count } = props;
   return (
-    <Col span={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Col xl={6} md = {6} sm={12} xs = {24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div className="box" >
         <div className="slide-img">
-          <img src={img}></img>
+          <img className = 'img-product' src={img}></img>
           <div className="overlay">
             <a onClick={() => history.push(`/product/${id}`)} className="buy-btn">Mua ngay</a>
           </div>

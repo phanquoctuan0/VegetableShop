@@ -62,6 +62,7 @@ function SearchPage({
         margin: '16px auto 16px',
         minHeight: '90vh'
       }}
+      className = 'search-page'
       >
         {searchValue.length ? renderTitle(): ''}
         <Row gutter={[16, 16]}>
