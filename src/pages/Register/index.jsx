@@ -1,4 +1,4 @@
-import { Form, Input, Select, Checkbox, Button, Card } from 'antd';
+import { Form, Input, Select, Checkbox, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 
 import { registerAction } from '../../redux/actions';
@@ -38,8 +38,15 @@ function RegisterPage( {register} ) {
 
   const [form] = Form.useForm();
 
+  function showNotification() {
+    return notification.success({
+      message: 'Đăng ký tài khoản thành công!',
+    });
+  }
+
   const onFinish = (values) => {
     register(values);
+    showNotification();
   };
 
   const prefixSelector = (

@@ -36,6 +36,7 @@ export default function userReducer(state = initialState, action) {
     }
     case 'LOGIN_FAIL': {
       const { error } = action.payload;
+      alert('Email hoặc mật khẩu không đúng!');
       return {
         ...state,
         userInfo: {
