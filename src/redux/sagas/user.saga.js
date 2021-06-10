@@ -1,4 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
+import { notification } from 'antd';
 import axios from 'axios';
 import history from '../../utils/history';
 
@@ -51,12 +52,18 @@ function* loginSaga(action) {
           data: result.data[0],
         },
       });
+      notification.success({
+        message: 'Đăng nhập thành công!',
+      });
       if (result.data[0].role === 'user') {
         yield history.push('/');
       } else {
         yield history.push('/admin/');
       }
     } else {
+      notification.error({
+        message: 'Email hoặc mật khẩu không đúng!',
+      });
       yield put({
         type: "LOGIN_FAIL",
         payload: {
@@ -96,17 +103,29 @@ function* getUserInfoSaga(action) {
 
 function* registerSaga(action) {
   try {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
     const { email, password, name, phone } = action.payload;
-    const result = yield axios.post(`http://localhost:3001/users`, { email, password, name, phone, role: 'user' });
-    yield put({
-      type: "REGISTER_SUCCESS",
-      payload: {
-        data: result.data,
-      },
+    const checkEmailResult = yield axios({
+      method: 'GET',
+      url: 'http://localhost:3001/users',
+      params: {
+        email,
+      }
     });
-    if (userInfo.role !== 'admin') {
+    if (checkEmailResult.data.length > 0) {
+      notification.error({
+        message: 'Email đăng ký đã tồn tại!',
+      });
+    } else {
+      const result = yield axios.post(`http://localhost:3001/users`, { email, password, name, phone, role: 'user' });
+      yield put({
+        type: "REGISTER_SUCCESS",
+        payload: {
+          data: result.data,
+        },
+      });
+      notification.success({
+        message: 'Đăng ký tài khoản thành công!',
+      });
       yield history.push('/login');
     }
   } catch (e) {

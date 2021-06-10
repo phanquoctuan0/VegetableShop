@@ -39,17 +39,6 @@ function RegisterPage( {register} ) {
 
   const [form] = Form.useForm();
 
-  function showNotification() {
-    return notification.success({
-      message: 'Đăng ký tài khoản thành công!',
-    });
-  }
-
-  const onFinish = (values) => {
-    register(values);
-    showNotification();
-  };
-
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -69,7 +58,7 @@ function RegisterPage( {register} ) {
           {...formItemLayout}
           form={form}
           name="register"
-          onFinish={onFinish}
+          onFinish={(values) => register(values)}
           initialValues={{
             prefix: '86',
           }}
