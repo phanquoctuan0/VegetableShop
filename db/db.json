@@ -3,22 +3,11 @@
     {
       "email": "tuan@gmail.com",
       "password": "1234",
-      "name": "TuanPhan",
-      "phone": "6263231238",
+      "name": "Tuan Phan",
+      "phone": "6263231239",
       "role": "admin",
       "id": 3,
-      "carts": [
-        {
-          "productId": 23,
-          "count": 1,
-          "name": "Nấm mối đen",
-          "price": 100000,
-          "img": [
-            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
-          ],
-          "unit": "200g"
-        }
-      ],
+      "carts": [],
       "gender": "Male",
       "birthDay": ""
     },
@@ -138,7 +127,6 @@
       "unit": "500g",
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png",
-        "https://lh3.googleusercontent.com/proxy/L5ZYryEgkRXJcIe6AYp53DcgErMxt-tWin_-rzaKXH6B_Z84iPwHMCwu4OuL3YnG1d9dMut3LBS-kwZ3y5bob_Rfc_Il7LEgzlxg_jxtHHNPw_E8-Y47U0WCp8ja8w0",
         "http://bizweb.dktcdn.net/thumb/grande/100/371/178/products/0222877mang-tay-xanh-loai1-jpeg.jpg?v=1586938042440"
       ],
       "description": "Cây măng tây xanh chứa nhiều chất xơ, đạm, glucid, các vitammin K, C, A, pyridoxine (B6), riboflavin (B2), thiamin (B1), acid folid, các chất khoáng cần thiết cho cơ thể con người như: kali, magnê, canxi, sắt, kẽm… có tác dụng cải thiện sức khỏe ngăn ngừa bệnh tật. Măng tây xanh rất được nhiều người ưa chuộng bởi độ giòn ngọt ngon của măng, măng có thể được chế biến thành nhiều món ăn cực kỳ hấp dẫn bắt mắt dinh dưỡng cao như xào, hấp, luộc, súp,.."
@@ -293,8 +281,7 @@
       "name": "Nấm mối đen",
       "img": [
         "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png",
-        "https://himana.vn/wp-content/uploads/2019/06/nam-moi-den-2.png",
-        "https://lh3.googleusercontent.com/proxy/k4rzUggRJ4qVEkRK3yYq_9frIgRifMk3F2Qr5qaZRyhafUSw_7Md2kK6wgHl7ufcpkZXcG6q_wwbUG5yOYdi5lEImlFIioWkjD28aM1QP1CAuzv9grISn77hf3WMcNg"
+        "https://himana.vn/wp-content/uploads/2019/06/nam-moi-den-2.png"
       ],
       "categoryId": 5,
       "description": "Nấm mối đen được canh tác tại trang trại ở Lâm Đồng, đạt tiêu chuẩn an toàn vệ sinh thực phẩm. Với hàm lượng dưỡng chất phong phú như protein, enzym tự nhiên, vitamin nhóm B và các khoáng chất (canxi, sắt,…) cần thiết cho cơ thể, việc ăn nấm giúp cơ thể tăng cường đề kháng, ngăn ngừa ung thư, ức chế u và giảm tiểu đường…",
@@ -341,6 +328,11 @@
       "name": "Nấm",
       "status": "on",
       "id": 5
+    },
+    {
+      "name": "Trái cây sấy",
+      "status": "off",
+      "id": 6
     }
   ],
   "carts": [
@@ -517,7 +509,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 6
     },
@@ -554,7 +546,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 7
     },
@@ -634,6 +626,81 @@
       "status": "waiting",
       "userId": 3,
       "id": 10
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
+        "totalPrice": 300000,
+        "date": "10/06/2021",
+        "time": "11:03",
+        "cartList": [
+          {
+            "productId": 23,
+            "count": 3,
+            "name": "Nấm mối đen",
+            "price": 100000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2020/November/7/6969-943631604713076-1604713076--400x400.png"
+            ],
+            "unit": "200g"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
+        "totalPrice": 156000,
+        "date": "10/06/2021",
+        "time": "12:03",
+        "cartList": [
+          {
+            "productId": 16,
+            "count": 2,
+            "name": "Măng tây xanh",
+            "price": 78000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/February/4/7707-602821612414760-1612414760--400x400.png"
+            ],
+            "unit": "500g"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 12
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
+        "totalPrice": 231000,
+        "date": "10/06/2021",
+        "time": "22:58",
+        "cartList": [
+          {
+            "productId": 22,
+            "count": 3,
+            "name": "Nấm mỡ trắng",
+            "price": 77000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/September/11/3857-346421568179507-1568179507--400x400.jpg"
+            ],
+            "unit": "350g"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 13
     }
   ],
   "comments": [
@@ -724,6 +791,50 @@
       "comment": "g",
       "avatar": "T",
       "id": 10
+    },
+    {
+      "userId": 3,
+      "productId": "24",
+      "name": "TuanPhan",
+      "date": "10/06/2021",
+      "time": "10:50",
+      "rate": 4,
+      "comment": "Ngon mà còn rẻ nữa",
+      "avatar": "T",
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "productId": "24",
+      "name": "Tuan Phan",
+      "date": "10/06/2021",
+      "time": "10:50",
+      "rate": 5,
+      "comment": "Táo ngọt lắm",
+      "avatar": "TP",
+      "id": 12
+    },
+    {
+      "userId": 3,
+      "productId": "23",
+      "name": "Tuan Phan",
+      "date": "10/06/2021",
+      "time": "10:54",
+      "rate": 5,
+      "comment": "Nấm ngon lắm",
+      "avatar": "TP",
+      "id": 13
+    },
+    {
+      "userId": 3,
+      "productId": "23",
+      "name": "Tuan Phan",
+      "date": "10/06/2021",
+      "time": "10:55",
+      "rate": 3,
+      "comment": "Ngon nhưng giá đắt",
+      "avatar": "TP",
+      "id": 14
     }
   ]
 }
