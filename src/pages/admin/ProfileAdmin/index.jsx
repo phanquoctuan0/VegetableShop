@@ -160,7 +160,7 @@ function ProfileAdminPage({
                 <Space>
                   <button
                     htmlType="submit"
-                    className='btn-submit-change'
+                    className='btn-submit-changee'
                   >
                     Thay đổi
                   </button>
@@ -218,7 +218,7 @@ function ProfileAdminPage({
                 <Space>
                   <button
                     htmlType="submit"
-                    className='btn-submit-change'
+                    className='btn-submit-changee'
                   >Thay đổi</button>
                 </Space>
               </Row>

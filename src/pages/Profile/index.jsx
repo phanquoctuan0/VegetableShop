@@ -15,6 +15,7 @@ import {
 } from 'antd';
 import 'moment/locale/vi';
 import moment from 'moment';
+import './styles.css';
 
 
 import {

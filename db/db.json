@@ -7,7 +7,18 @@
       "phone": "6263231239",
       "role": "admin",
       "id": 3,
-      "carts": [],
+      "carts": [
+        {
+          "productId": 24,
+          "count": 3,
+          "name": "Táo Dazzle",
+          "price": 189000,
+          "img": [
+            "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/May/25/8291-325161621911371-1621911371--400x400.png"
+          ],
+          "unit": "1kg"
+        }
+      ],
       "gender": "Male",
       "birthDay": ""
     },
@@ -310,6 +321,54 @@
       "price": 189000,
       "unit": "1kg",
       "id": 24
+    },
+    {
+      "name": "Kiwi",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/1/8359-401941622525347-1622525347--400x400.jpg",
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8426-361431623227223-1623227223--400x400.jpg",
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8424-156491623227217-1623227217--400x400.jpg"
+      ],
+      "categoryId": 3,
+      "description": "Kiwi chứa một hàm lượng lớn polyphenol (các dưỡng chất cần thiết cho con người), axit folic, vitamin C, K và E, folate, kali, chất xơ, choline, đồng, magiê và phốt pho. Ngoài ra, loại quả này không có cholesterol, ít đường và chất béo.",
+      "price": 179000,
+      "unit": "600g",
+      "id": 25
+    },
+    {
+      "name": "Nước ép táo",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2019/April/28/3308-534201556452003-1556452003--400x400.png"
+      ],
+      "categoryId": 4,
+      "description": "Nước ép táo là loại nước ép phổ biến ở Đức. Nước ép táo hữu cơ Rabenhorst 750ml là sự kết hợp cân bằng của các loại táo hữu cơ khác nhau với hương vị đa dạng. Từ khâu lựa chọn từng quả táo hữu cơ cho đến quá trình đóng gói đều được làm nhẹ nhàng, cẩn thận. Tất cả chỉ để mang đến sản phẩm chất lượng cao tới tay người tiêu dùng.",
+      "price": 150000,
+      "unit": "1L",
+      "id": 26
+    },
+    {
+      "name": "Nước rau má",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/10/8470-956411623303540-1623303540--400x400.png",
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8438-159921623238934-1623238934--400x400.jpg",
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8444-645841623240588-1623240588--400x400.jpg"
+      ],
+      "categoryId": 4,
+      "description": "Organica có trang trại trồng rau củ quả nhiệt đới đạt chuẩn hữu cơ quốc tế USDA của Mỹ và Liên minh châu Âu (EU) đầu tiên tại Việt Nam từ năm 2015. Từ các nông sản từ trang trại hữu cơ, Organica cũng chế biến thành các loại thực phẩm khô chứng nhận hữu cơ quốc tế. Không chỉ là đơn vị đầu tư sản xuất, Organica cũng là đơn vị đầu tiên tại Việt Nam phát triển chuỗi cửa hàng bán lẻ thực phẩm hữu cơ tại TP.HCM, Hà Nội và Đà Nẵng.",
+      "price": 65000,
+      "unit": "250ml",
+      "id": 27
+    },
+    {
+      "name": "Khoai tây",
+      "img": [
+        "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/1/8355-216411622516522-1622516522--400x400.jpg"
+      ],
+      "categoryId": 2,
+      "description": "Ngoài hàm lượng nước cao, khoai tây còn rất giàu carbohydrate và hàm lượng cao protein cũng như chất xơ giúp tiêu hoá dễ. Các vitamin C, vitamin B6, kali, magie, kẽm và photpho có trong khoai tây tốt cho da cũng như cần thiết hằng ngày cho cơ thể, giúp phòng chống cảm lạnh...",
+      "price": 725000,
+      "unit": "500ml",
+      "id": 28
     }
   ],
   "categories": [
@@ -582,7 +641,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 8
     },
@@ -607,7 +666,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 9
     },
@@ -632,7 +691,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 10
     },
@@ -657,7 +716,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 11
     },
@@ -682,7 +741,7 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "confirmed",
       "userId": 3,
       "id": 12
     },
@@ -707,9 +766,61 @@
           }
         ]
       },
-      "status": "waiting",
+      "status": "cancelled",
       "userId": 3,
       "id": 13
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Quận Thanh Khê - 266/50 Hoàng Diệu",
+        "totalPrice": 195000,
+        "date": "11/06/2021",
+        "time": "17:52",
+        "cartList": [
+          {
+            "productId": 27,
+            "count": 3,
+            "name": "Nước rau má",
+            "price": 65000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/10/8470-956411623303540-1623303540--400x400.png",
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8438-159921623238934-1623238934--400x400.jpg",
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/9/8444-645841623240588-1623240588--400x400.jpg"
+            ],
+            "unit": "250ml"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 14
+    },
+    {
+      "orderInforAddress": {
+        "fullName": "Phan Quốc Tuấn",
+        "phone": "0967794663",
+        "address": "Đà Nẵng - 266/50 Hoàng Diệu",
+        "totalPrice": 195000,
+        "date": "11/06/2021",
+        "time": "17:53",
+        "cartList": [
+          {
+            "productId": 27,
+            "count": 3,
+            "name": "Nước rau má",
+            "price": 65000,
+            "img": [
+              "https://y5kbp0ifnvobj.vcdn.cloud/uploads/filecloud/2021/June/10/8470-956411623303540-1623303540--400x400.png"
+            ],
+            "unit": "250ml"
+          }
+        ]
+      },
+      "status": "waiting",
+      "userId": 3,
+      "id": 15
     }
   ],
   "comments": [
