@@ -220,7 +220,7 @@ export default function productReducer(state = initialState, action) {
     case 'ADD_CATEGORY_LIST_SUCCESS': {
       const { data } = action.payload;
       const newCategory = state.categoryList.data;
-      newCategory.splice(0, 0, data);
+      newCategory.splice(newCategory.length, 0, data);
       return {
         ...state,
         categoryList: {

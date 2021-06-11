@@ -216,12 +216,12 @@ function AdminUserPage({
           onSearch={(value) => { getUserList({ searchKey: value }) }}
         />
         <div>
-          <Button type="primary"
+          {/* <Button type="primary"
             style={{ height: '100%' }}
             onClick={() => { setIsModalVisible2(true) }}
           >
             Thêm người dùng
-          </Button>
+          </Button> */}
         </div>
       </div>
       <Table

@@ -5,7 +5,7 @@ import history from '../../utils/history';
 import moment from 'moment';
 
 import { connect } from 'react-redux';
-import { CheckCircleTwoTone, LikeOutlined } from '@ant-design/icons';
+import { CheckCircleTwoTone } from '@ant-design/icons';
 import ItemProduct from '../ProductList/components/ItemProduct';
 import './styles.css';
 
@@ -317,7 +317,7 @@ function ProductDetailPage({
       </Row>
       {
         userInfo ?
-          <div className='comment-rate' style={{ width: 'auto', margin: '20px 70px'}}>
+          <div className='comment-rate'>
             <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
             <div>
               Viết đánh giá

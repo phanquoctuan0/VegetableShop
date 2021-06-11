@@ -93,6 +93,14 @@ function CartPage({
     })
     return total.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
   }
+
+  function handlePayment(){
+    if(cartList.data.length == 0 ){
+      history.push('/')
+    }else{
+      history.push('/order')
+    }
+  }
   return (
     <div className="cart">
       <div>
@@ -110,7 +118,7 @@ function CartPage({
         </div>
         <button
           className="btn order-btn"
-          onClick={() => { history.push('/order') }}
+          onClick={()=>{handlePayment()}}
         >
           Tiến hành đặt hàng
         </button>

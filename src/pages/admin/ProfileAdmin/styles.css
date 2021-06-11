@@ -1,10 +1,10 @@
 .btn-submit-change{
   border-radius: 4px;
-  background: rgb(255, 66, 78);
+  background: #1890ff;
   padding: 6px 56px;
   color:white;
   outline: none;
-  border: 1px solid rgb(255, 66, 78);
+  border: 1px solid #1890ff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -13,7 +13,7 @@
 
 .btn-submit-change:hover{
   transition: all 0.2s ease-in-out;
-  background: rgb(201, 29, 40);
+  background: #1579d6;
   color: #fff;
 }
 
