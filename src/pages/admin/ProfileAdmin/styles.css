@@ -1,10 +1,10 @@
 .btn-submit-changee{
   border-radius: 4px;
-  background: #1890ff;
+  background: #008848;
   padding: 6px 56px;
   color:white;
   outline: none;
-  border: 1px solid #1890ff;
+  border: 1px solid #008848;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -13,7 +13,7 @@
 
 .btn-submit-changee:hover{
   transition: all 0.2s ease-in-out;
-  background: #1579d6;
+  background: #026b3a;
   color: #fff;
 }
 
