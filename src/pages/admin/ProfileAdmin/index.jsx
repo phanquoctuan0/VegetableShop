@@ -62,7 +62,7 @@ function ProfileAdminPage({
     <>
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="Thông tin tài khoản" key="1">
-          <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
+          <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#d1d1cf71" }}>
             <h2>Thông tin tài khoản</h2>
             <Form
               form={userForm}
@@ -170,7 +170,7 @@ function ProfileAdminPage({
           </div>
         </TabPane>
         <TabPane tab="Đổi mật khẩu" key="2">
-          <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#edeae6" }}>
+          <div style={{ width: 700, margin: '0px auto 15px auto', padding: 15, backgroundColor: "#d1d1cf71" }}>
             <h2>Đổi mật khẩu</h2>
             <Form
               form={repassForm}

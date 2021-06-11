@@ -9,8 +9,8 @@ import mySaga from './redux/sagas';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.css';
 
+import 'antd/dist/antd.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const myStore = createStore(myReducer, applyMiddleware(sagaMiddleware));

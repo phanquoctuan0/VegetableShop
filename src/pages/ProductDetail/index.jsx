@@ -5,7 +5,7 @@ import history from '../../utils/history';
 import moment from 'moment';
 
 import { connect } from 'react-redux';
-import { CheckCircleTwoTone, LikeOutlined } from '@ant-design/icons';
+import { CheckCircleTwoTone } from '@ant-design/icons';
 import ItemProduct from '../ProductList/components/ItemProduct';
 import './styles.css';
 
@@ -311,7 +311,7 @@ function ProductDetailPage({
 
           <Descriptions title="SẢN PHẨM TƯƠNG TỰ:">
             <Row gutter={8}>
-                {renderProductList()}
+              {renderProductList()}
             </Row>
           </Descriptions>
         </Row>
@@ -321,7 +321,6 @@ function ProductDetailPage({
               <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
               <div>
                 Viết đánh giá
-              <br />
                 <Rate
                   onChange={(value) => { setRate(value) }}
                   value={rate}

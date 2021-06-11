@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Router from './Router';
-
+import './App.css';
 import {
   getUserInfoAction
 } from './redux/actions';

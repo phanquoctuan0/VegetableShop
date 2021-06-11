@@ -6,7 +6,7 @@ import history from '../../../utils/history';
 function ItemProduct(props) {
   const { title, price, img, id, description, unit, rate, count } = props;
   return (
-    <Col xl={6} md = {6} sm={12} xs = {24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Col xl={6} md = {8} sm={12} xs = {24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div className="box" >
         <div className="slide-img">
           <img className = 'img-product' src={img}></img>
