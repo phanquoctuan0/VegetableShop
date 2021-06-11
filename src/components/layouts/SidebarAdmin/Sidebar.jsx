@@ -17,7 +17,7 @@ import logoAdmin from '../../../images/logoAdmin.png'
 const { Sider } = Layout;
 function Sidebar() {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  
+
   function handleLogout() {
     localStorage.removeItem("userInfo");
     window.location.reload();
@@ -39,7 +39,17 @@ function Sidebar() {
         >
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="logo">
-              <img src={logoAdmin} alt="logo" style={{ height: '90px', paddingTop: '8px' }} />
+              <img src={logoAdmin}
+                alt="logo"
+                style={
+                  {
+                    height: '90px',
+                    paddingTop: '8px',
+                    cursor: 'pointer'
+                  }
+                }
+                onClick={() => { history.push('/') }}
+              />
             </div>
           </div>
           <Menu theme="" mode="inline" defaultSelectedKeys={['1']}>

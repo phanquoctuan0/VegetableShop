@@ -144,7 +144,7 @@ function AdminUserPage({
           <EditOutlined
             onClick={() => { callModal(record.id) }}
             style={{
-              color: '#1890ff',
+              color: '#008848',
               cursor: 'pointer',
               fontSize: '180%'
             }}
