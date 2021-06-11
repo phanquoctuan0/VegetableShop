@@ -240,129 +240,129 @@ function ProductDetailPage({
 
   return (
     <>
-    <div>
-      <Row gutter={6} style={{ maxWidth: '1170px', margin: 'auto' }}>
-        <Col span={12} >
-          <div style={{ marginTop: 32,  marginBottom: 16, paddingLeft: 80 }}>
-            <div style={{ width: 420 }}>
-              <img src={Image[img]}
-                style={{transformOrigin: '((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%''}}
-              />
-              {Image.map((item, index) => {
-                return (
-                  <img src={item}
-                    key={index}
-                    onClick={() => {
-                      handleSelectImg(index);
-                    }}
-                    width='120px'
-                    height='auto'
-                    style={{ margin: 10 }}
-                  />
-                )
-              })}
+      <div className="container">
+        <Row gutter={6} style={{ maxWidth: '1170px', margin: 'auto' }}>
+          <Col xl={12} md={12} sm={12} xs={24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ marginTop: 32, marginBottom: 16, paddingLeft: 80 }}>
+              <div style={{ width: 420 }}>
+                <img src={Image[img]}
+                  style={{ transformOrigin: '((e.pageX - $(this).offset().left) / $(this).width()) * 100 + ' % ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +' % '' }}
+                />
+                {Image.map((item, index) => {
+                  return (
+                    <img src={item}
+                      key={index}
+                      onClick={() => {
+                        handleSelectImg(index);
+                      }}
+                      width='120px'
+                      height='auto'
+                      style={{ margin: 10 }}
+                    />
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </Col>
-        <Col span={12}>
-          <div style={{ marginTop: 32, marginBottom: 16, paddingLeft: 80 }} >
-            <div style={{ width: 420, height: 420, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
-              <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
-                <div>
-                  {productDetail.data.name}
+          </Col>
+          <Col xl={12} md={12} sm={12} xs={24} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ marginTop: 32, marginBottom: 16, paddingLeft: 80 }} >
+              <div style={{ width: 420, height: 420, color: '#008848', fontWeight: 700, fontSize: '120%' }}>
+                <div style={{ color: '#008848', fontWeight: 700, fontSize: '140%' }}>
+                  <div>
+                    {productDetail.data.name}
+                  </div>
+                  <div style={{ color: "rgb(120,120,120)", fontSize: '70%', fontWeight: 450 }}>
+                    <Rate
+                      value={getAvgRate()}
+                      style={{ paddingRight: '26px', fontSize: '16px' }}
+                      disabled
+                    />  ({commentList.data.length} đánh giá)
                 </div>
-                <div style={{ color: "rgb(120,120,120)", fontSize: '70%', fontWeight: 450 }}>
-                  <Rate
-                    value={getAvgRate()}
-                    style={{ paddingRight: '26px', fontSize: '16px' }}
-                    disabled
-                  />  ({commentList.data.length} đánh giá)
+                </div>
+                <div>
+                  <div className="type">
+                    <p>Loại: {productDetail.data.category.name}</p>
+                  </div>
+                  <div className="price" style={{ color: '#008848', fontWeight: 700, fontSize: '120%' }}>
+                    <p>Giá: {productDetail.data.price ? productDetail.data.price.toLocaleString('it-IT') : ''}đ /{productDetail.data.unit}</p>
+                  </div>
+                  <div className="number">
+                    <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
+                  </div>
+                  <div>
+                    <button className="btn-add-cart"
+                      onClick={() => handleAddToCart()}>
+                      Cho vào giỏ hàng
+                  </button>
+                    <button className="btn-buy-now"
+                      onClick={() => { handleAddToCart(); history.push('/order') }}>
+                      Mua ngay
+                  </button>
+                  </div>
                 </div>
               </div>
+            </div>
+          </Col>
+
+          <Descriptions title="MÔ TẢ:" style={{ textAlign: 'justify' }}>
+            <Descriptions.Item style={{ width: 'auto', fontWeight: 700, }}>
+              {productDetail.data.description}</Descriptions.Item>
+          </Descriptions>
+
+          <Descriptions title="SẢN PHẨM TƯƠNG TỰ:">
+            <Row gutter={8}>
+                {renderProductList()}
+            </Row>
+          </Descriptions>
+        </Row>
+        {
+          userInfo ?
+            <div className='comment-rate' style={{ width: 'auto' }}>
+              <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
               <div>
-                <div className="type">
-                  <p>Loại: {productDetail.data.category.name}</p>
-                </div>
-                <div className="price" style={{ color: '#008848', fontWeight: 700, fontSize: '120%' }}>
-                  <p>Giá: {productDetail.data.price ? productDetail.data.price.toLocaleString('it-IT') : ''}đ /{productDetail.data.unit}</p>
-                </div>
-                <div className="number">
-                  <p>Số lượng: <InputNumber min={1} max={10} defaultValue='1' onChange={onChange} /></p>
-                </div>
-                <div>
-                  <button className="btn-add-cart"
-                    onClick={() => handleAddToCart()}>
-                    Cho vào giỏ hàng
-                  </button>
-                  <button className="btn-buy-now"
-                    onClick={() => { handleAddToCart(); history.push('/order') }}>
-                    Mua ngay
-                  </button>
-                </div>
+                Viết đánh giá
+              <br />
+                <Rate
+                  onChange={(value) => { setRate(value) }}
+                  value={rate}
+                />
+                {
+                  rate ?
+                    <span className="ant-rate-text">
+                      {desc[rate - 1]}
+                    </span>
+                    :
+                    <span className="ant-rate-text">
+                      Chọn mức độ hài lòng
+                  </span>
+                }
+                <br />
+                <TextArea
+                  value={comment}
+                  style={{ width: "500px" }}
+                  placeholder="Nhập vào nhận xét của bạn"
+                  autoSize={{ minRows: 2 }}
+                  onChange={onChangeComment}
+                />
+                <button
+                  className='btn-comment'
+                  onClick={() => {
+                    handleAddToComment();
+                    setComment("");
+                  }}
+                  type='submit'
+                >
+                  Đánh giá
+              </button>
+              </div>
+              <div className='show-comment'>
+                <p className='text-content'>ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG</p>
+                {renderCommetList()}
               </div>
             </div>
-          </div>
-        </Col>
-
-        <Descriptions title="MÔ TẢ:" style={{ textAlign: 'justify' }}>
-          <Descriptions.Item style={{ width: 500, fontWeight: 700, }}>
-            {productDetail.data.description}</Descriptions.Item>
-        </Descriptions>
-
-        <Descriptions title="SẢN PHẨM TƯƠNG TỰ:">
-          <Row gutter={8}>
-            {renderProductList()}
-          </Row>
-        </Descriptions>
-      </Row>
-      {
-        userInfo ?
-          <div className='comment-rate' style={{ width: 'auto', margin: '20px 70px'}}>
-            <p className='text-content'>NHẬN XÉT VÀ ĐÁNH GIÁ</p>
-            <div>
-              Viết đánh giá
-              <br />
-              <Rate
-                onChange={(value) => { setRate(value) }}
-                value={rate}
-              />
-              {
-                rate ?
-                  <span className="ant-rate-text">
-                    {desc[rate - 1]}
-                  </span>
-                  :
-                  <span className="ant-rate-text">
-                    Chọn mức độ hài lòng
-                  </span>
-              }
-              <br />
-              <TextArea
-                value={comment}
-                style={{ width: "500px" }}
-                placeholder="Nhập vào nhận xét của bạn"
-                autoSize={{ minRows: 2 }}
-                onChange={onChangeComment}
-              />
-              <button
-                className='btn-comment'
-                onClick={() => {
-                  handleAddToComment();
-                  setComment("");
-                }}
-                type='submit'
-              >
-                Đánh giá
-              </button>
-            </div>
-            <div className='show-comment'>
-              <p className='text-content'>ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG</p>
-              {renderCommetList()}
-            </div>
-          </div>
-          :
-          <h3>Đăng nhập để xem nhận xét và đánh giá</h3>
-      }
+            :
+            <h3>Đăng nhập để xem nhận xét và đánh giá</h3>
+        }
       </div>
     </>
   );
