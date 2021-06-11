@@ -75,6 +75,7 @@ function OrderManagementPage({
   }
 
   const tableData = orderList.data.map((item) => {
+    console.log(orderList.data)
     return {
       key: item.id,
       id: item.id,
@@ -124,8 +125,8 @@ function OrderManagementPage({
               <Popconfirm
                 title={`Bạn có chắc muốn hủy đơn hàng này`}
                 onConfirm={() => { handleCancelOrder(record.id) }}
-                okText="Xóa"
-                cancelText="Hủy"
+                okText="Hủy"
+                cancelText="Không"
               >
                 <Button danger >Hủy </Button>
               </Popconfirm>
@@ -187,6 +188,7 @@ function OrderManagementPage({
                   <List.Item>
                     <Row justify="space-between" style={{ width: '100%' }}>
                       <div>{item.name}</div>
+                      <div>Số lượng: x{item.count}</div>
                       <div>Giá: {(item.price * item.count).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</div>
                     </Row>
                   </List.Item>
