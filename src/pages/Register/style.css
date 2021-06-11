@@ -1,0 +1,14 @@
+.register-form {
+    width: 700px;
+    margin: 30px auto;
+    padding: 15px;
+    background-color: #edeae6;
+}
+
+@media screen and (max-width: 768px) {
+    .register-form {
+        padding-bottom: 44px;
+        width: 100%;
+        height: auto;
+    }
+}

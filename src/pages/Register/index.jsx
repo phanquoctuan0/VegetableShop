@@ -1,7 +1,8 @@
-import { Form, Input, Select, Checkbox, Button, Card } from 'antd';
+import { Form, Input, Select, Checkbox, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 
 import { registerAction } from '../../redux/actions';
+import './style.css'
 
 function RegisterPage( {register} ) {
   const { Option } = Select;
@@ -38,10 +39,6 @@ function RegisterPage( {register} ) {
 
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    register(values);
-  };
-
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -55,13 +52,13 @@ function RegisterPage( {register} ) {
   );
 
   return (
-    <div style={{ width: 700, margin: "15px auto", padding: 15, backgroundColor: "#edeae6" }}>
+    <div className="register-form">
       <h2 style={{ padding: "10px 230px" }}>ĐĂNG KÝ TÀI KHOẢN</h2>
         <Form
           {...formItemLayout}
           form={form}
           name="register"
-          onFinish={onFinish}
+          onFinish={(values) => register(values)}
           initialValues={{
             prefix: '86',
           }}

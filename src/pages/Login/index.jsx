@@ -2,6 +2,7 @@ import { Card, Form, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 
 import { loginAction } from '../../redux/actions';
+import './style.css';
 
 function LoginPage({ login }) {
   const layout = {
@@ -13,7 +14,7 @@ function LoginPage({ login }) {
   };
 
   return (
-    <div style={{ width: 700, margin: "15px auto", padding: 15, backgroundColor: "#edeae6" }}>
+    <div className='login-form'>
       <h2 style={{ padding: "10px 230px" }}>ĐĂNG NHẬP</h2>
       {/* <Card size="small"> */}
       <Form
