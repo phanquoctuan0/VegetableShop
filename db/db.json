@@ -39,6 +39,15 @@
       "role": "user",
       "carts": [],
       "id": 9
+    },
+    {
+      "email": "tra123@gmail.com",
+      "password": "1234",
+      "name": "Trà",
+      "phone": "21323444",
+      "role": "user",
+      "carts": [],
+      "id": 10
     }
   ],
   "products": [
@@ -824,17 +833,6 @@
       "comment": "Nấm ngon lắm",
       "avatar": "TP",
       "id": 13
-    },
-    {
-      "userId": 3,
-      "productId": "23",
-      "name": "Tuan Phan",
-      "date": "10/06/2021",
-      "time": "10:55",
-      "rate": 3,
-      "comment": "Ngon nhưng giá đắt",
-      "avatar": "TP",
-      "id": 14
     }
   ]
 }
